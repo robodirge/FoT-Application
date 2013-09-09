@@ -7,7 +7,7 @@
     <widget-library name="glade-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
     <widget-library name="../bin/Debug/FoT_testBuild.exe" internal="true" />
   </import>
-  <widget class="Gtk.Window" id="MainWindow" design-size="458 351">
+  <widget class="Gtk.Window" id="MainWindow" design-size="456 351">
     <property name="MemberName" />
     <property name="Tooltip" translatable="yes">Folder of Today</property>
     <property name="Title" translatable="yes">MainWindow</property>
@@ -48,6 +48,7 @@
                 <property name="HasLabel">True</property>
                 <property name="UseUnderline">True</property>
                 <property name="Group">group1</property>
+                <signal name="Toggled" handler="OnRadioResource2Toggled" />
               </widget>
               <packing>
                 <property name="Position">1</property>
@@ -81,6 +82,7 @@
             <property name="MemberName" />
             <property name="CanFocus">True</property>
             <property name="IsEditable">True</property>
+            <property name="InvisibleChar">●</property>
           </widget>
           <packing>
             <property name="Position">2</property>
@@ -108,6 +110,7 @@
             <property name="MemberName" />
             <property name="CanFocus">True</property>
             <property name="IsEditable">True</property>
+            <property name="InvisibleChar">●</property>
           </widget>
           <packing>
             <property name="Position">4</property>
@@ -135,6 +138,7 @@
             <property name="MemberName" />
             <property name="CanFocus">True</property>
             <property name="IsEditable">True</property>
+            <property name="InvisibleChar">●</property>
           </widget>
           <packing>
             <property name="Position">6</property>
@@ -162,6 +166,7 @@
             <property name="HeightRequest">0</property>
             <property name="CanFocus">True</property>
             <property name="IsEditable">True</property>
+            <property name="InvisibleChar">●</property>
           </widget>
           <packing>
             <property name="Position">8</property>
@@ -182,6 +187,7 @@
                 <property name="Type">TextOnly</property>
                 <property name="Label" translatable="yes">Quit</property>
                 <property name="UseUnderline">True</property>
+                <signal name="Clicked" handler="OnButtonQuitClicked" after="yes" />
               </widget>
               <packing>
                 <property name="Position">0</property>
@@ -191,7 +197,13 @@
               </packing>
             </child>
             <child>
-              <placeholder />
+              <widget class="Gtk.HSeparator" id="hseparator1">
+                <property name="MemberName" />
+              </widget>
+              <packing>
+                <property name="Position">1</property>
+                <property name="AutoSize">True</property>
+              </packing>
             </child>
             <child>
               <widget class="Gtk.Button" id="buttonContinue">
@@ -201,6 +213,7 @@
                 <property name="Type">TextOnly</property>
                 <property name="Label" translatable="yes">Continue</property>
                 <property name="UseUnderline">True</property>
+                <signal name="Clicked" handler="OnButtonContinueClicked" after="yes" />
               </widget>
               <packing>
                 <property name="Position">2</property>
