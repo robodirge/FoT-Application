@@ -7,8 +7,9 @@
     <widget-library name="glade-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
     <widget-library name="../bin/Debug/FoT_testBuild.exe" internal="true" />
   </import>
-  <widget class="Gtk.Window" id="MainWindow" design-size="471 325">
+  <widget class="Gtk.Window" id="MainWindow" design-size="458 351">
     <property name="MemberName" />
+    <property name="Tooltip" translatable="yes">Folder of Today</property>
     <property name="Title" translatable="yes">MainWindow</property>
     <property name="WindowPosition">CenterOnParent</property>
     <signal name="DeleteEvent" handler="OnDeleteEvent" />
@@ -21,10 +22,11 @@
             <property name="MemberName" />
             <property name="Spacing">6</property>
             <child>
-              <widget class="Gtk.RadioButton" id="radiobutton1">
+              <widget class="Gtk.RadioButton" id="radioResource1">
                 <property name="MemberName" />
+                <property name="HeightRequest">50</property>
                 <property name="CanFocus">True</property>
-                <property name="Label" translatable="yes">radiobutton1</property>
+                <property name="Label" translatable="yes">1 project</property>
                 <property name="Active">True</property>
                 <property name="DrawIndicator">True</property>
                 <property name="HasLabel">True</property>
@@ -34,13 +36,14 @@
               <packing>
                 <property name="Position">0</property>
                 <property name="AutoSize">True</property>
+                <property name="Padding">50</property>
               </packing>
             </child>
             <child>
-              <widget class="Gtk.RadioButton" id="radiobutton2">
+              <widget class="Gtk.RadioButton" id="radioResource2">
                 <property name="MemberName" />
                 <property name="CanFocus">True</property>
-                <property name="Label" translatable="yes">radiobutton2</property>
+                <property name="Label" translatable="yes">2 projects</property>
                 <property name="DrawIndicator">True</property>
                 <property name="HasLabel">True</property>
                 <property name="UseUnderline">True</property>
@@ -60,9 +63,11 @@
           </packing>
         </child>
         <child>
-          <widget class="Gtk.Label" id="label1">
+          <widget class="Gtk.Label" id="labelClient1">
             <property name="MemberName" />
-            <property name="LabelProp" translatable="yes">label1</property>
+            <property name="LabelProp" translatable="yes">Please enter the first client name below.</property>
+            <property name="Wrap">True</property>
+            <property name="Justify">Center</property>
           </widget>
           <packing>
             <property name="Position">1</property>
@@ -76,7 +81,6 @@
             <property name="MemberName" />
             <property name="CanFocus">True</property>
             <property name="IsEditable">True</property>
-            <property name="InvisibleChar">●</property>
           </widget>
           <packing>
             <property name="Position">2</property>
@@ -86,9 +90,11 @@
           </packing>
         </child>
         <child>
-          <widget class="Gtk.Label" id="label2">
+          <widget class="Gtk.Label" id="labelProject1">
             <property name="MemberName" />
-            <property name="LabelProp" translatable="yes">label2</property>
+            <property name="LabelProp" translatable="yes">Please enter the first project name below.</property>
+            <property name="Wrap">True</property>
+            <property name="Justify">Center</property>
           </widget>
           <packing>
             <property name="Position">3</property>
@@ -102,7 +108,6 @@
             <property name="MemberName" />
             <property name="CanFocus">True</property>
             <property name="IsEditable">True</property>
-            <property name="InvisibleChar">●</property>
           </widget>
           <packing>
             <property name="Position">4</property>
@@ -112,9 +117,11 @@
           </packing>
         </child>
         <child>
-          <widget class="Gtk.Label" id="label3">
+          <widget class="Gtk.Label" id="labelClient2">
             <property name="MemberName" />
-            <property name="LabelProp" translatable="yes">label3</property>
+            <property name="LabelProp" translatable="yes">Please enter the second client name below. </property>
+            <property name="Wrap">True</property>
+            <property name="Justify">Center</property>
           </widget>
           <packing>
             <property name="Position">5</property>
@@ -128,7 +135,6 @@
             <property name="MemberName" />
             <property name="CanFocus">True</property>
             <property name="IsEditable">True</property>
-            <property name="InvisibleChar">●</property>
           </widget>
           <packing>
             <property name="Position">6</property>
@@ -138,9 +144,10 @@
           </packing>
         </child>
         <child>
-          <widget class="Gtk.Label" id="label4">
+          <widget class="Gtk.Label" id="labelProject2">
             <property name="MemberName" />
-            <property name="LabelProp" translatable="yes">label4</property>
+            <property name="LabelProp" translatable="yes">Please enter the second project name below.</property>
+            <property name="Wrap">True</property>
           </widget>
           <packing>
             <property name="Position">7</property>
@@ -152,9 +159,9 @@
         <child>
           <widget class="Gtk.Entry" id="entry4">
             <property name="MemberName" />
+            <property name="HeightRequest">0</property>
             <property name="CanFocus">True</property>
             <property name="IsEditable">True</property>
-            <property name="InvisibleChar">●</property>
           </widget>
           <packing>
             <property name="Position">8</property>
@@ -168,11 +175,12 @@
             <property name="MemberName" />
             <property name="Spacing">6</property>
             <child>
-              <widget class="Gtk.Button" id="button1">
+              <widget class="Gtk.Button" id="buttonQuit">
                 <property name="MemberName" />
+                <property name="WidthRequest">100</property>
                 <property name="CanFocus">True</property>
                 <property name="Type">TextOnly</property>
-                <property name="Label" translatable="yes">GtkButton</property>
+                <property name="Label" translatable="yes">Quit</property>
                 <property name="UseUnderline">True</property>
               </widget>
               <packing>
@@ -186,11 +194,12 @@
               <placeholder />
             </child>
             <child>
-              <widget class="Gtk.Button" id="button2">
+              <widget class="Gtk.Button" id="buttonContinue">
                 <property name="MemberName" />
+                <property name="WidthRequest">100</property>
                 <property name="CanFocus">True</property>
                 <property name="Type">TextOnly</property>
-                <property name="Label" translatable="yes">GtkButton</property>
+                <property name="Label" translatable="yes">Continue</property>
                 <property name="UseUnderline">True</property>
               </widget>
               <packing>
