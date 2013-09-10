@@ -65,4 +65,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Client Name - Project Name Daily Report - DDMMYYYY.docx" />
+    <None Include="Resources\Logo.png" />
+    <None Include="Resources\Unrepeatable.docx" />
+  </ItemGroup>
 </Project>
