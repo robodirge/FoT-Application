@@ -5,6 +5,7 @@ using Gtk;
 public partial class MainWindow: Gtk.Window
 {	
 	public static bool enabledSection { get; set; }
+	public static string baseLocation { get; set; }
 
 	public MainWindow (): base (Gtk.WindowType.Toplevel)
 	{
@@ -23,26 +24,32 @@ public partial class MainWindow: Gtk.Window
 		entry4.Visible = false;
 		enabledSection = false;
 		//---------------------------------------
+		//Console.WriteLine(Environment.CurrentDirectory);
+		baseLocation = Environment.CurrentDirectory + @"\Unrepeatable.docx";
+		if (File.Exists(baseLocation)){
+			Console.WriteLine("something happended");
+			entry1.Text = "Something";
+			entry2.Text = baseLocation;
+		}else{
+			Console.WriteLine("Nope");
+			entry1.Text = "nope";
+			entry2.Text = baseLocation;
+		}
 
 		//Get the user's path to desktop folder
 		string currentPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
 		//Supply a folder name to be created onto the desktop
 		currentPath = currentPath + @"\FoT\";
 
-		try{
-
-			if(Directory.Exists(currentPath)){
-				Console.WriteLine("Path already exists.");
-				return;
-			}
+		if(Directory.Exists(currentPath)){
+			Console.WriteLine("Path already exists.");
+			return;
+		}else{
 
 			DirectoryInfo di = Directory.CreateDirectory(currentPath);
-			Console.WriteLine("The directory was created successfully at {0}.", Directory.GetCreationTime(currentPath));
 		}
-		catch{
-			Console.WriteLine("Some error happened");
-			//Console.WriteLine("The process failed: {0}", e.ToString());
-		}
+
+
 
 		/*var dirsx = AppDomain.CurrentDomain.BaseDirectory;
 		Console.WriteLine(dirsx);
@@ -127,12 +134,12 @@ public partial class MainWindow: Gtk.Window
 
 
 		if(Directory.Exists(path)){
-			Console.WriteLine("Path already exists.");
+			//Console.WriteLine("Path already exists.");
 			//return;
 		}else{
 
 			DirectoryInfo di = Directory.CreateDirectory(path);
-			Console.WriteLine("The directory was created successfully at {0}.", Directory.GetCreationTime(path));
+			//Console.WriteLine("The directory was created successfully at {0}.", Directory.GetCreationTime(path));
 		}
 		
 		//Continue with folder set up
@@ -149,15 +156,14 @@ public partial class MainWindow: Gtk.Window
 			//return;
 		}else{
 			DirectoryInfo di = Directory.CreateDirectory(path);
-			Console.WriteLine("The directory was created successfully at {0}.", Directory.GetCreationTime(path));
 		}
 		
 		string pathClient1 = path;
 		pathClient1 = pathClient1 + halfDR + @"\";
 
 		if(Directory.Exists(pathClient1)){
-			Console.WriteLine("Path already exists.");
-				//return;
+			//Console.WriteLine("Path already exists.");
+			//return;
 		}else{
 			//string pathClient1 = path;
 			DirectoryInfo di = Directory.CreateDirectory(pathClient1);
@@ -189,7 +195,7 @@ public partial class MainWindow: Gtk.Window
 			pathClient2 = pathClient2 + fullDR + @"\";
 
 			if(Directory.Exists(pathClient2)){
-				Console.WriteLine("Path already exists.");
+				//Console.WriteLine("Path already exists.");
 				//return;
 			}else{
 				DirectoryInfo di = Directory.CreateDirectory(pathClient2);
