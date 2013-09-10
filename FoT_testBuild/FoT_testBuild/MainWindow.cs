@@ -26,19 +26,9 @@ public partial class MainWindow: Gtk.Window
 		enabledSection = false;
 		//---------------------------------------
 		//Console.WriteLine(Environment.CurrentDirectory);
-		baseLocation = Environment.CurrentDirectory + @"\Resources\Unrepeatable.docx";
-		baseLocation1 = Environment.CurrentDirectory + @"\Resources\Client Name - Project Name Daily Report - DDMMYYYY.docx";
-		/*if (File.Exists(baseLocation)){
-			Console.WriteLine("something happended");
-			entry1.Text = "Something";
-			entry2.Text = baseLocation;
-		}else{
-			Console.WriteLine("Nope");
-			entry1.Text = "nope";
-			entry2.Text = baseLocation;
-		}*/
-
-
+		baseLocation1 = Environment.CurrentDirectory + @"\Resources\Unrepeatable.docx";
+		baseLocation = Environment.CurrentDirectory + @"\Resources\Client Name - Project Name Daily Report - DDMMYYYY.docx";
+		
 		//Get the user's path to desktop folder
 		string currentPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
 		//Supply a folder name to be created onto the desktop
@@ -147,13 +137,20 @@ public partial class MainWindow: Gtk.Window
 			//Console.WriteLine("Path already exists.");
 			//return;
 		}else{
+
+			//		baseLocation1 = Environment.CurrentDirectory + @"\Resources\Unrepeatable.docx";
+			//		baseLocation = Environment.CurrentDirectory + @"\Resources\Client Name - Project Name Daily Report - DDMMYYYY.docx";
+
+
+
 			//string pathClient1 = path;
 			DirectoryInfo di = Directory.CreateDirectory(pathClient1);
 
 			// Copy dayily report here
-			string tempNameString = pathClient1 + @"Client Name - Project Name Daily Report - DDMMYYYY.docx.docx";
+			string tempNameString = pathClient1 + @"Client Name - Project Name Daily Report - DDMMYYYY.docx";
 			File.Copy(baseLocation, tempNameString);
-			System.IO.File.Move(tempNameString, halfDR);
+			System.IO.File.Move(tempNameString, (pathClient1 + halfDR + @".docx"));
+
 			//Create folder working docs
 			DirectoryInfo wd = Directory.CreateDirectory((pathClient1 + @"Working_Docs\"));
 			//Copy unrepeat doc in the folder just created
@@ -186,9 +183,11 @@ public partial class MainWindow: Gtk.Window
 				DirectoryInfo di = Directory.CreateDirectory(pathClient2);
 
 				// Copy dayily report here
-				string tempNameString = pathClient2 + @"Client Name - Project Name Daily Report - DDMMYYYY.docx.docx";
+				// Copy dayily report here
+				string tempNameString = pathClient2 + @"Client Name - Project Name Daily Report - DDMMYYYY.docx";
 				File.Copy(baseLocation, tempNameString);
-				System.IO.File.Move(tempNameString, fullDR);
+				System.IO.File.Move(tempNameString, (pathClient2 + fullDR + @".docx"));
+
 				//Create folder working docs
 				DirectoryInfo wd = Directory.CreateDirectory((pathClient2 + @"Working_Docs\"));
 				//Copy unrepeat doc in the folder just created
