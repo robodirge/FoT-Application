@@ -9,7 +9,7 @@
   </import>
   <widget class="Gtk.Window" id="MainWindow" design-size="456 351">
     <property name="MemberName" />
-    <property name="Tooltip" translatable="yes">Folder of Today</property>
+    <property name="Tooltip" translatable="yes" />
     <property name="Title" translatable="yes">MainWindow</property>
     <property name="WindowPosition">CenterOnParent</property>
     <signal name="DeleteEvent" handler="OnDeleteEvent" />
