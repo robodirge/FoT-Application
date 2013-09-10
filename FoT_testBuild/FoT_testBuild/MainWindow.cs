@@ -6,6 +6,7 @@ public partial class MainWindow: Gtk.Window
 {	
 	public static bool enabledSection { get; set; }
 	public static string baseLocation { get; set; }
+	public static string baseLocation1 { get; set; }
 
 	public MainWindow (): base (Gtk.WindowType.Toplevel)
 	{
@@ -25,8 +26,9 @@ public partial class MainWindow: Gtk.Window
 		enabledSection = false;
 		//---------------------------------------
 		//Console.WriteLine(Environment.CurrentDirectory);
-		baseLocation = Environment.CurrentDirectory + @"\Unrepeatable.docx";
-		if (File.Exists(baseLocation)){
+		baseLocation = Environment.CurrentDirectory + @"\Resources\Unrepeatable.docx";
+		baseLocation1 = Environment.CurrentDirectory + @"\Resources\Client Name - Project Name Daily Report - DDMMYYYY.docx";
+		/*if (File.Exists(baseLocation)){
 			Console.WriteLine("something happended");
 			entry1.Text = "Something";
 			entry2.Text = baseLocation;
@@ -34,7 +36,8 @@ public partial class MainWindow: Gtk.Window
 			Console.WriteLine("Nope");
 			entry1.Text = "nope";
 			entry2.Text = baseLocation;
-		}
+		}*/
+
 
 		//Get the user's path to desktop folder
 		string currentPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
@@ -169,11 +172,12 @@ public partial class MainWindow: Gtk.Window
 			DirectoryInfo di = Directory.CreateDirectory(pathClient1);
 
 			// Copy dayily report here
-			//...
+			File.Copy(baseLocation, (pathClient1 + @"Client Name - Project Name Daily Report - DDMMYYYY.docxUnrepeatable.docx"));
 			//Create folder working docs
 			DirectoryInfo wd = Directory.CreateDirectory((pathClient1 + @"Working_Docs\"));
 			//Copy unrepeat doc in the folder just created
-			//...
+			string tempLocString = pathClient1 + @"Working_Docs\Unrepeatable.docx";
+			File.Copy(baseLocation1, tempLocString);
 
 			//Creae folder pics and sub folders
 			pathClient1 = pathClient1 + @"Screenshots\";
@@ -199,17 +203,19 @@ public partial class MainWindow: Gtk.Window
 				//return;
 			}else{
 				DirectoryInfo di = Directory.CreateDirectory(pathClient2);
-				// Copy dayily report here
-				//...
 
+				// Copy dayily report here
+				File.Copy(baseLocation, (pathClient2 + @"Client Name - Project Name Daily Report - DDMMYYYY.docxUnrepeatable.docx"));
 				//Create folder working docs
 				DirectoryInfo wd = Directory.CreateDirectory((pathClient2 + @"Working_Docs\"));
 				//Copy unrepeat doc in the folder just created
-				//...
+				string tempLocString = pathClient2 + @"Working_Docs\Unrepeatable.docx";
+				File.Copy(baseLocation1, tempLocString);
 
 				//Creae folder pics and sub folders
 				pathClient2 = pathClient2 + @"Screenshots\";
 				DirectoryInfo ss = Directory.CreateDirectory(pathClient2);
+
 				//sub folders
 				DirectoryInfo An = Directory.CreateDirectory((pathClient2 + @"Android\"));
 				DirectoryInfo Bb = Directory.CreateDirectory((pathClient2 + @"BlackBerry\"));
