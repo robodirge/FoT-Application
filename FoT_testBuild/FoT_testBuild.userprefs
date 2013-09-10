@@ -1,13 +1,24 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release|x86" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
   <MonoDevelop.Ide.Workbench ActiveDocument="FoT_testBuild\MainWindow.cs">
     <Files>
       <File FileName="FoT_testBuild\Program.cs" Line="1" Column="1" />
-      <File FileName="FoT_testBuild\MainWindow.cs" Line="207" Column="31" />
+      <File FileName="FoT_testBuild\MainWindow.cs" Line="139" Column="9" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="C:\Users\Ben\Desktop\Develop_WIP\GitRepo\Test\FoT_testBuild\FoT_testBuild\MainWindow.cs" line="151" column="1" />
+      <Breakpoint file="C:\Users\Ben\Desktop\Develop_WIP\GitRepo\Test\FoT_testBuild\FoT_testBuild\MainWindow.cs" line="156" column="1" />
+      <Breakpoint file="C:\Users\Ben\Desktop\Develop_WIP\GitRepo\Test\FoT_testBuild\FoT_testBuild\MainWindow.cs" line="158" column="1" />
+      <Breakpoint file="C:\Users\Ben\Desktop\Develop_WIP\GitRepo\Test\FoT_testBuild\FoT_testBuild\MainWindow.cs" line="160" column="1" />
+      <Breakpoint file="C:\Users\Ben\Desktop\Develop_WIP\GitRepo\Test\FoT_testBuild\FoT_testBuild\MainWindow.cs" line="161" column="1" />
+      <Breakpoint file="C:\Users\Ben\Desktop\Develop_WIP\GitRepo\Test\FoT_testBuild\FoT_testBuild\MainWindow.cs" line="155" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches>
+    <Watch file="FoT_testBuild\MainWindow.cs" line="154" offsetX="845" offsetY="2455" expression="pathClient1" liveUpdate="False" />
+    <Watch file="FoT_testBuild\MainWindow.cs" line="154" offsetX="843" offsetY="2488" expression="tempNameString" liveUpdate="False" />
+    <Watch file="FoT_testBuild\MainWindow.cs" line="155" offsetX="553" offsetY="2423" expression="MainWindow.baseLocation" liveUpdate="False" />
+  </MonoDevelop.Ide.DebuggingService.PinnedWatches>
 </Properties>

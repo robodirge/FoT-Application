@@ -48,19 +48,8 @@ public partial class MainWindow: Gtk.Window
 			Console.WriteLine("Path already exists.");
 			return;
 		}else{
-
 			DirectoryInfo di = Directory.CreateDirectory(currentPath);
 		}
-
-
-
-		/*var dirsx = AppDomain.CurrentDomain.BaseDirectory;
-		Console.WriteLine(dirsx);
-
-		string codeBase = System.Reflection.Assembly.GetExecutingAssembly().CodeBase;
-		UriBuilder uri = new UriBuilder(codeBase);
-		string path = Uri.UnescapeDataString(uri.Path);
-		Console.WriteLine(path);*/
 	}
 
 	protected void OnDeleteEvent (object sender, DeleteEventArgs a){
@@ -112,15 +101,11 @@ public partial class MainWindow: Gtk.Window
 				projectName2 = "Project_2";
 			}
 
-			//Combine two strings with ' - ' seperator 
 			FullDayResource = clientName2 + " - " + projectName2;
 
 			//MessageDialog.
 			MessageDialog myDialogWindow2 = new MessageDialog(this, DialogFlags.Modal, MessageType.Error, ButtonsType.Ok, FullDayResource);
-
-			//Opens dialog
 			myDialogWindow2.Run();
-			//Will close dialog
 			myDialogWindow2.Destroy();
 		}
 
@@ -129,34 +114,28 @@ public partial class MainWindow: Gtk.Window
 
 		//Get the user's path to desktop folder
 		string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-		//Supply a folder name to be created onto the desktop
-		//FoT
-		//	YYYY_Month
+
 		string currentDate = DateTime.Now.ToString("yyyy_MMMMM");
 		path = path + @"\FoT\" + currentDate + @"\";
 
 
 		if(Directory.Exists(path)){
 			//Console.WriteLine("Path already exists.");
-			//return;
 		}else{
 
 			DirectoryInfo di = Directory.CreateDirectory(path);
-			//Console.WriteLine("The directory was created successfully at {0}.", Directory.GetCreationTime(path));
 		}
-		
 		//Continue with folder set up
 		FolderSetup(ref path, ref halfDayResource, ref FullDayResource,  e);
 	} 
 
 	protected void FolderSetup(ref string path, ref string halfDR,ref string fullDR, EventArgs e){
-
+	
 		string currentDate = DateTime.Now.ToString("yyyy_MM_dd");
 		path = path + currentDate + @"\";
 
 		if(Directory.Exists(path)){
 			Console.WriteLine("Path already exists.");
-			//return;
 		}else{
 			DirectoryInfo di = Directory.CreateDirectory(path);
 		}
@@ -172,7 +151,9 @@ public partial class MainWindow: Gtk.Window
 			DirectoryInfo di = Directory.CreateDirectory(pathClient1);
 
 			// Copy dayily report here
-			File.Copy(baseLocation, (pathClient1 + @"Client Name - Project Name Daily Report - DDMMYYYY.docxUnrepeatable.docx"));
+			string tempNameString = pathClient1 + @"Client Name - Project Name Daily Report - DDMMYYYY.docx.docx";
+			File.Copy(baseLocation, tempNameString);
+			System.IO.File.Move(tempNameString, halfDR);
 			//Create folder working docs
 			DirectoryInfo wd = Directory.CreateDirectory((pathClient1 + @"Working_Docs\"));
 			//Copy unrepeat doc in the folder just created
@@ -205,7 +186,9 @@ public partial class MainWindow: Gtk.Window
 				DirectoryInfo di = Directory.CreateDirectory(pathClient2);
 
 				// Copy dayily report here
-				File.Copy(baseLocation, (pathClient2 + @"Client Name - Project Name Daily Report - DDMMYYYY.docxUnrepeatable.docx"));
+				string tempNameString = pathClient2 + @"Client Name - Project Name Daily Report - DDMMYYYY.docx.docx";
+				File.Copy(baseLocation, tempNameString);
+				System.IO.File.Move(tempNameString, fullDR);
 				//Create folder working docs
 				DirectoryInfo wd = Directory.CreateDirectory((pathClient2 + @"Working_Docs\"));
 				//Copy unrepeat doc in the folder just created
