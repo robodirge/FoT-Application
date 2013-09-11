@@ -93,14 +93,7 @@ public partial class MainWindow: Gtk.Window
 
 			FullDayResource = clientName2 + " - " + projectName2;
 
-			//MessageDialog.
-			//MessageDialog myDialogWindow2 = new MessageDialog(this, DialogFlags.Modal, MessageType.Error, ButtonsType.Ok, FullDayResource);
-			//myDialogWindow2.Run();
-			//myDialogWindow2.Destroy();
 		}
-
-		//Will close dialog
-		//myDialogWindow.Destroy();
 
 		//Get the user's path to desktop folder
 		string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
@@ -212,6 +205,7 @@ public partial class MainWindow: Gtk.Window
 		MessageDialog myDialogWindow2 = new MessageDialog(this, DialogFlags.Modal, MessageType.Error, ButtonsType.Ok, "Folders created");
 		myDialogWindow2.Run();
 		myDialogWindow2.Destroy();
+		Application.Quit ();
 	}
 
 	protected void OnRadioResource2Toggled (object sender, EventArgs e)
@@ -232,5 +226,4 @@ public partial class MainWindow: Gtk.Window
 			enabledSection = false;
 		}
 	}
-
 }
