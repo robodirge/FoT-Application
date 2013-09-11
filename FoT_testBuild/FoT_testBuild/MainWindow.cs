@@ -74,7 +74,7 @@ public partial class MainWindow: Gtk.Window
 		MessageDialog myDialogWindow = new MessageDialog(this, DialogFlags.Modal, MessageType.Error, ButtonsType.Ok, halfDayResource);
 
 		//Opens dialog
-		myDialogWindow.Run();
+		//myDialogWindow.Run();
 		//If the user has selected '2 projects'
 
 		if(enabledSection==true){
@@ -94,13 +94,13 @@ public partial class MainWindow: Gtk.Window
 			FullDayResource = clientName2 + " - " + projectName2;
 
 			//MessageDialog.
-			MessageDialog myDialogWindow2 = new MessageDialog(this, DialogFlags.Modal, MessageType.Error, ButtonsType.Ok, FullDayResource);
-			myDialogWindow2.Run();
-			myDialogWindow2.Destroy();
+			//MessageDialog myDialogWindow2 = new MessageDialog(this, DialogFlags.Modal, MessageType.Error, ButtonsType.Ok, FullDayResource);
+			//myDialogWindow2.Run();
+			//myDialogWindow2.Destroy();
 		}
 
 		//Will close dialog
-		myDialogWindow.Destroy();
+		//myDialogWindow.Destroy();
 
 		//Get the user's path to desktop folder
 		string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
@@ -140,8 +140,6 @@ public partial class MainWindow: Gtk.Window
 
 			//		baseLocation1 = Environment.CurrentDirectory + @"\Resources\Unrepeatable.docx";
 			//		baseLocation = Environment.CurrentDirectory + @"\Resources\Client Name - Project Name Daily Report - DDMMYYYY.docx";
-
-
 
 			//string pathClient1 = path;
 			DirectoryInfo di = Directory.CreateDirectory(pathClient1);
@@ -209,6 +207,11 @@ public partial class MainWindow: Gtk.Window
 				DirectoryInfo Wp = Directory.CreateDirectory((pathClient2 + @"WindowsPhone\"));
 			}
 		}
+
+		//MessageDialog.
+		MessageDialog myDialogWindow2 = new MessageDialog(this, DialogFlags.Modal, MessageType.Error, ButtonsType.Ok, "Folders created");
+		myDialogWindow2.Run();
+		myDialogWindow2.Destroy();
 	}
 
 	protected void OnRadioResource2Toggled (object sender, EventArgs e)

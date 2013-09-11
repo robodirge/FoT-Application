@@ -16,6 +16,14 @@
             <RootEntry path="..\FoT_testBuild.sln" id=":root:" />
           </Builder>
         </Package>
+        <Package name="testBun">
+          <Builder targetFile="..\..\..\..\delete me\FoT_testBuild.tar" platform="Windows" configuration="Release|x86" ctype="BinariesZipPackageBuilder">
+            <ChildEntries>
+              <SolutionItemReference path="..\FoT_testBuild\FoT_testBuild.csproj" />
+            </ChildEntries>
+            <RootEntry path="..\FoT_testBuild.sln" id=":root:" />
+          </Builder>
+        </Package>
       </Packages>
     </Packages>
   </PropertyGroup>
