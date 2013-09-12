@@ -35,7 +35,6 @@ public partial class MainWindow: Gtk.Window
 		currentPath = currentPath + @"\FoT\";
 
 		if(Directory.Exists(currentPath)){
-			Console.WriteLine("Path already exists.");
 			return;
 		}else{
 			DirectoryInfo di = Directory.CreateDirectory(currentPath);
@@ -48,8 +47,8 @@ public partial class MainWindow: Gtk.Window
 	}
 
 	protected void OnButtonQuitClicked (object sender, EventArgs e){
-		Gtk.Main.Quit (); // Quite main application
-		throw new NotImplementedException ();
+		// Quite main application
+		Gtk.Main.Quit (); 
 	}
 
 	protected void OnButtonContinueClicked (object sender, EventArgs e){
@@ -70,15 +69,7 @@ public partial class MainWindow: Gtk.Window
 		//Creating string for use later
 		string FullDayResource = "";
 
-		//MessageDialog.
-		MessageDialog myDialogWindow = new MessageDialog(this, DialogFlags.Modal, MessageType.Error, ButtonsType.Ok, halfDayResource);
-
-		//Opens dialog
-		//myDialogWindow.Run();
-		//If the user has selected '2 projects'
-
 		if(enabledSection==true){
-			//Collect the data the user entered
 			string clientName2 = entry3.Text;
 			string projectName2 = entry4.Text;
 
@@ -92,7 +83,6 @@ public partial class MainWindow: Gtk.Window
 			}
 
 			FullDayResource = clientName2 + " - " + projectName2;
-
 		}
 
 		//Get the user's path to desktop folder
@@ -100,14 +90,11 @@ public partial class MainWindow: Gtk.Window
 
 		string currentDate = DateTime.Now.ToString("yyyy_MMMMM");
 		path = path + @"\FoT\" + currentDate + @"\";
-
-
-		if(Directory.Exists(path)){
-			//Console.WriteLine("Path already exists.");
-		}else{
-
+		
+		if(!Directory.Exists(path)){
 			DirectoryInfo di = Directory.CreateDirectory(path);
 		}
+
 		//Continue with folder set up
 		FolderSetup(ref path, ref halfDayResource, ref FullDayResource,  e);
 	} 
@@ -117,23 +104,14 @@ public partial class MainWindow: Gtk.Window
 		string currentDate = DateTime.Now.ToString("yyyy_MM_dd");
 		path = path + currentDate + @"\";
 
-		if(Directory.Exists(path)){
-			Console.WriteLine("Path already exists.");
-		}else{
+		if(!Directory.Exists(path)){
 			DirectoryInfo di = Directory.CreateDirectory(path);
 		}
-		
+
 		string pathClient1 = path;
 		pathClient1 = pathClient1 + halfDR + @"\";
 
-		if(Directory.Exists(pathClient1)){
-			//Console.WriteLine("Path already exists.");
-			//return;
-		}else{
-
-			//		baseLocation1 = Environment.CurrentDirectory + @"\Resources\Unrepeatable.docx";
-			//		baseLocation = Environment.CurrentDirectory + @"\Resources\Client Name - Project Name Daily Report - DDMMYYYY.docx";
-
+		if(!Directory.Exists(pathClient1)){
 			//string pathClient1 = path;
 			DirectoryInfo di = Directory.CreateDirectory(pathClient1);
 
@@ -167,10 +145,7 @@ public partial class MainWindow: Gtk.Window
 			string pathClient2 = path;
 			pathClient2 = pathClient2 + fullDR + @"\";
 
-			if(Directory.Exists(pathClient2)){
-				//Console.WriteLine("Path already exists.");
-				//return;
-			}else{
+			if(!Directory.Exists(pathClient2)){
 				DirectoryInfo di = Directory.CreateDirectory(pathClient2);
 
 				// Copy dayily report here
@@ -208,10 +183,7 @@ public partial class MainWindow: Gtk.Window
 		Application.Quit ();
 	}
 
-	protected void OnRadioResource2Toggled (object sender, EventArgs e)
-	{
-		//Change the display status of the below objects
-		//visable - on / off - disabled
+	protected void OnRadioResource2Toggled (object sender, EventArgs e){
 		if (enabledSection == false) {
 			labelClient2.Visible = true;
 			labelProject2.Visible = true;
