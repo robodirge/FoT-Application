@@ -10,7 +10,7 @@
         <Package name="FoT_MainPackageBuild">
           <Builder targetFile="..\..\..\..\delete me\FoT.tar" platform="Windows" configuration="Release|x86" ctype="BinariesZipPackageBuilder">
             <ChildEntries>
-              <SolutionItemReference path="..\FoT_testBuild\FoT_testBuild.csproj" />
+              <SolutionItemReference path="..\FoT_testBuild\FoT.csproj" />
             </ChildEntries>
             <RootEntry path="..\FoT_testBuild.sln" id=":root:" />
           </Builder>

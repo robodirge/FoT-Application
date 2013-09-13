@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoT_testBuild", "FoT_testBuild\FoT_testBuild.csproj", "{0AF74427-2278-483A-90D9-C24D75613832}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoT", "FoT_testBuild\FoT.csproj", "{0AF74427-2278-483A-90D9-C24D75613832}"
 EndProject
 Project("{9344BDBB-3E7F-41FC-A0DD-8665D75EE146}") = "TestPackage", "TestPackage\TestPackage.mdproj", "{0C35A45D-DB77-4196-8B53-B46C780D1BD9}"
 EndProject
@@ -19,6 +19,6 @@ Global
 		{0C35A45D-DB77-4196-8B53-B46C780D1BD9}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = FoT_testBuild\FoT_testBuild.csproj
+		StartupItem = FoT_testBuild\FoT.csproj
 	EndGlobalSection
 EndGlobal

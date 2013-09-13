@@ -1,10 +1,3 @@
-/*
- * Copyright Zoonou, for internal use only
- * Developed and Maintained by Ben Vere
- * Any queries and or problems please contact me @ ben.vere@zoonou.com / 07596869638
- * Last updated (header) 13/09/2013
-*/
-
 using System;
 using System.IO;
 using Gtk;
