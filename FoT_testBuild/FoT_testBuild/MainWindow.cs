@@ -2,17 +2,14 @@ using System;
 using System.IO;
 using Gtk;
 
-public partial class MainWindow: Gtk.Window
-{	
+public partial class MainWindow: Gtk.Window{	
 	public static bool enabledSection { get; set; }
 	public static string baseLocation { get; set; }
 	public static string baseLocation1 { get; set; }
 
-	public MainWindow (): base (Gtk.WindowType.Toplevel)
-	{
+	public MainWindow (): base (Gtk.WindowType.Toplevel){
 		Build ();
 		onStartActions ();
-
 	}
 
 	/*General start up parameters*/
@@ -138,7 +135,6 @@ public partial class MainWindow: Gtk.Window
 			DirectoryInfo iOb2 = Directory.CreateDirectory((pathClient1 + @"iOS\Batch2\"));
 			DirectoryInfo iOb3 = Directory.CreateDirectory((pathClient1 + @"iOS\Batch3\"));
 			DirectoryInfo Wp = Directory.CreateDirectory((pathClient1 + @"WindowsPhone\"));
-
 		}
 		
 		if(enabledSection==true){
@@ -177,9 +173,9 @@ public partial class MainWindow: Gtk.Window
 		}
 
 		//MessageDialog.
-		MessageDialog myDialogWindow2 = new MessageDialog(this, DialogFlags.Modal, MessageType.Error, ButtonsType.Ok, "Folders created");
+		/*MessageDialog myDialogWindow2 = new MessageDialog(this, DialogFlags.Modal, MessageType.Error, ButtonsType.Ok, "Folders created");
 		myDialogWindow2.Run();
-		myDialogWindow2.Destroy();
+		myDialogWindow2.Destroy();*/
 		Application.Quit ();
 	}
 

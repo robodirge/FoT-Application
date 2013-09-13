@@ -7,17 +7,8 @@
     <ProjectGuid>{0C35A45D-DB77-4196-8B53-B46C780D1BD9}</ProjectGuid>
     <Packages>
       <Packages>
-        <Package name="x2">
-          <Builder targetFile="..\..\..\..\delete me\FoT_testBuild.tar" platform="Windows" configuration="Release|x86" ctype="BinariesZipPackageBuilder">
-            <ChildEntries>
-              <SolutionItemReference path="..\FoT_testBuild\FoT_testBuild.csproj" />
-              <SolutionItemReference path="TestPackage.mdproj" />
-            </ChildEntries>
-            <RootEntry path="..\FoT_testBuild.sln" id=":root:" />
-          </Builder>
-        </Package>
-        <Package name="testBun">
-          <Builder targetFile="..\..\..\..\delete me\FoT_testBuild.tar" platform="Windows" configuration="Release|x86" ctype="BinariesZipPackageBuilder">
+        <Package name="FoT_MainPackageBuild">
+          <Builder targetFile="..\..\..\..\delete me\FoT.tar" platform="Windows" configuration="Release|x86" ctype="BinariesZipPackageBuilder">
             <ChildEntries>
               <SolutionItemReference path="..\FoT_testBuild\FoT_testBuild.csproj" />
             </ChildEntries>

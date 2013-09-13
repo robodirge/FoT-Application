@@ -74,6 +74,7 @@ public partial class MainWindow
 		this.labelClient1.Name = "labelClient1";
 		this.labelClient1.LabelProp = global::Mono.Unix.Catalog.GetString ("Please enter the first client name below.");
 		this.labelClient1.Wrap = true;
+		this.labelClient1.Justify = ((global::Gtk.Justification)(3));
 		this.vbox1.Add (this.labelClient1);
 		global::Gtk.Box.BoxChild w4 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.labelClient1]));
 		w4.Position = 1;
