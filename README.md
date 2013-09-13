@@ -1,26 +1,4 @@
-Test
+Zoonou FoT Application
 ====
 
-Testing
-
-
-
-
-
-
-
-
-
-kf pasknf oqwb
-
-
-
-
-
-
-
-jgs [ojwvb[ j
-
-
-
-jg[ wgjph
+Copyright Zoonou, for internal use only
