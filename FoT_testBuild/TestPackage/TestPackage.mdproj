@@ -8,7 +8,7 @@
     <Packages>
       <Packages>
         <Package name="Microsoft Windows Binaries">
-          <Builder targetFile="..\..\..\..\delete me\FoT_App.tar" platform="Windows" configuration="Release|x86" ctype="BinariesZipPackageBuilder">
+          <Builder targetFile="..\..\..\..\delete me\FoT.tar" platform="Windows" configuration="Release|x86" ctype="BinariesZipPackageBuilder">
             <ChildEntries>
               <SolutionItemReference path="..\FoT_testBuild\FoT.csproj" />
             </ChildEntries>
