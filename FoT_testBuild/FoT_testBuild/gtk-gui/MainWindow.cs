@@ -28,6 +28,7 @@ public partial class MainWindow
 		this.Name = "MainWindow";
 		this.Title = global::Mono.Unix.Catalog.GetString ("MainWindow");
 		this.Icon = global::Stetic.IconLoader.LoadIcon (this, "gtk-apply", global::Gtk.IconSize.Menu);
+		this.TypeHint = ((global::Gdk.WindowTypeHint)(1));
 		this.WindowPosition = ((global::Gtk.WindowPosition)(4));
 		this.BorderWidth = ((uint)(9));
 		this.Resizable = false;
@@ -41,6 +42,7 @@ public partial class MainWindow
 		this.hbox1.Spacing = 6;
 		// Container child hbox1.Gtk.Box+BoxChild
 		this.radioResource1 = new global::Gtk.RadioButton (global::Mono.Unix.Catalog.GetString ("1 project"));
+		this.radioResource1.TooltipMarkup = "1 Project in a day";
 		this.radioResource1.HeightRequest = 50;
 		this.radioResource1.CanFocus = true;
 		this.radioResource1.Name = "radioResource1";
@@ -53,6 +55,7 @@ public partial class MainWindow
 		w1.Padding = ((uint)(50));
 		// Container child hbox1.Gtk.Box+BoxChild
 		this.radioResource2 = new global::Gtk.RadioButton (global::Mono.Unix.Catalog.GetString ("2 projects"));
+		this.radioResource2.TooltipMarkup = "2 projects in a day";
 		this.radioResource2.CanFocus = true;
 		this.radioResource2.Name = "radioResource2";
 		this.radioResource2.DrawIndicator = true;
@@ -71,7 +74,6 @@ public partial class MainWindow
 		this.labelClient1.Name = "labelClient1";
 		this.labelClient1.LabelProp = global::Mono.Unix.Catalog.GetString ("Please enter the first client name below.");
 		this.labelClient1.Wrap = true;
-		this.labelClient1.Justify = ((global::Gtk.Justification)(2));
 		this.vbox1.Add (this.labelClient1);
 		global::Gtk.Box.BoxChild w4 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.labelClient1]));
 		w4.Position = 1;
@@ -93,7 +95,6 @@ public partial class MainWindow
 		this.labelProject1.Name = "labelProject1";
 		this.labelProject1.LabelProp = global::Mono.Unix.Catalog.GetString ("Please enter the first project name below.");
 		this.labelProject1.Wrap = true;
-		this.labelProject1.Justify = ((global::Gtk.Justification)(2));
 		this.vbox1.Add (this.labelProject1);
 		global::Gtk.Box.BoxChild w6 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.labelProject1]));
 		w6.Position = 3;
@@ -115,7 +116,6 @@ public partial class MainWindow
 		this.labelClient2.Name = "labelClient2";
 		this.labelClient2.LabelProp = global::Mono.Unix.Catalog.GetString ("Please enter the second client name below. ");
 		this.labelClient2.Wrap = true;
-		this.labelClient2.Justify = ((global::Gtk.Justification)(2));
 		this.vbox1.Add (this.labelClient2);
 		global::Gtk.Box.BoxChild w8 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.labelClient2]));
 		w8.Position = 5;
@@ -160,6 +160,7 @@ public partial class MainWindow
 		this.hbox2.Spacing = 6;
 		// Container child hbox2.Gtk.Box+BoxChild
 		this.buttonQuit = new global::Gtk.Button ();
+		this.buttonQuit.TooltipMarkup = "Quit application";
 		this.buttonQuit.WidthRequest = 100;
 		this.buttonQuit.CanFocus = true;
 		this.buttonQuit.Name = "buttonQuit";
@@ -178,11 +179,12 @@ public partial class MainWindow
 		w13.Position = 1;
 		// Container child hbox2.Gtk.Box+BoxChild
 		this.buttonContinue = new global::Gtk.Button ();
+		this.buttonContinue.TooltipMarkup = "Create client and project folders";
 		this.buttonContinue.WidthRequest = 100;
 		this.buttonContinue.CanFocus = true;
 		this.buttonContinue.Name = "buttonContinue";
 		this.buttonContinue.UseUnderline = true;
-		this.buttonContinue.Label = global::Mono.Unix.Catalog.GetString ("Continue");
+		this.buttonContinue.Label = global::Mono.Unix.Catalog.GetString ("Create Folders");
 		this.hbox2.Add (this.buttonContinue);
 		global::Gtk.Box.BoxChild w14 = ((global::Gtk.Box.BoxChild)(this.hbox2 [this.buttonContinue]));
 		w14.Position = 2;
