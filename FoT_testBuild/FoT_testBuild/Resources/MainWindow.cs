@@ -106,7 +106,7 @@ protected void OnButtonContinueClicked (object sender, EventArgs e){
 protected void FolderSetup(ref string path, ref string halfDR,ref string fullDR, EventArgs e){
 
 	string currentDate = DateTime.Now.ToString("yyyy_MM_dd");
-	string DailyDate = (@" - " + DateTime.Now.ToString("ddMMyyyy"));
+	string DailyDate = (@" Daily Report - " + DateTime.Now.ToString("ddMMyyyy"));
 	path = path + currentDate + @"\";
 
 	if(!Directory.Exists(path)){
@@ -133,16 +133,8 @@ protected void FolderSetup(ref string path, ref string halfDR,ref string fullDR,
 
 		//Creae folder pics and sub folders
 		pathClient1 = pathClient1 + @"Screenshots\";
-		DirectoryInfo ss = Directory.CreateDirectory(pathClient1);
-		//sub folders
-		DirectoryInfo An = Directory.CreateDirectory((pathClient1 + @"Android\"));
-		DirectoryInfo Bb = Directory.CreateDirectory((pathClient1 + @"BlackBerry\"));
-		DirectoryInfo Dt = Directory.CreateDirectory((pathClient1 + @"Desktop\"));
-		DirectoryInfo iO = Directory.CreateDirectory((pathClient1 + @"iOS\"));
-		DirectoryInfo iOb1 = Directory.CreateDirectory((pathClient1 + @"iOS\Batch1\"));
-		DirectoryInfo iOb2 = Directory.CreateDirectory((pathClient1 + @"iOS\Batch2\"));
-		DirectoryInfo iOb3 = Directory.CreateDirectory((pathClient1 + @"iOS\Batch3\"));
-		DirectoryInfo Wp = Directory.CreateDirectory((pathClient1 + @"WindowsPhone\"));
+		//Create files using path and name etc
+		massCreateFiles(ref pathClient1);
 	}
 
 	if(enabledSection==true){
@@ -166,17 +158,8 @@ protected void FolderSetup(ref string path, ref string halfDR,ref string fullDR,
 
 			//Creae folder pics and sub folders
 			pathClient2 = pathClient2 + @"Screenshots\";
-			DirectoryInfo ss = Directory.CreateDirectory(pathClient2);
-
-			//sub folders
-			DirectoryInfo An = Directory.CreateDirectory((pathClient2 + @"Android\"));
-			DirectoryInfo Bb = Directory.CreateDirectory((pathClient2 + @"BlackBerry\"));
-			DirectoryInfo Dt = Directory.CreateDirectory((pathClient2 + @"Desktop\"));
-			DirectoryInfo iO = Directory.CreateDirectory((pathClient2 + @"iOS\"));
-			DirectoryInfo iOb1 = Directory.CreateDirectory((pathClient2 + @"iOS\Batch1\"));
-			DirectoryInfo iOb2 = Directory.CreateDirectory((pathClient2 + @"iOS\Batch2\"));
-			DirectoryInfo iOb3 = Directory.CreateDirectory((pathClient2 + @"iOS\Batch3\"));
-			DirectoryInfo Wp = Directory.CreateDirectory((pathClient2 + @"WindowsPhone\"));
+			//Create files using path and name etc
+			massCreateFiles(ref pathClient2);
 		}
 	}
 
@@ -185,6 +168,19 @@ protected void FolderSetup(ref string path, ref string halfDR,ref string fullDR,
 		myDialogWindow2.Run();
 		myDialogWindow2.Destroy();*/
 	Application.Quit ();
+}
+
+protected void massCreateFiles(ref string dirPath){
+	DirectoryInfo ss = Directory.CreateDirectory(dirPath);
+	//sub folders
+	DirectoryInfo An = Directory.CreateDirectory((dirPath + @"Android\"));
+	DirectoryInfo Bb = Directory.CreateDirectory((dirPath + @"BlackBerry\"));
+	DirectoryInfo Dt = Directory.CreateDirectory((dirPath + @"Desktop\"));
+	DirectoryInfo iO = Directory.CreateDirectory((dirPath + @"iOS\"));
+	DirectoryInfo iOb1 = Directory.CreateDirectory((dirPath + @"iOS\Batch1\"));
+	DirectoryInfo iOb2 = Directory.CreateDirectory((dirPath + @"iOS\Batch2\"));
+	DirectoryInfo iOb3 = Directory.CreateDirectory((dirPath + @"iOS\Batch3\"));
+	DirectoryInfo Wp = Directory.CreateDirectory((dirPath + @"WindowsPhone\"));
 }
 
 protected void OnRadioResource2Toggled (object sender, EventArgs e){

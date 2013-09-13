@@ -77,13 +77,13 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Logo.png" />
-    <None Include="EmptyXmlFile.xml" />
     <None Include="MainWindow.cs">
       <Visible>False</Visible>
     </None>
     <None Include="Program.cs">
       <Visible>False</Visible>
     </None>
+    <None Include="Resources\Config.txt" />
   </ItemGroup>
   <ProjectExtensions>
     <MonoDevelop>
