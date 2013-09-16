@@ -8,10 +8,10 @@
     <widget-library name="glade-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
     <widget-library name="../bin/Debug/FoT.exe" internal="true" />
   </import>
-  <widget class="Gtk.Window" id="MainWindow" design-size="500 363">
+  <widget class="Gtk.Window" id="MainWindow" design-size="500 500">
     <property name="MemberName" />
     <property name="WidthRequest">500</property>
-    <property name="HeightRequest">350</property>
+    <property name="HeightRequest">400</property>
     <property name="Tooltip" translatable="yes" />
     <property name="Title" translatable="yes">MainWindow</property>
     <property name="Icon">stock:gtk-apply Menu</property>
@@ -25,6 +25,68 @@
         <property name="MemberName" />
         <property name="Spacing">6</property>
         <child>
+          <widget class="Gtk.VBox" id="vbox2">
+            <property name="MemberName" />
+            <property name="Spacing">6</property>
+            <child>
+              <widget class="Gtk.HBox" id="hbox3">
+                <property name="MemberName" />
+                <property name="Spacing">6</property>
+                <child>
+                  <widget class="Gtk.Label" id="label1">
+                    <property name="MemberName" />
+                    <property name="WidthRequest">250</property>
+                    <property name="LabelProp" translatable="yes">label1</property>
+                  </widget>
+                  <packing>
+                    <property name="Position">0</property>
+                    <property name="AutoSize">True</property>
+                    <property name="Expand">False</property>
+                    <property name="Fill">False</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="Gtk.Label" id="label2">
+                    <property name="MemberName" />
+                    <property name="WidthRequest">210</property>
+                    <property name="LabelProp" translatable="yes">label2</property>
+                    <property name="Justify">Right</property>
+                  </widget>
+                  <packing>
+                    <property name="Position">1</property>
+                    <property name="AutoSize">True</property>
+                    <property name="Expand">False</property>
+                    <property name="Fill">False</property>
+                  </packing>
+                </child>
+              </widget>
+              <packing>
+                <property name="Position">0</property>
+                <property name="AutoSize">True</property>
+                <property name="Expand">False</property>
+                <property name="Fill">False</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="Gtk.FileChooserButton" id="filechooserbutton1">
+                <property name="MemberName" />
+              </widget>
+              <packing>
+                <property name="Position">1</property>
+                <property name="AutoSize">True</property>
+                <property name="Expand">False</property>
+                <property name="Fill">False</property>
+              </packing>
+            </child>
+          </widget>
+          <packing>
+            <property name="Position">0</property>
+            <property name="AutoSize">True</property>
+            <property name="Expand">False</property>
+            <property name="Fill">False</property>
+          </packing>
+        </child>
+        <child>
           <widget class="Gtk.HBox" id="hbox1">
             <property name="MemberName" />
             <property name="Spacing">6</property>
@@ -35,6 +97,7 @@
                 <property name="Tooltip" translatable="yes">1 Project in a day</property>
                 <property name="CanFocus">True</property>
                 <property name="Label" translatable="yes">1 project</property>
+                <property name="Active">True</property>
                 <property name="DrawIndicator">True</property>
                 <property name="HasLabel">True</property>
                 <property name="UseUnderline">True</property>
@@ -65,7 +128,7 @@
             </child>
           </widget>
           <packing>
-            <property name="Position">0</property>
+            <property name="Position">1</property>
             <property name="AutoSize">True</property>
             <property name="Expand">False</property>
             <property name="Fill">False</property>
@@ -79,7 +142,7 @@
             <property name="Justify">Fill</property>
           </widget>
           <packing>
-            <property name="Position">1</property>
+            <property name="Position">2</property>
             <property name="AutoSize">True</property>
             <property name="Expand">False</property>
             <property name="Fill">False</property>
@@ -93,7 +156,7 @@
             <property name="InvisibleChar">●</property>
           </widget>
           <packing>
-            <property name="Position">2</property>
+            <property name="Position">3</property>
             <property name="AutoSize">True</property>
             <property name="Expand">False</property>
             <property name="Fill">False</property>
@@ -106,7 +169,7 @@
             <property name="Wrap">True</property>
           </widget>
           <packing>
-            <property name="Position">3</property>
+            <property name="Position">4</property>
             <property name="AutoSize">True</property>
             <property name="Expand">False</property>
             <property name="Fill">False</property>
@@ -120,7 +183,7 @@
             <property name="InvisibleChar">●</property>
           </widget>
           <packing>
-            <property name="Position">4</property>
+            <property name="Position">5</property>
             <property name="AutoSize">True</property>
             <property name="Expand">False</property>
             <property name="Fill">False</property>
@@ -133,7 +196,7 @@
             <property name="Wrap">True</property>
           </widget>
           <packing>
-            <property name="Position">5</property>
+            <property name="Position">6</property>
             <property name="AutoSize">True</property>
             <property name="Expand">False</property>
             <property name="Fill">False</property>
@@ -147,7 +210,7 @@
             <property name="InvisibleChar">●</property>
           </widget>
           <packing>
-            <property name="Position">6</property>
+            <property name="Position">7</property>
             <property name="AutoSize">True</property>
             <property name="Expand">False</property>
             <property name="Fill">False</property>
@@ -160,7 +223,7 @@
             <property name="Wrap">True</property>
           </widget>
           <packing>
-            <property name="Position">7</property>
+            <property name="Position">8</property>
             <property name="AutoSize">True</property>
             <property name="Expand">False</property>
             <property name="Fill">False</property>
@@ -175,7 +238,7 @@
             <property name="InvisibleChar">●</property>
           </widget>
           <packing>
-            <property name="Position">8</property>
+            <property name="Position">9</property>
             <property name="AutoSize">True</property>
             <property name="Expand">False</property>
             <property name="Fill">False</property>
@@ -232,7 +295,7 @@
             </child>
           </widget>
           <packing>
-            <property name="Position">9</property>
+            <property name="Position">10</property>
             <property name="AutoSize">True</property>
             <property name="Expand">False</property>
             <property name="Fill">False</property>
