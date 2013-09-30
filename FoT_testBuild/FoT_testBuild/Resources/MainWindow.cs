@@ -86,6 +86,26 @@ public partial class MainWindow: Gtk.Window{
 		Gtk.Main.Quit (); 
 	}
 
+	protected void OnButton2Clicked(object sender, EventArgs e){
+		Gtk.FileChooserDialog fc = new Gtk.FileChooserDialog("Choose a file", this, FileChooserAction.SelectFolder, "cancel", ResponseType.Cancel, "choose", ResponseType.Accept);
+
+		if(fc.Run() == (int)ResponseType.Accept){
+			string mytempfilename = fc.CurrentFolder;
+
+			string configLocation = Environment.CurrentDirectory + @"\Resources\Config.txt";
+			FileInfo fi = new FileInfo(configLocation);
+
+			using(TextWriter tw = new StreamWriter(fi.Open(FileMode.Truncate))){
+				tw.Write(mytempfilename);
+				tw.Close();
+			}
+			//Console.WriteLine(mytempfilename);
+			fc.Destroy();
+		}else{
+			fc.Destroy();
+		}
+	}
+
 	protected void OnButtonContinueClicked (object sender, EventArgs e){
 		//Collect the data the user entered
 		string clientName1 = entry1.Text;

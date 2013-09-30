@@ -7,7 +7,7 @@ public partial class MainWindow
 	private global::Gtk.HBox hbox3;
 	private global::Gtk.Label label1;
 	private global::Gtk.Label label2;
-	private global::Gtk.FileChooserButton filechooserbutton1;
+	private global::Gtk.Button button2;
 	private global::Gtk.HBox hbox1;
 	private global::Gtk.RadioButton radioResource1;
 	private global::Gtk.RadioButton radioResource2;
@@ -76,10 +76,13 @@ public partial class MainWindow
 		w3.Expand = false;
 		w3.Fill = false;
 		// Container child vbox2.Gtk.Box+BoxChild
-		this.filechooserbutton1 = new global::Gtk.FileChooserButton (global::Mono.Unix.Catalog.GetString ("Select a File"), ((global::Gtk.FileChooserAction)(0)));
-		this.filechooserbutton1.Name = "filechooserbutton1";
-		this.vbox2.Add (this.filechooserbutton1);
-		global::Gtk.Box.BoxChild w4 = ((global::Gtk.Box.BoxChild)(this.vbox2 [this.filechooserbutton1]));
+		this.button2 = new global::Gtk.Button ();
+		this.button2.CanFocus = true;
+		this.button2.Name = "button2";
+		this.button2.UseUnderline = true;
+		this.button2.Label = global::Mono.Unix.Catalog.GetString ("GtkButton");
+		this.vbox2.Add (this.button2);
+		global::Gtk.Box.BoxChild w4 = ((global::Gtk.Box.BoxChild)(this.vbox2 [this.button2]));
 		w4.Position = 1;
 		w4.Expand = false;
 		w4.Fill = false;
@@ -256,6 +259,7 @@ public partial class MainWindow
 		this.DefaultHeight = 500;
 		this.Show ();
 		this.DeleteEvent += new global::Gtk.DeleteEventHandler (this.OnDeleteEvent);
+		this.button2.Clicked += new global::System.EventHandler (this.OnButton2Clicked);
 		this.radioResource2.Toggled += new global::System.EventHandler (this.OnRadioResource2Toggled);
 		this.buttonQuit.Clicked += new global::System.EventHandler (this.OnButtonQuitClicked);
 		this.buttonContinue.Clicked += new global::System.EventHandler (this.OnButtonContinueClicked);

@@ -57,9 +57,6 @@
       <Gettext-ScanForTranslations>False</Gettext-ScanForTranslations>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Resources\Config.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="gtk-gui\generated.cs" />
@@ -105,6 +102,9 @@
   <ItemGroup>
     <Content Include="Resources\Deleket-Sleek-Xp-Basic-Files.ico">
       <DeployService-UseProjectRelativePath>True</DeployService-UseProjectRelativePath>
+    </Content>
+    <Content Include="Resources\Config.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
 </Project>
