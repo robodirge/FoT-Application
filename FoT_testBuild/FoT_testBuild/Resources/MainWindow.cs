@@ -18,6 +18,7 @@ public partial class MainWindow: Gtk.Window{
 	public MainWindow (): base (Gtk.WindowType.Toplevel){
 		Build ();
 		onStartActions ();
+		label2.Text = currentPath;
 	}
 
 	/*General start up parameters*/
@@ -30,46 +31,26 @@ public partial class MainWindow: Gtk.Window{
 		entry4.Visible = false;
 		enabledSection = false;
 		//---------------------------------------
+
 		string configLocation = Environment.CurrentDirectory + @"\Resources\Config.txt";
+
+		baseLocation1 = Environment.CurrentDirectory + @"\Resources\Unrepeatable.docx";
+		baseLocation = Environment.CurrentDirectory + @"\Resources\Client Name - Project Name Daily Report - DDMMYYYY.docx";
+
 		try{
+
 			using(StreamReader sr = new StreamReader(configLocation)){
 				string line = sr.ReadToEnd();
 				Console.WriteLine(line);
 
 				if(line == "Default"){
-					//---------------------------------------
-					//Console.WriteLine(Environment.CurrentDirectory);
-					baseLocation1 = Environment.CurrentDirectory + @"\Resources\Unrepeatable.docx";
-					baseLocation = Environment.CurrentDirectory + @"\Resources\Client Name - Project Name Daily Report - DDMMYYYY.docx";
-
-					//Get the user's path to desktop folder
 					currentPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-					//Supply a folder name to be created onto the desktop
 					currentPath = currentPath + @"\FoT\";
-
-					if(Directory.Exists(currentPath)){
-						return;
-					}else{
-						DirectoryInfo di = Directory.CreateDirectory(currentPath);
-					}
 				}else{
-					//--------------------------------------- // C:\Users\Ben\Desktop
-					//Console.WriteLine(Environment.CurrentDirectory);
-					baseLocation1 = Environment.CurrentDirectory + @"\Resources\Unrepeatable.docx";
-					baseLocation = Environment.CurrentDirectory + @"\Resources\Client Name - Project Name Daily Report - DDMMYYYY.docx";
-
-					//Get the user's path to desktop folder
 					currentPath = line;
-					//Supply a folder name to be created onto the desktop
-					currentPath = currentPath + @"\FoT\";
-
-					if(Directory.Exists(currentPath)){
-						return;
-					}else{
-						DirectoryInfo di = Directory.CreateDirectory(currentPath);
-					}
-
+					currentPath = currentPath;
 				}
+
 			}
 		}catch{
 			Console.WriteLine("Can not locate 'Config.txt'");
@@ -88,9 +69,9 @@ public partial class MainWindow: Gtk.Window{
 
 	protected void OnButton2Clicked(object sender, EventArgs e){
 		Gtk.FileChooserDialog fc = new Gtk.FileChooserDialog("Choose a file", this, FileChooserAction.SelectFolder, "cancel", ResponseType.Cancel, "choose", ResponseType.Accept);
-
+		string mytempfilename = "";
 		if(fc.Run() == (int)ResponseType.Accept){
-			string mytempfilename = fc.CurrentFolder;
+			mytempfilename = fc.CurrentFolder;
 
 			string configLocation = Environment.CurrentDirectory + @"\Resources\Config.txt";
 			FileInfo fi = new FileInfo(configLocation);
@@ -99,14 +80,22 @@ public partial class MainWindow: Gtk.Window{
 				tw.Write(mytempfilename);
 				tw.Close();
 			}
+			currentPath = mytempfilename;
+			label2.Text = mytempfilename;
 			//Console.WriteLine(mytempfilename);
 			fc.Destroy();
 		}else{
 			fc.Destroy();
 		}
+
 	}
 
 	protected void OnButtonContinueClicked (object sender, EventArgs e){
+
+		if(!Directory.Exists(currentPath)){
+			DirectoryInfo di = Directory.CreateDirectory(currentPath);
+		}
+
 		//Collect the data the user entered
 		string clientName1 = entry1.Text;
 		string projectName1 = entry2.Text;
@@ -144,7 +133,7 @@ public partial class MainWindow: Gtk.Window{
 		//string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
 
 		string currentDate = DateTime.Now.ToString("yyyy_MMMMM");
-		currentPath = currentPath + @"\FoT\" + currentDate + @"\";
+		currentPath = currentPath + @"\" + currentDate + @"\";
 
 		if(!Directory.Exists(currentPath)){
 			DirectoryInfo di = Directory.CreateDirectory(currentPath);
