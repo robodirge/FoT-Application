@@ -38,7 +38,6 @@ public partial class MainWindow: Gtk.Window{
 		baseLocation = Environment.CurrentDirectory + @"\Resources\Client Name - Project Name Daily Report - DDMMYYYY.docx";
 
 		try{
-
 			using(StreamReader sr = new StreamReader(configLocation)){
 				string line = sr.ReadToEnd();
 				Console.WriteLine(line);
@@ -50,7 +49,6 @@ public partial class MainWindow: Gtk.Window{
 					currentPath = line;
 					currentPath = currentPath;
 				}
-
 			}
 		}catch{
 			Console.WriteLine("Can not locate 'Config.txt'");
@@ -82,16 +80,13 @@ public partial class MainWindow: Gtk.Window{
 			}
 			currentPath = mytempfilename;
 			label2.Text = mytempfilename;
-			//Console.WriteLine(mytempfilename);
 			fc.Destroy();
 		}else{
 			fc.Destroy();
 		}
-
 	}
 
 	protected void OnButtonContinueClicked (object sender, EventArgs e){
-
 		if(!Directory.Exists(currentPath)){
 			DirectoryInfo di = Directory.CreateDirectory(currentPath);
 		}
@@ -128,9 +123,6 @@ public partial class MainWindow: Gtk.Window{
 
 			FullDayResource = clientName2 + " - " + projectName2;
 		}
-
-		//Get the user's path to desktop folder
-		//string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
 
 		string currentDate = DateTime.Now.ToString("yyyy_MMMMM");
 		currentPath = currentPath + @"\" + currentDate + @"\";
@@ -184,8 +176,6 @@ public partial class MainWindow: Gtk.Window{
 			if(!Directory.Exists(pathClient2)){
 				DirectoryInfo di = Directory.CreateDirectory(pathClient2);
 
-				// Copy dayily report here
-				// Copy dayily report here
 				string tempNameString = pathClient2 + @"Client Name - Project Name Daily Report - DDMMYYYY.docx";
 				File.Copy(baseLocation, tempNameString);
 				System.IO.File.Move(tempNameString, (pathClient2 + fullDR + DailyDate + @".docx"));
@@ -202,11 +192,6 @@ public partial class MainWindow: Gtk.Window{
 				massCreateFiles(ref pathClient2);
 			}
 		}
-
-		//MessageDialog.
-		/*MessageDialog myDialogWindow2 = new MessageDialog(this, DialogFlags.Modal, MessageType.Error, ButtonsType.Ok, "Folders created");
-			myDialogWindow2.Run();
-			myDialogWindow2.Destroy();*/
 		Application.Quit ();
 	}
 
@@ -237,5 +222,37 @@ public partial class MainWindow: Gtk.Window{
 			entry4.Visible = false;
 			enabledSection = false;
 		}
+	}
+	protected void OnNewActionActivated(object sender, EventArgs e){
+		return;
+	}
+
+	protected void OnClearActionActivated(object sender, EventArgs e){
+		return;
+	}
+
+	protected void OnButton1Clicked (object sender, EventArgs e){
+		string configLocation = Environment.CurrentDirectory + @"\Resources\Config.txt";
+		FileInfo fi = new FileInfo(configLocation);
+
+		using(TextWriter tw = new StreamWriter(fi.Open(FileMode.Truncate))){
+			string temptstr = "Default"; 
+			tw.Write(temptstr);
+			tw.Close();
+			label2.Text = currentPath;
+		}
+		currentPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+		currentPath = currentPath + @"\FoT\";
+		label2.Text = currentPath;
+
+		entry1.Text = "";
+		entry2.Text = "";
+		entry3.Text = "";
+		entry4.Text = "";
+	}
+
+	protected void OnDevEnviromentActionActivated (object sender, EventArgs e)
+	{
+		new FoT.DevWindow();
 	}
 }

@@ -1,8 +1,9 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="FoT_testBuild\Resources\MainWindow.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="FoT_testBuild\Resources\DevWindow.cs">
     <Files>
-      <File FileName="FoT_testBuild\Resources\MainWindow.cs" Line="126" Column="32" />
+      <File FileName="FoT_testBuild\Resources\MainWindow.cs" Line="256" Column="3" />
+      <File FileName="FoT_testBuild\Resources\DevWindow.cs" Line="16" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
