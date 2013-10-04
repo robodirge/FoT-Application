@@ -8,6 +8,7 @@
     <widget-library name="glade-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
     <widget-library name="../bin/Debug/FoT.exe" internal="true" />
   </import>
+  <action-group name="FoT.ActionGroup" />
   <widget class="Gtk.Window" id="MainWindow" design-size="500 500">
     <action-group name="Default">
       <action id="newAction">
@@ -33,9 +34,9 @@
     </action-group>
     <property name="MemberName" />
     <property name="WidthRequest">500</property>
-    <property name="HeightRequest">400</property>
+    <property name="HeightRequest">500</property>
     <property name="Tooltip" translatable="yes" />
-    <property name="Title" translatable="yes">FoTApplication</property>
+    <property name="Title" translatable="yes">FoT Application</property>
     <property name="Icon">stock:gtk-apply Menu</property>
     <property name="TypeHint">Dialog</property>
     <property name="WindowPosition">CenterOnParent</property>
@@ -153,62 +154,14 @@
           </packing>
         </child>
         <child>
-          <widget class="Gtk.HBox" id="hbox1">
-            <property name="MemberName" />
-            <property name="Spacing">6</property>
-            <child>
-              <widget class="Gtk.RadioButton" id="radioResource1">
-                <property name="MemberName" />
-                <property name="HeightRequest">50</property>
-                <property name="Tooltip" translatable="yes">1 Project in a day</property>
-                <property name="CanFocus">True</property>
-                <property name="Label" translatable="yes">1 project</property>
-                <property name="Active">True</property>
-                <property name="DrawIndicator">True</property>
-                <property name="HasLabel">True</property>
-                <property name="UseUnderline">True</property>
-                <property name="Group">group1</property>
-              </widget>
-              <packing>
-                <property name="Position">0</property>
-                <property name="AutoSize">True</property>
-                <property name="Padding">50</property>
-              </packing>
-            </child>
-            <child>
-              <widget class="Gtk.RadioButton" id="radioResource2">
-                <property name="MemberName" />
-                <property name="Tooltip" translatable="yes">2 projects in a day</property>
-                <property name="CanFocus">True</property>
-                <property name="Label" translatable="yes">2 projects</property>
-                <property name="DrawIndicator">True</property>
-                <property name="HasLabel">True</property>
-                <property name="UseUnderline">True</property>
-                <property name="Group">group1</property>
-                <signal name="Toggled" handler="OnRadioResource2Toggled" />
-              </widget>
-              <packing>
-                <property name="Position">1</property>
-                <property name="AutoSize">True</property>
-              </packing>
-            </child>
-          </widget>
-          <packing>
-            <property name="Position">1</property>
-            <property name="AutoSize">True</property>
-            <property name="Expand">False</property>
-            <property name="Fill">False</property>
-          </packing>
-        </child>
-        <child>
           <widget class="Gtk.Label" id="labelClient1">
             <property name="MemberName" />
-            <property name="LabelProp" translatable="yes">Please enter the first client name below.</property>
+            <property name="LabelProp" translatable="yes">Client name</property>
             <property name="Wrap">True</property>
             <property name="Justify">Fill</property>
           </widget>
           <packing>
-            <property name="Position">2</property>
+            <property name="Position">1</property>
             <property name="AutoSize">True</property>
             <property name="Expand">False</property>
             <property name="Fill">False</property>
@@ -222,7 +175,7 @@
             <property name="InvisibleChar">●</property>
           </widget>
           <packing>
-            <property name="Position">3</property>
+            <property name="Position">2</property>
             <property name="AutoSize">True</property>
             <property name="Expand">False</property>
             <property name="Fill">False</property>
@@ -231,11 +184,11 @@
         <child>
           <widget class="Gtk.Label" id="labelProject1">
             <property name="MemberName" />
-            <property name="LabelProp" translatable="yes">Please enter the first project name below.</property>
+            <property name="LabelProp" translatable="yes">Project name</property>
             <property name="Wrap">True</property>
           </widget>
           <packing>
-            <property name="Position">4</property>
+            <property name="Position">3</property>
             <property name="AutoSize">True</property>
             <property name="Expand">False</property>
             <property name="Fill">False</property>
@@ -249,7 +202,7 @@
             <property name="InvisibleChar">●</property>
           </widget>
           <packing>
-            <property name="Position">5</property>
+            <property name="Position">4</property>
             <property name="AutoSize">True</property>
             <property name="Expand">False</property>
             <property name="Fill">False</property>
@@ -258,11 +211,11 @@
         <child>
           <widget class="Gtk.Label" id="labelClient2">
             <property name="MemberName" />
-            <property name="LabelProp" translatable="yes">Please enter the second client name below. </property>
+            <property name="LabelProp" translatable="yes">Test URL (One version only)</property>
             <property name="Wrap">True</property>
           </widget>
           <packing>
-            <property name="Position">6</property>
+            <property name="Position">5</property>
             <property name="AutoSize">True</property>
             <property name="Expand">False</property>
             <property name="Fill">False</property>
@@ -276,7 +229,7 @@
             <property name="InvisibleChar">●</property>
           </widget>
           <packing>
-            <property name="Position">7</property>
+            <property name="Position">6</property>
             <property name="AutoSize">True</property>
             <property name="Expand">False</property>
             <property name="Fill">False</property>
@@ -285,8 +238,22 @@
         <child>
           <widget class="Gtk.Label" id="labelProject2">
             <property name="MemberName" />
-            <property name="LabelProp" translatable="yes">Please enter the second project name below.</property>
+            <property name="LabelProp" translatable="yes">Build Version (One version only)</property>
             <property name="Wrap">True</property>
+          </widget>
+          <packing>
+            <property name="Position">7</property>
+            <property name="AutoSize">True</property>
+            <property name="Expand">False</property>
+            <property name="Fill">False</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Entry" id="entry4">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="IsEditable">True</property>
+            <property name="InvisibleChar">●</property>
           </widget>
           <packing>
             <property name="Position">8</property>
@@ -296,18 +263,12 @@
           </packing>
         </child>
         <child>
-          <widget class="Gtk.Entry" id="entry4">
+          <widget class="Gtk.VSeparator" id="vseparator1">
             <property name="MemberName" />
-            <property name="HeightRequest">0</property>
-            <property name="CanFocus">True</property>
-            <property name="IsEditable">True</property>
-            <property name="InvisibleChar">●</property>
           </widget>
           <packing>
             <property name="Position">9</property>
             <property name="AutoSize">True</property>
-            <property name="Expand">False</property>
-            <property name="Fill">False</property>
           </packing>
         </child>
         <child>
@@ -362,6 +323,21 @@
           </widget>
           <packing>
             <property name="Position">10</property>
+            <property name="AutoSize">True</property>
+            <property name="Expand">False</property>
+            <property name="Fill">False</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="label3">
+            <property name="MemberName" />
+            <property name="LabelProp" translatable="yes">Notes:
+Do not add / , . \ into Client or Project name fields 
+Fields can be left blank</property>
+            <property name="Wrap">True</property>
+          </widget>
+          <packing>
+            <property name="Position">11</property>
             <property name="AutoSize">True</property>
             <property name="Expand">False</property>
             <property name="Fill">False</property>

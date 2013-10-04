@@ -15,9 +15,6 @@ public partial class MainWindow
 	private global::Gtk.HSeparator hseparator2;
 	private global::Gtk.Button button2;
 	private global::Gtk.Label label2;
-	private global::Gtk.HBox hbox1;
-	private global::Gtk.RadioButton radioResource1;
-	private global::Gtk.RadioButton radioResource2;
 	private global::Gtk.Label labelClient1;
 	private global::Gtk.Entry entry1;
 	private global::Gtk.Label labelProject1;
@@ -26,10 +23,12 @@ public partial class MainWindow
 	private global::Gtk.Entry entry3;
 	private global::Gtk.Label labelProject2;
 	private global::Gtk.Entry entry4;
+	private global::Gtk.VSeparator vseparator1;
 	private global::Gtk.HBox hbox2;
 	private global::Gtk.Button buttonQuit;
 	private global::Gtk.HSeparator hseparator1;
 	private global::Gtk.Button buttonContinue;
+	private global::Gtk.Label label3;
 
 	protected virtual void Build ()
 	{
@@ -50,9 +49,9 @@ public partial class MainWindow
 		this.UIManager.InsertActionGroup (w1, 0);
 		this.AddAccelGroup (this.UIManager.AccelGroup);
 		this.WidthRequest = 500;
-		this.HeightRequest = 400;
+		this.HeightRequest = 500;
 		this.Name = "MainWindow";
-		this.Title = global::Mono.Unix.Catalog.GetString ("FoTApplication");
+		this.Title = global::Mono.Unix.Catalog.GetString ("FoT Application");
 		this.Icon = global::Stetic.IconLoader.LoadIcon (this, "gtk-apply", global::Gtk.IconSize.Menu);
 		this.TypeHint = ((global::Gdk.WindowTypeHint)(1));
 		this.WindowPosition = ((global::Gtk.WindowPosition)(4));
@@ -60,7 +59,6 @@ public partial class MainWindow
 		this.Resizable = false;
 		// Container child MainWindow.Gtk.Container+ContainerChild
 		this.vbox1 = new global::Gtk.VBox ();
-		this.vbox1.Name = "vbox1";
 		this.vbox1.Spacing = 6;
 		// Container child vbox1.Gtk.Box+BoxChild
 		this.vbox2 = new global::Gtk.VBox ();
@@ -138,49 +136,16 @@ public partial class MainWindow
 		w9.Expand = false;
 		w9.Fill = false;
 		// Container child vbox1.Gtk.Box+BoxChild
-		this.hbox1 = new global::Gtk.HBox ();
-		this.hbox1.Name = "hbox1";
-		this.hbox1.Spacing = 6;
-		// Container child hbox1.Gtk.Box+BoxChild
-		this.radioResource1 = new global::Gtk.RadioButton (global::Mono.Unix.Catalog.GetString ("1 project"));
-		this.radioResource1.TooltipMarkup = "1 Project in a day";
-		this.radioResource1.HeightRequest = 50;
-		this.radioResource1.CanFocus = true;
-		this.radioResource1.Name = "radioResource1";
-		this.radioResource1.DrawIndicator = true;
-		this.radioResource1.UseUnderline = true;
-		this.radioResource1.Group = new global::GLib.SList (global::System.IntPtr.Zero);
-		this.hbox1.Add (this.radioResource1);
-		global::Gtk.Box.BoxChild w10 = ((global::Gtk.Box.BoxChild)(this.hbox1 [this.radioResource1]));
-		w10.Position = 0;
-		w10.Padding = ((uint)(50));
-		// Container child hbox1.Gtk.Box+BoxChild
-		this.radioResource2 = new global::Gtk.RadioButton (global::Mono.Unix.Catalog.GetString ("2 projects"));
-		this.radioResource2.TooltipMarkup = "2 projects in a day";
-		this.radioResource2.CanFocus = true;
-		this.radioResource2.Name = "radioResource2";
-		this.radioResource2.DrawIndicator = true;
-		this.radioResource2.UseUnderline = true;
-		this.radioResource2.Group = this.radioResource1.Group;
-		this.hbox1.Add (this.radioResource2);
-		global::Gtk.Box.BoxChild w11 = ((global::Gtk.Box.BoxChild)(this.hbox1 [this.radioResource2]));
-		w11.Position = 1;
-		this.vbox1.Add (this.hbox1);
-		global::Gtk.Box.BoxChild w12 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.hbox1]));
-		w12.Position = 1;
-		w12.Expand = false;
-		w12.Fill = false;
-		// Container child vbox1.Gtk.Box+BoxChild
 		this.labelClient1 = new global::Gtk.Label ();
 		this.labelClient1.Name = "labelClient1";
-		this.labelClient1.LabelProp = global::Mono.Unix.Catalog.GetString ("Please enter the first client name below.");
+		this.labelClient1.LabelProp = global::Mono.Unix.Catalog.GetString ("Client name");
 		this.labelClient1.Wrap = true;
 		this.labelClient1.Justify = ((global::Gtk.Justification)(3));
 		this.vbox1.Add (this.labelClient1);
-		global::Gtk.Box.BoxChild w13 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.labelClient1]));
-		w13.Position = 2;
-		w13.Expand = false;
-		w13.Fill = false;
+		global::Gtk.Box.BoxChild w10 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.labelClient1]));
+		w10.Position = 1;
+		w10.Expand = false;
+		w10.Fill = false;
 		// Container child vbox1.Gtk.Box+BoxChild
 		this.entry1 = new global::Gtk.Entry ();
 		this.entry1.CanFocus = true;
@@ -188,20 +153,20 @@ public partial class MainWindow
 		this.entry1.IsEditable = true;
 		this.entry1.InvisibleChar = '●';
 		this.vbox1.Add (this.entry1);
-		global::Gtk.Box.BoxChild w14 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.entry1]));
-		w14.Position = 3;
-		w14.Expand = false;
-		w14.Fill = false;
+		global::Gtk.Box.BoxChild w11 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.entry1]));
+		w11.Position = 2;
+		w11.Expand = false;
+		w11.Fill = false;
 		// Container child vbox1.Gtk.Box+BoxChild
 		this.labelProject1 = new global::Gtk.Label ();
 		this.labelProject1.Name = "labelProject1";
-		this.labelProject1.LabelProp = global::Mono.Unix.Catalog.GetString ("Please enter the first project name below.");
+		this.labelProject1.LabelProp = global::Mono.Unix.Catalog.GetString ("Project name");
 		this.labelProject1.Wrap = true;
 		this.vbox1.Add (this.labelProject1);
-		global::Gtk.Box.BoxChild w15 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.labelProject1]));
-		w15.Position = 4;
-		w15.Expand = false;
-		w15.Fill = false;
+		global::Gtk.Box.BoxChild w12 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.labelProject1]));
+		w12.Position = 3;
+		w12.Expand = false;
+		w12.Fill = false;
 		// Container child vbox1.Gtk.Box+BoxChild
 		this.entry2 = new global::Gtk.Entry ();
 		this.entry2.CanFocus = true;
@@ -209,20 +174,20 @@ public partial class MainWindow
 		this.entry2.IsEditable = true;
 		this.entry2.InvisibleChar = '●';
 		this.vbox1.Add (this.entry2);
-		global::Gtk.Box.BoxChild w16 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.entry2]));
-		w16.Position = 5;
-		w16.Expand = false;
-		w16.Fill = false;
+		global::Gtk.Box.BoxChild w13 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.entry2]));
+		w13.Position = 4;
+		w13.Expand = false;
+		w13.Fill = false;
 		// Container child vbox1.Gtk.Box+BoxChild
 		this.labelClient2 = new global::Gtk.Label ();
 		this.labelClient2.Name = "labelClient2";
-		this.labelClient2.LabelProp = global::Mono.Unix.Catalog.GetString ("Please enter the second client name below. ");
+		this.labelClient2.LabelProp = global::Mono.Unix.Catalog.GetString ("Test URL (One version only)");
 		this.labelClient2.Wrap = true;
 		this.vbox1.Add (this.labelClient2);
-		global::Gtk.Box.BoxChild w17 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.labelClient2]));
-		w17.Position = 6;
-		w17.Expand = false;
-		w17.Fill = false;
+		global::Gtk.Box.BoxChild w14 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.labelClient2]));
+		w14.Position = 5;
+		w14.Expand = false;
+		w14.Fill = false;
 		// Container child vbox1.Gtk.Box+BoxChild
 		this.entry3 = new global::Gtk.Entry ();
 		this.entry3.CanFocus = true;
@@ -230,32 +195,37 @@ public partial class MainWindow
 		this.entry3.IsEditable = true;
 		this.entry3.InvisibleChar = '●';
 		this.vbox1.Add (this.entry3);
-		global::Gtk.Box.BoxChild w18 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.entry3]));
-		w18.Position = 7;
-		w18.Expand = false;
-		w18.Fill = false;
+		global::Gtk.Box.BoxChild w15 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.entry3]));
+		w15.Position = 6;
+		w15.Expand = false;
+		w15.Fill = false;
 		// Container child vbox1.Gtk.Box+BoxChild
 		this.labelProject2 = new global::Gtk.Label ();
 		this.labelProject2.Name = "labelProject2";
-		this.labelProject2.LabelProp = global::Mono.Unix.Catalog.GetString ("Please enter the second project name below.");
+		this.labelProject2.LabelProp = global::Mono.Unix.Catalog.GetString ("Build Version (One version only)");
 		this.labelProject2.Wrap = true;
 		this.vbox1.Add (this.labelProject2);
-		global::Gtk.Box.BoxChild w19 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.labelProject2]));
-		w19.Position = 8;
-		w19.Expand = false;
-		w19.Fill = false;
+		global::Gtk.Box.BoxChild w16 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.labelProject2]));
+		w16.Position = 7;
+		w16.Expand = false;
+		w16.Fill = false;
 		// Container child vbox1.Gtk.Box+BoxChild
 		this.entry4 = new global::Gtk.Entry ();
-		this.entry4.HeightRequest = 0;
 		this.entry4.CanFocus = true;
 		this.entry4.Name = "entry4";
 		this.entry4.IsEditable = true;
 		this.entry4.InvisibleChar = '●';
 		this.vbox1.Add (this.entry4);
-		global::Gtk.Box.BoxChild w20 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.entry4]));
-		w20.Position = 9;
-		w20.Expand = false;
-		w20.Fill = false;
+		global::Gtk.Box.BoxChild w17 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.entry4]));
+		w17.Position = 8;
+		w17.Expand = false;
+		w17.Fill = false;
+		// Container child vbox1.Gtk.Box+BoxChild
+		this.vseparator1 = new global::Gtk.VSeparator ();
+		this.vseparator1.Name = "vseparator1";
+		this.vbox1.Add (this.vseparator1);
+		global::Gtk.Box.BoxChild w18 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.vseparator1]));
+		w18.Position = 9;
 		// Container child vbox1.Gtk.Box+BoxChild
 		this.hbox2 = new global::Gtk.HBox ();
 		this.hbox2.Name = "hbox2";
@@ -269,16 +239,16 @@ public partial class MainWindow
 		this.buttonQuit.UseUnderline = true;
 		this.buttonQuit.Label = global::Mono.Unix.Catalog.GetString ("Quit");
 		this.hbox2.Add (this.buttonQuit);
-		global::Gtk.Box.BoxChild w21 = ((global::Gtk.Box.BoxChild)(this.hbox2 [this.buttonQuit]));
-		w21.Position = 0;
-		w21.Expand = false;
-		w21.Fill = false;
+		global::Gtk.Box.BoxChild w19 = ((global::Gtk.Box.BoxChild)(this.hbox2 [this.buttonQuit]));
+		w19.Position = 0;
+		w19.Expand = false;
+		w19.Fill = false;
 		// Container child hbox2.Gtk.Box+BoxChild
 		this.hseparator1 = new global::Gtk.HSeparator ();
 		this.hseparator1.Name = "hseparator1";
 		this.hbox2.Add (this.hseparator1);
-		global::Gtk.Box.BoxChild w22 = ((global::Gtk.Box.BoxChild)(this.hbox2 [this.hseparator1]));
-		w22.Position = 1;
+		global::Gtk.Box.BoxChild w20 = ((global::Gtk.Box.BoxChild)(this.hbox2 [this.hseparator1]));
+		w20.Position = 1;
 		// Container child hbox2.Gtk.Box+BoxChild
 		this.buttonContinue = new global::Gtk.Button ();
 		this.buttonContinue.TooltipMarkup = "Create client and project folders";
@@ -288,15 +258,26 @@ public partial class MainWindow
 		this.buttonContinue.UseUnderline = true;
 		this.buttonContinue.Label = global::Mono.Unix.Catalog.GetString ("Create Folders");
 		this.hbox2.Add (this.buttonContinue);
-		global::Gtk.Box.BoxChild w23 = ((global::Gtk.Box.BoxChild)(this.hbox2 [this.buttonContinue]));
-		w23.Position = 2;
+		global::Gtk.Box.BoxChild w21 = ((global::Gtk.Box.BoxChild)(this.hbox2 [this.buttonContinue]));
+		w21.Position = 2;
+		w21.Expand = false;
+		w21.Fill = false;
+		this.vbox1.Add (this.hbox2);
+		global::Gtk.Box.BoxChild w22 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.hbox2]));
+		w22.Position = 10;
+		w22.Expand = false;
+		w22.Fill = false;
+		// Container child vbox1.Gtk.Box+BoxChild
+		this.label3 = new global::Gtk.Label ();
+		this.label3.Name = "label3";
+		this.label3.LabelProp = global::Mono.Unix.Catalog.GetString ("Notes:\nDo not add / , . \\ into Client or Project name fields \nFields can be left " +
+			"blank");
+		this.label3.Wrap = true;
+		this.vbox1.Add (this.label3);
+		global::Gtk.Box.BoxChild w23 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.label3]));
+		w23.Position = 11;
 		w23.Expand = false;
 		w23.Fill = false;
-		this.vbox1.Add (this.hbox2);
-		global::Gtk.Box.BoxChild w24 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.hbox2]));
-		w24.Position = 10;
-		w24.Expand = false;
-		w24.Fill = false;
 		this.Add (this.vbox1);
 		if ((this.Child != null)) {
 			this.Child.ShowAll ();
@@ -309,7 +290,6 @@ public partial class MainWindow
 		this.DevEnviromentAction.Activated += new global::System.EventHandler (this.OnDevEnviromentActionActivated);
 		this.button1.Clicked += new global::System.EventHandler (this.OnButton1Clicked);
 		this.button2.Clicked += new global::System.EventHandler (this.OnButton2Clicked);
-		this.radioResource2.Toggled += new global::System.EventHandler (this.OnRadioResource2Toggled);
 		this.buttonQuit.Clicked += new global::System.EventHandler (this.OnButtonQuitClicked);
 		this.buttonContinue.Clicked += new global::System.EventHandler (this.OnButtonContinueClicked);
 	}

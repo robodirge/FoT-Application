@@ -85,18 +85,25 @@
     </Compile>
     <Compile Include="Resources\DevWindow.cs" />
     <Compile Include="gtk-gui\FoT.DevWindow.cs" />
+    <Compile Include="Resources\ActionGroup.cs" />
+    <Compile Include="gtk-gui\FoT.ActionGroup.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
     <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Logo.png" />
     <None Include="MainWindow.cs">
       <Visible>False</Visible>
     </None>
     <None Include="Program.cs">
       <Visible>False</Visible>
+    </None>
+    <None Include="Resources\meh.txt">
+      <Visible>False</Visible>
+    </None>
+    <None Include="Resources\ZoonouLogo.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
   <ProjectExtensions>

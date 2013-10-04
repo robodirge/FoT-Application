@@ -22,11 +22,15 @@ public partial class MainWindow: Gtk.Window{
 	public static bool enabledSection { get; set; }
 	public static string baseLocation { get; set; }
 	public static string baseLocation1 { get; set; }
+	public static string imageLoc { get; set; }
 	public static string currentPath {get; set; }
 	public static bool runDocMode {get; set;}
 
 	public static string clientName1{get; set;}
 	public static string projectName1{get; set;}
+	public static string txtURL{get; set;}
+	public static string txtVersion{get; set;}
+	public static string newPath {get; set; }
 
 	//Word.Application wordApplication = new Word.Application();
 	Word.Application wordApplication = null;
@@ -40,19 +44,12 @@ public partial class MainWindow: Gtk.Window{
 
 	/*General start up parameters*/
 	protected void onStartActions(){
-		// Turn off visable labels and text areas
-		enabledSection = false;
-		labelClient2.Visible = false;
-		labelProject2.Visible = false;
-		entry3.Visible = false;
-		entry4.Visible = false;
-		enabledSection = false;
 
 		runDocMode = true;  //<----- word doc mode
 		//---------------------------------------
 
 		string configLocation = Environment.CurrentDirectory + @"\Resources\Config.txt";
-
+		imageLoc = Environment.CurrentDirectory + @"\Resources\ZoonouLogo.jpg";
 		baseLocation1 = Environment.CurrentDirectory + @"\Resources\Unrepeatable.docx";
 		baseLocation = Environment.CurrentDirectory + @"\Resources\Client Name - Project Name Daily Report - DDMMYYYY.docx";
 
@@ -87,6 +84,7 @@ public partial class MainWindow: Gtk.Window{
 	protected void OnButton2Clicked(object sender, EventArgs e){
 		Gtk.FileChooserDialog fc = new Gtk.FileChooserDialog("Choose a file", this, FileChooserAction.SelectFolder, "cancel", ResponseType.Cancel, "choose", ResponseType.Accept);
 		string mytempfilename = "";
+
 		if(fc.Run() == (int)ResponseType.Accept){
 			mytempfilename = fc.CurrentFolder;
 
@@ -113,6 +111,8 @@ public partial class MainWindow: Gtk.Window{
 		//Collect the data the user entered
 		clientName1 = entry1.Text;
 		projectName1 = entry2.Text;
+		txtURL = entry3.Text;
+		txtVersion = entry4.Text;
 
 		//If the user did not supply any name - provide the folder/file with a default name
 		if(clientName1 == ""){
@@ -126,22 +126,6 @@ public partial class MainWindow: Gtk.Window{
 		string halfDayResource = clientName1 + " - " + projectName1;
 		//Creating string for use later
 		string FullDayResource = "";
-
-		/*if(enabledSection==true){
-			string clientName2 = entry3.Text;
-			string projectName2 = entry4.Text;
-
-			//If the user did not supply any name - provide the folder/file with a default name
-			if(clientName2 == ""){
-				clientName2 = "Client_2";
-			}
-
-			if(projectName2 == ""){
-				projectName2 = "Project_2";
-			}
-
-			FullDayResource = clientName2 + " - " + projectName2;
-		}*/
 
 		string currentDate = DateTime.Now.ToString("yyyy_MMMMM");
 		currentPath = currentPath + @"\" + currentDate + @"\";
@@ -171,9 +155,10 @@ public partial class MainWindow: Gtk.Window{
 			DirectoryInfo di = Directory.CreateDirectory(pathClient1);
 
 			// Copy dayily report here
-			string tempNameString = pathClient1 + @"Client Name - Project Name Daily Report - DDMMYYYY.docx";
-			File.Copy(baseLocation, tempNameString);
-			System.IO.File.Move(tempNameString, (pathClient1 + halfDR + DailyDate + @".docx"));
+			//string tempNameString = pathClient1 + @"Client Name - Project Name Daily Report - DDMMYYYY.docx";
+			//File.Copy(baseLocation, tempNameString);
+			//System.IO.File.Move(tempNameString, (pathClient1 + halfDR + DailyDate + @".docx"));
+			newPath = (pathClient1 + halfDR + DailyDate + @".docx");
 
 			//Create folder working docs
 			DirectoryInfo wd = Directory.CreateDirectory((pathClient1 + @"Working_Docs\"));
@@ -186,30 +171,6 @@ public partial class MainWindow: Gtk.Window{
 			//Create files using path and name etc
 			massCreateFiles(ref pathClient1);
 		}
-
-		/*if(enabledSection==true){
-			string pathClient2 = path;
-			pathClient2 = pathClient2 + fullDR + @"\";
-
-			if(!Directory.Exists(pathClient2)){
-				DirectoryInfo di = Directory.CreateDirectory(pathClient2);
-
-				string tempNameString = pathClient2 + @"Client Name - Project Name Daily Report - DDMMYYYY.docx";
-				File.Copy(baseLocation, tempNameString);
-				System.IO.File.Move(tempNameString, (pathClient2 + fullDR + DailyDate + @".docx"));
-
-				//Create folder working docs
-				DirectoryInfo wd = Directory.CreateDirectory((pathClient2 + @"Working_Docs\"));
-				//Copy unrepeat doc in the folder just created
-				string tempLocString = pathClient2 + @"Working_Docs\Unrepeatable.docx";
-				File.Copy(baseLocation1, tempLocString);
-
-				//Creae folder pics and sub folders
-				pathClient2 = pathClient2 + @"Screenshots\";
-				//Create files using path and name etc
-				massCreateFiles(ref pathClient2);
-			}
-		}*/
 
 		if(runDocMode == true)
 			runWordApplication();
@@ -232,20 +193,10 @@ public partial class MainWindow: Gtk.Window{
 		DirectoryInfo Wp = Directory.CreateDirectory((dirPath + @"WindowsPhone\"));
 	}
 
+	#region deadsections
+
 	protected void OnRadioResource2Toggled (object sender, EventArgs e){
-		if (enabledSection == false) {
-			labelClient2.Visible = true;
-			labelProject2.Visible = true;
-			entry3.Visible = true;
-			entry4.Visible = true;
-			enabledSection = true;
-		} else {
-			labelClient2.Visible = false;
-			labelProject2.Visible = false;
-			entry3.Visible = false;
-			entry4.Visible = false;
-			enabledSection = false;
-		}
+		return;
 	}
 	protected void OnNewActionActivated(object sender, EventArgs e){
 		return;
@@ -254,6 +205,8 @@ public partial class MainWindow: Gtk.Window{
 	protected void OnClearActionActivated(object sender, EventArgs e){
 		return;
 	}
+
+	#endregion
 
 	protected void OnButton1Clicked (object sender, EventArgs e){
 		string configLocation = Environment.CurrentDirectory + @"\Resources\Config.txt";
@@ -274,8 +227,7 @@ public partial class MainWindow: Gtk.Window{
 		entry3.Text = "";
 		entry4.Text = "";
 	}
-	protected void OnDevEnviromentActionActivated (object sender, EventArgs e)
-	{
+	protected void OnDevEnviromentActionActivated (object sender, EventArgs e){
 		new FoT.DevWindow();
 	}
 
@@ -304,14 +256,21 @@ public partial class MainWindow: Gtk.Window{
 
 		wordApplication.Selection.TypeText(@"*Environments checked in this test run");
 		wordApplication.ActiveWindow.View.SeekView = WdSeekView.wdSeekCurrentPageHeader;
-		wordApplication.Selection.InlineShapes.AddPicture(@"C:\Users\Ben\Desktop\Develop_WIP\delete me\ZoonouLogo.jpg");
+		//string configLocation = Environment.CurrentDirectory + @"ZoonouLogo.jpg";
+		//wordApplication.Selection.InlineShapes.AddPicture(@"C:\Users\Ben\Desktop\Develop_WIP\delete me\ZoonouLogo.jpg");
+		wordApplication.Selection.InlineShapes.AddPicture(imageLoc);
 		wordApplication.Selection.MoveRight();
 		wordApplication.ActiveWindow.Selection.TypeParagraph();
 		wordApplication.Selection.PageSetup.HeaderDistance = 12.00f;
 		wordApplication.Selection.PageSetup.FooterDistance = 12.00f;
 		wordApplication.ActiveWindow.View.SeekView = WdSeekView.wdSeekMainDocument;
 
-		string documentFile = @"C:\Users\Ben\Desktop\Develop_WIP\delete me\test.docx";
+		//string tempNameString = pathClient1 + @"Client Name - Project Name Daily Report - DDMMYYYY.docx";
+		//System.IO.File.Move(tempNameString, (pathClient1 + halfDR + DailyDate + @".docx"));
+
+		//string documentFile = @"C:\Users\Ben\Desktop\Develop_WIP\delete me\test.docx";
+		string documentFile = newPath;
+
 		double wordVersion = Convert.ToDouble(wordApplication.Version, CultureInfo.InvariantCulture);
 		if (wordVersion >= 12.0)
 			newDocument.SaveAs(documentFile, WdSaveFormat.wdFormatDocumentDefault);
@@ -360,6 +319,10 @@ public partial class MainWindow: Gtk.Window{
 		wordApplication.Selection.TypeText(clientName1);
 		table.Cell(3,2).Select();
 		wordApplication.Selection.TypeText(projectName1);
+		table.Cell(4,2).Select();
+		wordApplication.Selection.TypeText(txtURL);
+		table.Cell(5,2).Select();
+		wordApplication.Selection.TypeText(txtVersion);
 		table.Cell(6,2).Select();
 		wordApplication.Selection.TypeText(	@"Please detail Primary functional test environment(s) where scripted testing is being carried out. 
 
