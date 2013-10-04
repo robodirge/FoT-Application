@@ -163,6 +163,7 @@
                 <property name="Tooltip" translatable="yes">1 Project in a day</property>
                 <property name="CanFocus">True</property>
                 <property name="Label" translatable="yes">1 project</property>
+                <property name="Active">True</property>
                 <property name="DrawIndicator">True</property>
                 <property name="HasLabel">True</property>
                 <property name="UseUnderline">True</property>

@@ -1,63 +1,35 @@
 using System;
-using System.Collections.Generic;
-using System.Reflection;
-using System.Text;
-using System.Globalization;
+//using System.Collections.Generic;
+//using System.Reflection;
+//using System.Text;
+//using System.Globalization;
 
-using NetOffice;
-using Word = NetOffice.WordApi;
-using NetOffice.WordApi.Enums;
+//using NetOffice;
+//using Word = NetOffice.WordApi;
+//using NetOffice.WordApi.Enums;
 
 namespace FoT
 {
-	public partial class DevWindow : Gtk.Window
+	public partial class DevWindow : Gtk.Window 
 	{
 
-		Word.Application wordApplication = new Word.Application();
-		Word.Document newDocument = null;
+		//Word.Application wordApplication = new Word.Application();
+		//Word.Document newDocument = null;
 
 		public DevWindow () : base(Gtk.WindowType.Toplevel){
 			this.Build ();
-			/*
-			// start word and turn off msg boxes
-			Word.Application wordApplication = new Word.Application();
+			return;
+		}
+
+		/*
+			this.Build ();
 			wordApplication.DisplayAlerts = WdAlertLevel.wdAlertsNone;
-
-			// add a new document
-			Word.Document newDocument = wordApplication.Documents.Add();
-
-			// insert some text
-			wordApplication.Selection.TypeText("This text is written by NetOffice");
-
-			wordApplication.Selection.HomeKey(WdUnits.wdLine, WdMovementType.wdExtend);
-			wordApplication.Selection.Font.Color = WdColor.wdColorSeaGreen;
-			wordApplication.Selection.Font.Bold = 1;
-			wordApplication.Selection.Font.Size = 18;
-
-			// we save the document as .doc for compatibility with all word versions
-			//string documentFile = string.Format("{0}\\Example01{1}", _hostApplication.RootDirectory, ".doc");
-			string documentFile = @"C:\Users\Ben\Downloads\TemptDoc.doc";
-			double wordVersion = Convert.ToDouble(wordApplication.Version, CultureInfo.InvariantCulture);
-			if (wordVersion >= 12.0)
-				newDocument.SaveAs(documentFile, WdSaveFormat.wdFormatDocumentDefault);
-			else
-				newDocument.SaveAs(documentFile);
-
-			// close word and dispose reference
-			wordApplication.Quit();
-			wordApplication.Dispose();
-			*/
-
-			// start word and turn off msg boxes
-			//Word.Application wordApplication = new Word.Application();
-			wordApplication.DisplayAlerts = WdAlertLevel.wdAlertsNone;
-
-			// add a new document
-			//Word.Document newDocument = wordApplication.Documents.Open(@"C:\Users\Ben\Desktop\Develop_WIP\delete me\test.docx");
-			// add a new document
 			newDocument = wordApplication.Documents.Add();
 
-			//Tables
+			//wordApplication.Selection.Font.Bold = 1;
+			wordApplication.Selection.Font.Size = 11;
+			wordApplication.Selection.Font.Name = "Corbel";
+
 			firstTable();
 				moveDownpar();
 			secondTable();
@@ -68,11 +40,14 @@ namespace FoT
 				moveDownpar();
 			fithTable();
 				moveDownpar();
-			wordApplication.Selection.TypeText(@"*Environments checked in this test run");
 
+			wordApplication.Selection.TypeText(@"*Environments checked in this test run");
 			wordApplication.ActiveWindow.View.SeekView = WdSeekView.wdSeekCurrentPageHeader;
 			wordApplication.Selection.InlineShapes.AddPicture(@"C:\Users\Ben\Desktop\Develop_WIP\delete me\ZoonouLogo.jpg");
-
+			wordApplication.Selection.MoveRight();
+			wordApplication.ActiveWindow.Selection.TypeParagraph();
+			wordApplication.Selection.PageSetup.HeaderDistance = 12.00f;
+			wordApplication.Selection.PageSetup.FooterDistance = 12.00f;
 			wordApplication.ActiveWindow.View.SeekView = WdSeekView.wdSeekMainDocument;
 
 			string documentFile = @"C:\Users\Ben\Desktop\Develop_WIP\delete me\test.docx";
@@ -85,8 +60,9 @@ namespace FoT
 			// close word and dispose reference
 			wordApplication.Quit();
 			wordApplication.Dispose();
-
 		}
+
+		#region tableformat
 
 		public void moveDownpar(){
 			wordApplication.Selection.MoveDown();
@@ -124,7 +100,9 @@ namespace FoT
 			table.Cell(3,2).Select();
 			wordApplication.Selection.TypeText(@"Ben's temp Project");
 			table.Cell(6,2).Select();
-			wordApplication.Selection.TypeText(@"sjhosfhossohsofnfvosfnvofnoofojsfhosffsohfsofsosfohfso osf ojsf osf ofs sfosfiosf ofshosf osos fofsh os fhofs osfh sofh fsosfoh fsofosf osfh osf os");
+			wordApplication.Selection.TypeText(	@"sjhosfhossohsofnfvosfnvofnoofojsfhosffsohfsofsosfohfso 
+												osf ojsf osf ofs sfosfiosf ofshosf osos fofsh os fhofs osfh 
+												sofh fsosfoh fsofosf osfh osf os");
 
 			table.Style = "List Table 4 - Accent 5";
 
@@ -277,6 +255,9 @@ namespace FoT
 			table.Dispose();
 			return;
 		}
+
+		#endregion
+		*/
 	}
 }
 
