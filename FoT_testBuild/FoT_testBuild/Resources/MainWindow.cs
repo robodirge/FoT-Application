@@ -232,10 +232,15 @@ public partial class MainWindow: Gtk.Window{
 		new FoT.DevWindow();
 	}
 
+	protected void OnButton3Clicked (object sender, EventArgs e){
+		new FoT.EnvironmentChooser();
+	}
+
+
 	#endregion
 
 	protected void runWordApplication(){
-		this.Build ();
+		//this.Build ();
 		wordApplication = new Word.Application();
 		wordApplication.DisplayAlerts = WdAlertLevel.wdAlertsNone;
 		newDocument = wordApplication.Documents.Add();

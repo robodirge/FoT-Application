@@ -87,6 +87,8 @@
     <Compile Include="gtk-gui\FoT.DevWindow.cs" />
     <Compile Include="Resources\ActionGroup.cs" />
     <Compile Include="gtk-gui\FoT.ActionGroup.cs" />
+    <Compile Include="Resources\EnvironmentChooser.cs" />
+    <Compile Include="gtk-gui\FoT.EnvironmentChooser.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
