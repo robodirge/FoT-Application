@@ -23,6 +23,7 @@ public partial class MainWindow: Gtk.Window{
 	public static string baseLocation { get; set; }
 	public static string baseLocation1 { get; set; }
 	public static string imageLoc { get; set; }
+	public static string configLocation { get; set; }
 	public static string currentPath {get; set; }
 	public static bool runDocMode {get; set;}
 
@@ -48,7 +49,7 @@ public partial class MainWindow: Gtk.Window{
 		runDocMode = true;  //<----- word doc mode
 		//---------------------------------------
 
-		string configLocation = Environment.CurrentDirectory + @"\Resources\Config.txt";
+		configLocation = Environment.CurrentDirectory + @"\Resources\Config.txt";
 		imageLoc = Environment.CurrentDirectory + @"\Resources\ZoonouLogo.jpg";
 		baseLocation1 = Environment.CurrentDirectory + @"\Resources\Unrepeatable.docx";
 		baseLocation = Environment.CurrentDirectory + @"\Resources\Client Name - Project Name Daily Report - DDMMYYYY.docx";
@@ -82,13 +83,13 @@ public partial class MainWindow: Gtk.Window{
 	}
 
 	protected void OnButton2Clicked(object sender, EventArgs e){
-		Gtk.FileChooserDialog fc = new Gtk.FileChooserDialog("Choose a file", this, FileChooserAction.SelectFolder, "cancel", ResponseType.Cancel, "choose", ResponseType.Accept);
+		Gtk.FileChooserDialog fc = new Gtk.FileChooserDialog("Choose a file", this, FileChooserAction.SelectFolder, "Cancel", ResponseType.Cancel, "Choose", ResponseType.Accept);
 		string mytempfilename = "";
 
 		if(fc.Run() == (int)ResponseType.Accept){
 			mytempfilename = fc.CurrentFolder;
 
-			string configLocation = Environment.CurrentDirectory + @"\Resources\Config.txt";
+			//string configLocation = Environment.CurrentDirectory + @"\Resources\Config.txt";
 			FileInfo fi = new FileInfo(configLocation);
 
 			using(TextWriter tw = new StreamWriter(fi.Open(FileMode.Truncate))){
@@ -209,7 +210,7 @@ public partial class MainWindow: Gtk.Window{
 	#endregion
 
 	protected void OnButton1Clicked (object sender, EventArgs e){
-		string configLocation = Environment.CurrentDirectory + @"\Resources\Config.txt";
+		//string configLocation = Environment.CurrentDirectory + @"\Resources\Config.txt";
 		FileInfo fi = new FileInfo(configLocation);
 
 		using(TextWriter tw = new StreamWriter(fi.Open(FileMode.Truncate))){
