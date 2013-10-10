@@ -18,12 +18,14 @@ using NetOffice;
 using Word = NetOffice.WordApi;
 using NetOffice.WordApi.Enums;
 
+
 public partial class MainWindow: Gtk.Window{	
 	public static bool enabledSection { get; set; }
 	public static string baseLocation { get; set; }
 	public static string baseLocation1 { get; set; }
 	public static string imageLoc { get; set; }
 	public static string configLocation { get; set; }
+	public static string logfile { get; set; }
 	public static string currentPath {get; set; }
 	public static bool runDocMode {get; set;}
 
@@ -50,6 +52,7 @@ public partial class MainWindow: Gtk.Window{
 		//---------------------------------------
 
 		configLocation = Environment.CurrentDirectory + @"\Resources\Config.txt";
+		logfile = Environment.CurrentDirectory + @"\Resources\log.txt";
 		imageLoc = Environment.CurrentDirectory + @"\Resources\ZoonouLogo.jpg";
 		baseLocation1 = Environment.CurrentDirectory + @"\Resources\Unrepeatable.docx";
 		baseLocation = Environment.CurrentDirectory + @"\Resources\Client Name - Project Name Daily Report - DDMMYYYY.docx";
@@ -57,7 +60,7 @@ public partial class MainWindow: Gtk.Window{
 		try{
 			using(StreamReader sr = new StreamReader(configLocation)){
 				string line = sr.ReadToEnd();
-				Console.WriteLine(line);
+				//Console.WriteLine(line);
 
 				if(line == "Default"){
 					currentPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
@@ -240,6 +243,7 @@ public partial class MainWindow: Gtk.Window{
 	#endregion
 
 	protected void runWordApplication(){
+
 		//this.Build ();
 		wordApplication = new Word.Application();
 		wordApplication.DisplayAlerts = WdAlertLevel.wdAlertsNone;
@@ -253,6 +257,7 @@ public partial class MainWindow: Gtk.Window{
 		moveDownpar();
 		secondTable();
 		moveDownpar();
+
 		thirdTable();
 		moveDownpar();
 		fouthTable();
@@ -270,6 +275,8 @@ public partial class MainWindow: Gtk.Window{
 		wordApplication.Selection.PageSetup.HeaderDistance = 12.00f;
 		wordApplication.Selection.PageSetup.FooterDistance = 12.00f;
 		wordApplication.ActiveWindow.View.SeekView = WdSeekView.wdSeekMainDocument;
+		wordApplication.Selection.WholeStory();
+		wordApplication.Selection.Font.Color = WdColor.wdColorBlack;
 
 		//string tempNameString = pathClient1 + @"Client Name - Project Name Daily Report - DDMMYYYY.docx";
 		//System.IO.File.Move(tempNameString, (pathClient1 + halfDR + DailyDate + @".docx"));
@@ -286,6 +293,7 @@ public partial class MainWindow: Gtk.Window{
 		// close word and dispose reference
 		wordApplication.Quit();
 		wordApplication.Dispose();
+
 	}
 
 	#region tableformat
@@ -309,6 +317,7 @@ public partial class MainWindow: Gtk.Window{
 		}
 
 		table.Cell(1,1).Select();
+		wordApplication.Selection.Font.Bold = 1;
 		wordApplication.Selection.TypeText(@"Project Details");
 		table.Cell(2,1).Select();
 		wordApplication.Selection.TypeText(@"Client:");
@@ -336,7 +345,22 @@ For cross environment checks/smoke tests, please see the environments detailed i
 
 For issue verifications please state: Retests executed in environments the issues were originally raised in.");
 
-		table.Style = "List Table 4 - Accent 5";
+		String bobone = wordApplication.Version;
+
+		//new FoT.EnvironmentChooser();
+
+		if(bobone == "14.0"){
+			table.Style = "Light Shading - Accent 1";
+			table.ApplyStyleFirstColumn = false;
+			table.ApplyStyleHeadingRows = false;
+		}else{
+			//new FoT.DevWindow();
+			table.Style = "List Table 6 Colorful - Accent 1";
+			table.ApplyStyleFirstColumn = false;
+			table.ApplyStyleHeadingRows = false;
+		}
+
+
 
 		table.Dispose();
 		return;
@@ -354,6 +378,7 @@ For issue verifications please state: Retests executed in environments the issue
 		}
 
 		table.Cell(1,1).Select();
+		wordApplication.Selection.Font.Bold = 1;
 		wordApplication.Selection.TypeText(@"Report Details");
 		table.Cell(2,1).Select();
 		wordApplication.Selection.TypeText(@"Tester Name:");
@@ -366,14 +391,24 @@ For issue verifications please state: Retests executed in environments the issue
 		wordApplication.Selection.TypeText(DateTime.Now.ToString(@"dd/MM/yyyy"));
 
 
-		table.Style = "List Table 4 - Accent 5";
+		String bobone = wordApplication.Version;
+
+		if(bobone == "14.0"){
+			table.Style = "Light Shading - Accent 1";
+			table.ApplyStyleFirstColumn = false;
+			table.ApplyStyleHeadingRows = false;
+			new FoT.EnvironmentChooser();
+		}else{
+			table.Style = "List Table 6 Colorful - Accent 1";
+			table.ApplyStyleFirstColumn = false;
+			table.ApplyStyleHeadingRows = false;
+		}
 
 		table.Dispose();
 		return;
 	}
 
 	public void thirdTable(){
-		//
 		int r = 4;
 		int c = 2;
 		Word.Table table = newDocument.Tables.Add(wordApplication.Selection.Range, r, c);
@@ -384,6 +419,7 @@ For issue verifications please state: Retests executed in environments the issue
 		}
 
 		table.Cell(1,1).Select();
+		wordApplication.Selection.Font.Bold = 0;
 		wordApplication.Selection.TypeText(@"Report Detail");
 		table.Cell(2,1).Select();
 		wordApplication.Selection.TypeText(@"Test activities:");
@@ -419,8 +455,17 @@ DO NOT:
 •	Do not provide subjective feelings (e.g. “We felt that the website performed well”).
 •	Do not suggest that we are ahead of schedule.");
 
-		table.Style = "List Table 4 - Accent 5";
+			String bobone = wordApplication.Version;
 
+			if(bobone == "14.0"){
+				table.Style = "Light Shading - Accent 1";
+				table.ApplyStyleFirstColumn = false;
+				//table.ApplyStyleHeadingRows = false;
+			}else{
+				table.Style = "List Table 6 Colorful - Accent 1";
+				table.ApplyStyleFirstColumn = false;
+				//table.ApplyStyleHeadingRows = false;
+			}
 		table.Dispose();
 		return;
 	}
@@ -437,6 +482,7 @@ DO NOT:
 		}
 
 		table.Cell(1,1).Select();
+		wordApplication.Selection.Font.Bold = 1;
 		wordApplication.Selection.TypeText(@"Issue Summary");
 		table.Cell(2,1).Select();
 		wordApplication.Selection.TypeText(@"Have any issues been found that block test progress? (Y/N):");
@@ -470,7 +516,17 @@ DO NOT:
 		table.Cell(9,2).Select();
 		wordApplication.Selection.TypeText(@"#105 - Temp text");
 
-		table.Style = "List Table 4 - Accent 5";
+		String bobone = wordApplication.Version;
+
+		if(bobone == "14.0"){
+			table.Style = "Light Shading - Accent 1";
+			table.ApplyStyleFirstColumn = false;
+			table.ApplyStyleHeadingRows = false;
+		}else{
+			table.Style = "List Table 6 Colorful - Accent 1";
+			table.ApplyStyleFirstColumn = false;
+			table.ApplyStyleHeadingRows = false;
+		}
 
 		table.Dispose();
 		return;
@@ -488,6 +544,7 @@ DO NOT:
 		}
 
 		table.Cell(1,1).Select();
+		wordApplication.Selection.Font.Bold = 1;
 		wordApplication.Selection.TypeText(@"Metrics");
 		table.Cell(2,1).Select();
 		wordApplication.Selection.TypeText(@"New issues raised today:");
@@ -507,7 +564,17 @@ DO NOT:
 		table.Cell(5,2).Select();
 		wordApplication.Selection.TypeText(@"38");
 
-		table.Style = "List Table 4 - Accent 5";
+		String bobone = wordApplication.Version;
+
+		if(bobone == "14.0"){
+			table.Style = "Light Shading - Accent 1";
+			table.ApplyStyleFirstColumn = false;
+			table.ApplyStyleHeadingRows = false;
+		}else{
+			table.Style = "List Table 6 Colorful - Accent 1";
+			table.ApplyStyleFirstColumn = false;
+			table.ApplyStyleHeadingRows = false;
+		}
 
 		table.Dispose();
 		return;

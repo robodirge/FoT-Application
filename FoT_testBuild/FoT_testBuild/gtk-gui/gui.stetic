@@ -290,12 +290,15 @@
           </packing>
         </child>
         <child>
-          <widget class="Gtk.VSeparator" id="vseparator1">
+          <widget class="Gtk.Label" id="label4">
             <property name="MemberName" />
+            <property name="LabelProp" translatable="yes">label1</property>
           </widget>
           <packing>
             <property name="Position">10</property>
             <property name="AutoSize">True</property>
+            <property name="Expand">False</property>
+            <property name="Fill">False</property>
           </packing>
         </child>
         <child>
@@ -499,7 +502,6 @@ Fields can be left blank</property>
                             <property name="MemberName" />
                             <property name="CanFocus">True</property>
                             <property name="Label" translatable="yes">radiobutton7</property>
-                            <property name="Active">False</property>
                             <property name="DrawIndicator">True</property>
                             <property name="HasLabel">True</property>
                             <property name="UseUnderline">True</property>
@@ -517,7 +519,6 @@ Fields can be left blank</property>
                             <property name="MemberName" />
                             <property name="CanFocus">True</property>
                             <property name="Label" translatable="yes">radiobutton11</property>
-                            <property name="Active">False</property>
                             <property name="DrawIndicator">True</property>
                             <property name="HasLabel">True</property>
                             <property name="UseUnderline">True</property>
@@ -547,7 +548,6 @@ Fields can be left blank</property>
                             <property name="MemberName" />
                             <property name="CanFocus">True</property>
                             <property name="Label" translatable="yes">radiobutton12</property>
-                            <property name="Active">False</property>
                             <property name="DrawIndicator">True</property>
                             <property name="HasLabel">True</property>
                             <property name="UseUnderline">True</property>
@@ -565,7 +565,6 @@ Fields can be left blank</property>
                             <property name="MemberName" />
                             <property name="CanFocus">True</property>
                             <property name="Label" translatable="yes">radiobutton15</property>
-                            <property name="Active">False</property>
                             <property name="DrawIndicator">True</property>
                             <property name="HasLabel">True</property>
                             <property name="UseUnderline">True</property>
@@ -583,7 +582,6 @@ Fields can be left blank</property>
                             <property name="MemberName" />
                             <property name="CanFocus">True</property>
                             <property name="Label" translatable="yes">radiobutton16</property>
-                            <property name="Active">False</property>
                             <property name="DrawIndicator">True</property>
                             <property name="HasLabel">True</property>
                             <property name="UseUnderline">True</property>
@@ -623,7 +621,6 @@ Fields can be left blank</property>
                             <property name="MemberName" />
                             <property name="CanFocus">True</property>
                             <property name="Label" translatable="yes">radiobutton8</property>
-                            <property name="Active">False</property>
                             <property name="DrawIndicator">True</property>
                             <property name="HasLabel">True</property>
                             <property name="UseUnderline">True</property>
@@ -641,7 +638,6 @@ Fields can be left blank</property>
                             <property name="MemberName" />
                             <property name="CanFocus">True</property>
                             <property name="Label" translatable="yes">radiobutton9</property>
-                            <property name="Active">False</property>
                             <property name="DrawIndicator">True</property>
                             <property name="HasLabel">True</property>
                             <property name="UseUnderline">True</property>
@@ -659,7 +655,6 @@ Fields can be left blank</property>
                             <property name="MemberName" />
                             <property name="CanFocus">True</property>
                             <property name="Label" translatable="yes">radiobutton10</property>
-                            <property name="Active">False</property>
                             <property name="DrawIndicator">True</property>
                             <property name="HasLabel">True</property>
                             <property name="UseUnderline">True</property>
@@ -689,7 +684,6 @@ Fields can be left blank</property>
                             <property name="MemberName" />
                             <property name="CanFocus">True</property>
                             <property name="Label" translatable="yes">radiobutton13</property>
-                            <property name="Active">False</property>
                             <property name="DrawIndicator">True</property>
                             <property name="HasLabel">True</property>
                             <property name="UseUnderline">True</property>
@@ -707,7 +701,6 @@ Fields can be left blank</property>
                             <property name="MemberName" />
                             <property name="CanFocus">True</property>
                             <property name="Label" translatable="yes">radiobutton14</property>
-                            <property name="Active">False</property>
                             <property name="DrawIndicator">True</property>
                             <property name="HasLabel">True</property>
                             <property name="UseUnderline">True</property>
@@ -725,7 +718,6 @@ Fields can be left blank</property>
                             <property name="MemberName" />
                             <property name="CanFocus">True</property>
                             <property name="Label" translatable="yes">radiobutton17</property>
-                            <property name="Active">False</property>
                             <property name="DrawIndicator">True</property>
                             <property name="HasLabel">True</property>
                             <property name="UseUnderline">True</property>

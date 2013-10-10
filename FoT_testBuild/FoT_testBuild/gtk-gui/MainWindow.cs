@@ -25,7 +25,7 @@ public partial class MainWindow
 	private global::Gtk.Label labelProject2;
 	private global::Gtk.Entry entry4;
 	private global::Gtk.Button button3;
-	private global::Gtk.VSeparator vseparator1;
+	private global::Gtk.Label label4;
 	private global::Gtk.HBox hbox2;
 	private global::Gtk.Button buttonQuit;
 	private global::Gtk.HSeparator hseparator1;
@@ -243,11 +243,14 @@ public partial class MainWindow
 		w19.Expand = false;
 		w19.Fill = false;
 		// Container child vbox1.Gtk.Box+BoxChild
-		this.vseparator1 = new global::Gtk.VSeparator ();
-		this.vseparator1.Name = "vseparator1";
-		this.vbox1.Add (this.vseparator1);
-		global::Gtk.Box.BoxChild w20 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.vseparator1]));
+		this.label4 = new global::Gtk.Label ();
+		this.label4.Name = "label4";
+		this.label4.LabelProp = global::Mono.Unix.Catalog.GetString ("label1");
+		this.vbox1.Add (this.label4);
+		global::Gtk.Box.BoxChild w20 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.label4]));
 		w20.Position = 10;
+		w20.Expand = false;
+		w20.Fill = false;
 		// Container child vbox1.Gtk.Box+BoxChild
 		this.hbox2 = new global::Gtk.HBox ();
 		this.hbox2.Name = "hbox2";
