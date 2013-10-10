@@ -35,7 +35,6 @@ public partial class MainWindow: Gtk.Window{
 	public static string txtVersion{get; set;}
 	public static string newPath {get; set; }
 
-	//Word.Application wordApplication = new Word.Application();
 	Word.Application wordApplication = null;
 	Word.Document newDocument = null;
 
@@ -47,10 +46,8 @@ public partial class MainWindow: Gtk.Window{
 
 	/*General start up parameters*/
 	protected void onStartActions(){
-
 		runDocMode = true;  //<----- word doc mode
 		//---------------------------------------
-
 		configLocation = Environment.CurrentDirectory + @"\Resources\Config.txt";
 		logfile = Environment.CurrentDirectory + @"\Resources\log.txt";
 		imageLoc = Environment.CurrentDirectory + @"\Resources\ZoonouLogo.jpg";
@@ -60,7 +57,6 @@ public partial class MainWindow: Gtk.Window{
 		try{
 			using(StreamReader sr = new StreamReader(configLocation)){
 				string line = sr.ReadToEnd();
-				//Console.WriteLine(line);
 
 				if(line == "Default"){
 					currentPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
@@ -81,7 +77,6 @@ public partial class MainWindow: Gtk.Window{
 	}
 
 	protected void OnButtonQuitClicked (object sender, EventArgs e){
-		// Quite main application
 		Gtk.Main.Quit (); 
 	}
 
@@ -92,13 +87,13 @@ public partial class MainWindow: Gtk.Window{
 		if(fc.Run() == (int)ResponseType.Accept){
 			mytempfilename = fc.CurrentFolder;
 
-			//string configLocation = Environment.CurrentDirectory + @"\Resources\Config.txt";
 			FileInfo fi = new FileInfo(configLocation);
 
 			using(TextWriter tw = new StreamWriter(fi.Open(FileMode.Truncate))){
 				tw.Write(mytempfilename);
 				tw.Close();
 			}
+
 			currentPath = mytempfilename;
 			label2.Text = mytempfilename;
 			fc.Destroy();
@@ -117,8 +112,7 @@ public partial class MainWindow: Gtk.Window{
 		projectName1 = entry2.Text;
 		txtURL = entry3.Text;
 		txtVersion = entry4.Text;
-
-		//If the user did not supply any name - provide the folder/file with a default name
+		
 		if(clientName1 == ""){
 			clientName1 = "Client_1";
 		}
@@ -126,19 +120,16 @@ public partial class MainWindow: Gtk.Window{
 		if(projectName1 == ""){
 			projectName1 = "Project_1";
 		}
-		//Combine two strings with ' - ' seperator 
-		string halfDayResource = clientName1 + " - " + projectName1;
-		//Creating string for use later
-		string FullDayResource = "";
 
+		string halfDayResource = clientName1 + " - " + projectName1;
+		string FullDayResource = "";
 		string currentDate = DateTime.Now.ToString("yyyy_MMMMM");
 		currentPath = currentPath + @"\" + currentDate + @"\";
 
 		if(!Directory.Exists(currentPath)){
 			DirectoryInfo di = Directory.CreateDirectory(currentPath);
 		}
-
-		//Continue with folder set up
+		
 		FolderSetup(currentPath, ref halfDayResource, ref FullDayResource,  e);
 	} 
 
@@ -155,7 +146,6 @@ public partial class MainWindow: Gtk.Window{
 		pathClient1 = pathClient1 + halfDR + @"\";
 
 		if(!Directory.Exists(pathClient1)){
-			//string pathClient1 = path;
 			DirectoryInfo di = Directory.CreateDirectory(pathClient1);
 
 			// Copy dayily report here
@@ -164,15 +154,11 @@ public partial class MainWindow: Gtk.Window{
 			//System.IO.File.Move(tempNameString, (pathClient1 + halfDR + DailyDate + @".docx"));
 			newPath = (pathClient1 + halfDR + DailyDate + @".docx");
 
-			//Create folder working docs
 			DirectoryInfo wd = Directory.CreateDirectory((pathClient1 + @"Working_Docs\"));
-			//Copy unrepeat doc in the folder just created
 			string tempLocString = pathClient1 + @"Working_Docs\Unrepeatable.docx";
 			File.Copy(baseLocation1, tempLocString);
 
-			//Creae folder pics and sub folders
 			pathClient1 = pathClient1 + @"Screenshots\";
-			//Create files using path and name etc
 			massCreateFiles(ref pathClient1);
 		}
 
@@ -213,7 +199,6 @@ public partial class MainWindow: Gtk.Window{
 	#endregion
 
 	protected void OnButton1Clicked (object sender, EventArgs e){
-		//string configLocation = Environment.CurrentDirectory + @"\Resources\Config.txt";
 		FileInfo fi = new FileInfo(configLocation);
 
 		using(TextWriter tw = new StreamWriter(fi.Open(FileMode.Truncate))){
@@ -239,17 +224,13 @@ public partial class MainWindow: Gtk.Window{
 		new FoT.EnvironmentChooser();
 	}
 
-
 	#endregion
 
 	protected void runWordApplication(){
-
-		//this.Build ();
 		wordApplication = new Word.Application();
 		wordApplication.DisplayAlerts = WdAlertLevel.wdAlertsNone;
 		newDocument = wordApplication.Documents.Add();
 
-		//wordApplication.Selection.Font.Bold = 1;
 		wordApplication.Selection.Font.Size = 11;
 		wordApplication.Selection.Font.Name = "Corbel";
 
@@ -257,7 +238,6 @@ public partial class MainWindow: Gtk.Window{
 		moveDownpar();
 		secondTable();
 		moveDownpar();
-
 		thirdTable();
 		moveDownpar();
 		fouthTable();
@@ -267,8 +247,6 @@ public partial class MainWindow: Gtk.Window{
 
 		wordApplication.Selection.TypeText(@"*Environments checked in this test run");
 		wordApplication.ActiveWindow.View.SeekView = WdSeekView.wdSeekCurrentPageHeader;
-		//string configLocation = Environment.CurrentDirectory + @"ZoonouLogo.jpg";
-		//wordApplication.Selection.InlineShapes.AddPicture(@"C:\Users\Ben\Desktop\Develop_WIP\delete me\ZoonouLogo.jpg");
 		wordApplication.Selection.InlineShapes.AddPicture(imageLoc);
 		wordApplication.Selection.MoveRight();
 		wordApplication.ActiveWindow.Selection.TypeParagraph();
@@ -278,10 +256,6 @@ public partial class MainWindow: Gtk.Window{
 		wordApplication.Selection.WholeStory();
 		wordApplication.Selection.Font.Color = WdColor.wdColorBlack;
 
-		//string tempNameString = pathClient1 + @"Client Name - Project Name Daily Report - DDMMYYYY.docx";
-		//System.IO.File.Move(tempNameString, (pathClient1 + halfDR + DailyDate + @".docx"));
-
-		//string documentFile = @"C:\Users\Ben\Desktop\Develop_WIP\delete me\test.docx";
 		string documentFile = newPath;
 
 		double wordVersion = Convert.ToDouble(wordApplication.Version, CultureInfo.InvariantCulture);
@@ -306,14 +280,12 @@ public partial class MainWindow: Gtk.Window{
 	}
 
 	public void firstTable(){
-		//
 		int r = 6;
 		int c = 2;
 		Word.Table table = newDocument.Tables.Add(wordApplication.Selection.Range, r, c);
 
 		for(int x = 1; x < 7; x++){
 			table.Cell(x,1).SetWidth(160.00f, WdRulerStyle.wdAdjustFirstColumn);
-			//Console.WriteLine(table.Cell(1,1).Width);
 		}
 
 		table.Cell(1,1).Select();
@@ -347,27 +319,21 @@ For issue verifications please state: Retests executed in environments the issue
 
 		String bobone = wordApplication.Version;
 
-		//new FoT.EnvironmentChooser();
-
 		if(bobone == "14.0"){
 			table.Style = "Light Shading - Accent 1";
 			table.ApplyStyleFirstColumn = false;
 			table.ApplyStyleHeadingRows = false;
 		}else{
-			//new FoT.DevWindow();
 			table.Style = "List Table 6 Colorful - Accent 1";
 			table.ApplyStyleFirstColumn = false;
 			table.ApplyStyleHeadingRows = false;
 		}
-
-
 
 		table.Dispose();
 		return;
 	}
 
 	public void secondTable(){
-		//
 		int r = 3;
 		int c = 2;
 		Word.Table table = newDocument.Tables.Add(wordApplication.Selection.Range, r, c);
@@ -390,14 +356,12 @@ For issue verifications please state: Retests executed in environments the issue
 		table.Cell(3,2).Select();
 		wordApplication.Selection.TypeText(DateTime.Now.ToString(@"dd/MM/yyyy"));
 
-
 		String bobone = wordApplication.Version;
 
 		if(bobone == "14.0"){
 			table.Style = "Light Shading - Accent 1";
 			table.ApplyStyleFirstColumn = false;
 			table.ApplyStyleHeadingRows = false;
-			new FoT.EnvironmentChooser();
 		}else{
 			table.Style = "List Table 6 Colorful - Accent 1";
 			table.ApplyStyleFirstColumn = false;
@@ -415,7 +379,6 @@ For issue verifications please state: Retests executed in environments the issue
 
 		for(int x = 1; x < 5; x++){
 			table.Cell(x,1).SetWidth(160.00f, WdRulerStyle.wdAdjustFirstColumn);
-			//Console.WriteLine(table.Cell(1,1).Width);
 		}
 
 		table.Cell(1,1).Select();
@@ -455,30 +418,27 @@ DO NOT:
 •	Do not provide subjective feelings (e.g. “We felt that the website performed well”).
 •	Do not suggest that we are ahead of schedule.");
 
-			String bobone = wordApplication.Version;
+		String bobone = wordApplication.Version;
 
-			if(bobone == "14.0"){
-				table.Style = "Light Shading - Accent 1";
-				table.ApplyStyleFirstColumn = false;
-				//table.ApplyStyleHeadingRows = false;
-			}else{
-				table.Style = "List Table 6 Colorful - Accent 1";
-				table.ApplyStyleFirstColumn = false;
-				//table.ApplyStyleHeadingRows = false;
-			}
+		if(bobone == "14.0"){
+			table.Style = "Light Shading - Accent 1";
+			table.ApplyStyleFirstColumn = false;
+		}else{
+			table.Style = "List Table 6 Colorful - Accent 1";
+			table.ApplyStyleFirstColumn = false;
+		}
+
 		table.Dispose();
 		return;
 	}
 
 	public void fouthTable(){
-		//
 		int r = 9;
 		int c = 2;
 		Word.Table table = newDocument.Tables.Add(wordApplication.Selection.Range, r, c);
 
 		for(int x = 1; x < 10; x++){
 			table.Cell(x,1).SetWidth(160.00f, WdRulerStyle.wdAdjustFirstColumn);
-			//Console.WriteLine(table.Cell(1,1).Width);
 		}
 
 		table.Cell(1,1).Select();
@@ -533,14 +493,12 @@ DO NOT:
 	}
 
 	public void fithTable(){
-		//
 		int r = 5;
 		int c = 2;
 		Word.Table table = newDocument.Tables.Add(wordApplication.Selection.Range, r, c);
 
 		for(int x = 1; x < 6; x++){
 			table.Cell(x,1).SetWidth(160.00f, WdRulerStyle.wdAdjustFirstColumn);
-			//Console.WriteLine(table.Cell(1,1).Width);
 		}
 
 		table.Cell(1,1).Select();
