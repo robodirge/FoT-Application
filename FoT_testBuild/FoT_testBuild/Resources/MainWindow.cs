@@ -42,6 +42,7 @@ public partial class MainWindow: Gtk.Window{
 		Build ();
 		onStartActions ();
 		label2.Text = currentPath;
+		entry4.Text = DateTime.Now.ToString(@"dd/MM/yyyy");
 	}
 
 	/*General start up parameters*/
