@@ -1,18 +1,19 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Release|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="FoT_testBuild\Resources\EnvironmentChooser.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="FoT_testBuild\Resources\DevWindow.cs">
     <Files>
-      <File FileName="FoT_testBuild\Resources\MainWindow.cs" Line="233" Column="32" />
-      <File FileName="FoT_testBuild\Resources\EnvironmentChooser.cs" Line="238" Column="3" />
+      <File FileName="FoT_testBuild\Resources\MainWindow.cs" Line="97" Column="5" />
+      <File FileName="FoT_testBuild\Resources\DevWindow.cs" Line="264" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
           <Node name="FoT" expanded="True">
             <Node name="Resources" expanded="True">
-              <Node name="EnvironmentChooser.cs" selected="True" />
+              <Node name="DevWindow.cs" selected="True" />
             </Node>
           </Node>
+          <Node name="TestPackage" expanded="True" />
         </State>
       </Pad>
       <Pad Id="ClassPad">
@@ -24,10 +25,7 @@
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="C:\Users\Ben\Desktop\Develop_WIP\GitRepo\Test\FoT_testBuild\FoT_testBuild\Resources\MainWindow.cs" line="409" column="1" />
-      <Breakpoint file="C:\Users\Ben\Desktop\Develop_WIP\GitRepo\Test\FoT_testBuild\FoT_testBuild\Resources\MainWindow.cs" line="412" column="1" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches>
     <Watch file="FoT_testBuild\MainWindow.cs" line="152" offsetX="374" offsetY="2558" expression="MainWindow.baseLocation" liveUpdate="False" />

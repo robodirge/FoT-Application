@@ -27,6 +27,7 @@ public partial class MainWindow: Gtk.Window{
 	public static string configLocation { get; set; }
 	public static string logfile { get; set; }
 	public static string currentPath {get; set; }
+	public static string tempLocString {get; set; }
 	public static bool runDocMode {get; set;}
 
 	public static string clientName1{get; set;}
@@ -156,8 +157,8 @@ public partial class MainWindow: Gtk.Window{
 			newPath = (pathClient1 + halfDR + DailyDate + @".docx");
 
 			DirectoryInfo wd = Directory.CreateDirectory((pathClient1 + @"Working_Docs\"));
-			string tempLocString = pathClient1 + @"Working_Docs\Unrepeatable.docx";
-			File.Copy(baseLocation1, tempLocString);
+			tempLocString = pathClient1 + @"Working_Docs\Unrepeatable.docx";
+			//File.Copy(baseLocation1, tempLocString);
 
 			pathClient1 = pathClient1 + @"Screenshots\";
 			massCreateFiles(ref pathClient1);
@@ -165,6 +166,8 @@ public partial class MainWindow: Gtk.Window{
 
 		if(runDocMode == true)
 			runWordApplication();
+
+		runRepeatDoc();
 
 		Application.Quit ();
 	}
@@ -580,5 +583,68 @@ DO NOT:
 
 	#endregion
 
+
+	protected void runRepeatDoc(){
+		wordApplication = new Word.Application();
+		wordApplication.DisplayAlerts = WdAlertLevel.wdAlertsNone;
+		newDocument = wordApplication.Documents.Add();
+
+		Word.Table table = newDocument.Tables.Add(wordApplication.Selection.Range, 2, 1);
+
+		table.Cell(1,1).Select();
+		//wordApplication.Selection.TypeText
+
+		string mylongtextstring = (@"Title: 
+
+
+Description: 
+
+
+Steps to Recreate: 
+1.	Go to URL: " + txtURL + @"
+2.	Log in with valid details 
+
+Environment:
+
+
+Supporting material:
+
+
+Version
+URL: " + txtURL + @"
+
+Date:
+" + DateTime.Now.ToString(@"dd/MM/yyyy") + @"
+
+Severity:
+4
+");
+
+		wordApplication.Selection.TypeText(mylongtextstring);
+
+		String bobone = wordApplication.Version;
+
+		if(bobone == "14.0"){
+			table.Style = "Table Grid";
+			table.ApplyStyleFirstColumn = false;
+			table.ApplyStyleHeadingRows = false;
+		}else{
+			table.Style = "Table Grid";
+			table.ApplyStyleFirstColumn = false;
+			table.ApplyStyleHeadingRows = false;
+		}
+
+		string documentFile = tempLocString;
+
+		double wordVersion = Convert.ToDouble(wordApplication.Version, CultureInfo.InvariantCulture);
+		if (wordVersion >= 12.0)
+			newDocument.SaveAs(documentFile, WdSaveFormat.wdFormatDocumentDefault);
+		else
+			newDocument.SaveAs(documentFile);
+
+		// close word and dispose reference
+		wordApplication.Quit();
+		wordApplication.Dispose();
+	}
 
 }

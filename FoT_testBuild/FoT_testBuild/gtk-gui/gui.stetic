@@ -443,6 +443,17 @@ Fields can be left blank</property>
     </child>
   </widget>
   <widget class="Gtk.Window" id="FoT.DevWindow" design-size="400 300">
+    <action-group name="Default">
+      <action id="Action">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes" />
+      </action>
+      <action id="bdtzdZbdDAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">bdtzd zbd d</property>
+        <property name="ShortLabel" translatable="yes">bdtzd zbd d</property>
+      </action>
+    </action-group>
     <property name="MemberName" />
     <property name="Title" translatable="yes">DevWindow</property>
     <property name="WindowPosition">CenterOnParent</property>
@@ -452,9 +463,11 @@ Fields can be left blank</property>
         <property name="MemberName" />
         <property name="Spacing">6</property>
         <child>
-          <widget class="Gtk.Label" id="label1">
+          <widget class="Gtk.MenuBar" id="menubar1">
             <property name="MemberName" />
-            <property name="LabelProp" translatable="yes">label1</property>
+            <node name="__gtksharp_90_Stetic_Editor_ActionMenuBar" type="Menubar">
+              <node type="Menu" action="bdtzdZbdDAction" />
+            </node>
           </widget>
           <packing>
             <property name="Position">0</property>
@@ -464,9 +477,9 @@ Fields can be left blank</property>
           </packing>
         </child>
         <child>
-          <widget class="Gtk.Label" id="label2">
+          <widget class="Gtk.MenuBar" id="menubar2">
             <property name="MemberName" />
-            <property name="LabelProp" translatable="yes">label2</property>
+            <node name="__gtksharp_90_Stetic_Editor_ActionMenuBar" type="Menubar" />
           </widget>
           <packing>
             <property name="Position">1</property>
@@ -528,6 +541,7 @@ Fields can be left blank</property>
                 <property name="WidthRequest">585</property>
                 <property name="IsTextCombo">True</property>
                 <property name="Items" translatable="yes" />
+                <signal name="Changed" handler="OnCombobox3Changed" after="yes" />
               </widget>
               <packing>
                 <property name="Position">2</property>
@@ -549,15 +563,13 @@ Fields can be left blank</property>
                         <property name="MemberName" />
                         <property name="Spacing">6</property>
                         <child>
-                          <widget class="Gtk.RadioButton" id="radiobutton6">
+                          <widget class="Gtk.CheckButton" id="checkbutton1">
                             <property name="MemberName" />
                             <property name="CanFocus">True</property>
-                            <property name="Label" translatable="yes">radiobutton6</property>
-                            <property name="Active">True</property>
+                            <property name="Label" translatable="yes">checkbutton1</property>
                             <property name="DrawIndicator">True</property>
                             <property name="HasLabel">True</property>
                             <property name="UseUnderline">True</property>
-                            <property name="Group">group1</property>
                           </widget>
                           <packing>
                             <property name="Position">0</property>
@@ -567,14 +579,13 @@ Fields can be left blank</property>
                           </packing>
                         </child>
                         <child>
-                          <widget class="Gtk.RadioButton" id="radiobutton7">
+                          <widget class="Gtk.CheckButton" id="checkbutton2">
                             <property name="MemberName" />
                             <property name="CanFocus">True</property>
-                            <property name="Label" translatable="yes">radiobutton7</property>
+                            <property name="Label" translatable="yes">checkbutton1</property>
                             <property name="DrawIndicator">True</property>
                             <property name="HasLabel">True</property>
                             <property name="UseUnderline">True</property>
-                            <property name="Group">group1</property>
                           </widget>
                           <packing>
                             <property name="Position">1</property>
@@ -584,14 +595,13 @@ Fields can be left blank</property>
                           </packing>
                         </child>
                         <child>
-                          <widget class="Gtk.RadioButton" id="radiobutton11">
+                          <widget class="Gtk.CheckButton" id="checkbutton3">
                             <property name="MemberName" />
                             <property name="CanFocus">True</property>
-                            <property name="Label" translatable="yes">radiobutton11</property>
+                            <property name="Label" translatable="yes">checkbutton1</property>
                             <property name="DrawIndicator">True</property>
                             <property name="HasLabel">True</property>
                             <property name="UseUnderline">True</property>
-                            <property name="Group">group1</property>
                           </widget>
                           <packing>
                             <property name="Position">2</property>
@@ -613,14 +623,13 @@ Fields can be left blank</property>
                         <property name="MemberName" />
                         <property name="Spacing">6</property>
                         <child>
-                          <widget class="Gtk.RadioButton" id="radiobutton12">
+                          <widget class="Gtk.CheckButton" id="checkbutton4">
                             <property name="MemberName" />
                             <property name="CanFocus">True</property>
-                            <property name="Label" translatable="yes">radiobutton12</property>
+                            <property name="Label" translatable="yes">checkbutton1</property>
                             <property name="DrawIndicator">True</property>
                             <property name="HasLabel">True</property>
                             <property name="UseUnderline">True</property>
-                            <property name="Group">group1</property>
                           </widget>
                           <packing>
                             <property name="Position">0</property>
@@ -630,14 +639,13 @@ Fields can be left blank</property>
                           </packing>
                         </child>
                         <child>
-                          <widget class="Gtk.RadioButton" id="radiobutton15">
+                          <widget class="Gtk.CheckButton" id="checkbutton5">
                             <property name="MemberName" />
                             <property name="CanFocus">True</property>
-                            <property name="Label" translatable="yes">radiobutton15</property>
+                            <property name="Label" translatable="yes">checkbutton1</property>
                             <property name="DrawIndicator">True</property>
                             <property name="HasLabel">True</property>
                             <property name="UseUnderline">True</property>
-                            <property name="Group">group1</property>
                           </widget>
                           <packing>
                             <property name="Position">1</property>
@@ -647,14 +655,13 @@ Fields can be left blank</property>
                           </packing>
                         </child>
                         <child>
-                          <widget class="Gtk.RadioButton" id="radiobutton16">
+                          <widget class="Gtk.CheckButton" id="checkbutton6">
                             <property name="MemberName" />
                             <property name="CanFocus">True</property>
-                            <property name="Label" translatable="yes">radiobutton16</property>
+                            <property name="Label" translatable="yes">checkbutton1</property>
                             <property name="DrawIndicator">True</property>
                             <property name="HasLabel">True</property>
                             <property name="UseUnderline">True</property>
-                            <property name="Group">group1</property>
                           </widget>
                           <packing>
                             <property name="Position">2</property>
@@ -686,14 +693,13 @@ Fields can be left blank</property>
                         <property name="MemberName" />
                         <property name="Spacing">6</property>
                         <child>
-                          <widget class="Gtk.RadioButton" id="radiobutton8">
+                          <widget class="Gtk.CheckButton" id="checkbutton7">
                             <property name="MemberName" />
                             <property name="CanFocus">True</property>
-                            <property name="Label" translatable="yes">radiobutton8</property>
+                            <property name="Label" translatable="yes">checkbutton1</property>
                             <property name="DrawIndicator">True</property>
                             <property name="HasLabel">True</property>
                             <property name="UseUnderline">True</property>
-                            <property name="Group">group1</property>
                           </widget>
                           <packing>
                             <property name="Position">0</property>
@@ -703,14 +709,13 @@ Fields can be left blank</property>
                           </packing>
                         </child>
                         <child>
-                          <widget class="Gtk.RadioButton" id="radiobutton9">
+                          <widget class="Gtk.CheckButton" id="checkbutton8">
                             <property name="MemberName" />
                             <property name="CanFocus">True</property>
-                            <property name="Label" translatable="yes">radiobutton9</property>
+                            <property name="Label" translatable="yes">checkbutton1</property>
                             <property name="DrawIndicator">True</property>
                             <property name="HasLabel">True</property>
                             <property name="UseUnderline">True</property>
-                            <property name="Group">group1</property>
                           </widget>
                           <packing>
                             <property name="Position">1</property>
@@ -720,14 +725,13 @@ Fields can be left blank</property>
                           </packing>
                         </child>
                         <child>
-                          <widget class="Gtk.RadioButton" id="radiobutton10">
+                          <widget class="Gtk.CheckButton" id="checkbutton9">
                             <property name="MemberName" />
                             <property name="CanFocus">True</property>
-                            <property name="Label" translatable="yes">radiobutton10</property>
+                            <property name="Label" translatable="yes">checkbutton1</property>
                             <property name="DrawIndicator">True</property>
                             <property name="HasLabel">True</property>
                             <property name="UseUnderline">True</property>
-                            <property name="Group">group1</property>
                           </widget>
                           <packing>
                             <property name="Position">2</property>
@@ -749,14 +753,13 @@ Fields can be left blank</property>
                         <property name="MemberName" />
                         <property name="Spacing">6</property>
                         <child>
-                          <widget class="Gtk.RadioButton" id="radiobutton13">
+                          <widget class="Gtk.CheckButton" id="checkbutton10">
                             <property name="MemberName" />
                             <property name="CanFocus">True</property>
-                            <property name="Label" translatable="yes">radiobutton13</property>
+                            <property name="Label" translatable="yes">checkbutton1</property>
                             <property name="DrawIndicator">True</property>
                             <property name="HasLabel">True</property>
                             <property name="UseUnderline">True</property>
-                            <property name="Group">group1</property>
                           </widget>
                           <packing>
                             <property name="Position">0</property>
@@ -766,14 +769,13 @@ Fields can be left blank</property>
                           </packing>
                         </child>
                         <child>
-                          <widget class="Gtk.RadioButton" id="radiobutton14">
+                          <widget class="Gtk.CheckButton" id="checkbutton11">
                             <property name="MemberName" />
                             <property name="CanFocus">True</property>
-                            <property name="Label" translatable="yes">radiobutton14</property>
+                            <property name="Label" translatable="yes">checkbutton1</property>
                             <property name="DrawIndicator">True</property>
                             <property name="HasLabel">True</property>
                             <property name="UseUnderline">True</property>
-                            <property name="Group">group1</property>
                           </widget>
                           <packing>
                             <property name="Position">1</property>
@@ -783,14 +785,13 @@ Fields can be left blank</property>
                           </packing>
                         </child>
                         <child>
-                          <widget class="Gtk.RadioButton" id="radiobutton17">
+                          <widget class="Gtk.CheckButton" id="checkbutton12">
                             <property name="MemberName" />
                             <property name="CanFocus">True</property>
-                            <property name="Label" translatable="yes">radiobutton17</property>
+                            <property name="Label" translatable="yes">checkbutton1</property>
                             <property name="DrawIndicator">True</property>
                             <property name="HasLabel">True</property>
                             <property name="UseUnderline">True</property>
-                            <property name="Group">group1</property>
                           </widget>
                           <packing>
                             <property name="Position">2</property>
