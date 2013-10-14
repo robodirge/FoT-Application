@@ -215,13 +215,19 @@ public partial class MainWindow: Gtk.Window{
 		entry1.Text = "";
 		entry2.Text = "";
 		entry3.Text = "";
-		entry4.Text = "";
+
+		entry4.Text = DateTime.Now.ToString(@"dd/MM/yyyy");
+	
+		checkbutton1.Active = false;
+		checkbutton2.Active = true;
+		checkbutton3.Active = false;
 	}
 	protected void OnDevEnviromentActionActivated (object sender, EventArgs e){
 		new FoT.DevWindow();
 	}
 
 	protected void OnButton3Clicked (object sender, EventArgs e){
+
 		new FoT.EnvironmentChooser();
 	}
 
@@ -392,8 +398,41 @@ For issue verifications please state: Retests executed in environments the issue
 		table.Cell(4,1).Select();
 		wordApplication.Selection.TypeText(@"Brief overview of testing:");
 
+		string activtemp = "";
+
+		if((checkbutton1.Active == false) & (checkbutton2.Active == false) & (checkbutton3.Active == false)){
+			activtemp = @"Scripting & Planning/Test Execution/Issue Verification & Retest (Please delete as appropriate)";
+		}
+
+		if(checkbutton1.Active){
+			activtemp = @"Scripting & Planning ";
+			if(checkbutton2.Active){
+				activtemp = activtemp + @"/ Test Execution ";
+				checkbutton2.Active = false;
+			}
+			if(checkbutton3.Active){
+				activtemp = activtemp + @"/ Issue Verification & Retest ";
+				checkbutton3.Active = false;
+			}
+		}
+
+		if(checkbutton2.Active){
+			activtemp = activtemp + @"Test Execution ";
+			if(checkbutton3.Active){
+				activtemp = activtemp + @"/ Issue Verification & Retest ";
+				checkbutton3.Active = false;
+			}
+		}
+
+		if(checkbutton3.Active)
+			activtemp = activtemp + @"Issue Verification & Retest ";
+
+
+
+
 		table.Cell(2,2).Select();
-		wordApplication.Selection.TypeText(@"Scripting & Planning/Test Execution/Issue Verification & Retest (Please delete as appropriate)");
+		//wordApplication.Selection.TypeText(@"Scripting & Planning/Test Execution/Issue Verification & Retest (Please delete as appropriate)");
+		wordApplication.Selection.TypeText(activtemp);
 		table.Cell(3,2).Select();
 		wordApplication.Selection.TypeText(@"Brief explanation of the work you have undertaken. Be specific here as to what you have done. Relate it back to the tasks that were required of you in the brief. 
 E.g. Copy/link and rendering checks of 18 IKEA Kitchen emails across all specified environments.

@@ -28,15 +28,17 @@ namespace FoT
 		private global::Gtk.RadioButton radiobutton13;
 		private global::Gtk.RadioButton radiobutton14;
 		private global::Gtk.RadioButton radiobutton17;
+		private global::Gtk.Fixed fixed1;
 		private global::Gtk.VSeparator vseparator2;
 
 		protected virtual void Build ()
 		{
 			global::Stetic.Gui.Initialize (this);
 			// Widget FoT.EnvironmentChooser
-			this.WidthRequest = 600;
+			this.WidthRequest = 700;
 			this.Name = "FoT.EnvironmentChooser";
 			this.Title = global::Mono.Unix.Catalog.GetString ("EnvironmentChooser");
+			this.TypeHint = ((global::Gdk.WindowTypeHint)(1));
 			this.WindowPosition = ((global::Gtk.WindowPosition)(4));
 			// Container child FoT.EnvironmentChooser.Gtk.Container+ContainerChild
 			this.hbox1 = new global::Gtk.HBox ();
@@ -89,7 +91,6 @@ namespace FoT
 			this.radiobutton6 = new global::Gtk.RadioButton (global::Mono.Unix.Catalog.GetString ("radiobutton6"));
 			this.radiobutton6.CanFocus = true;
 			this.radiobutton6.Name = "radiobutton6";
-			this.radiobutton6.Active = false;
 			this.radiobutton6.DrawIndicator = true;
 			this.radiobutton6.UseUnderline = true;
 			this.radiobutton6.Group = new global::GLib.SList (global::System.IntPtr.Zero);
@@ -102,7 +103,6 @@ namespace FoT
 			this.radiobutton7 = new global::Gtk.RadioButton (global::Mono.Unix.Catalog.GetString ("radiobutton7"));
 			this.radiobutton7.CanFocus = true;
 			this.radiobutton7.Name = "radiobutton7";
-			this.radiobutton7.Active = false;
 			this.radiobutton7.DrawIndicator = true;
 			this.radiobutton7.UseUnderline = true;
 			this.radiobutton7.Group = this.radiobutton6.Group;
@@ -115,7 +115,6 @@ namespace FoT
 			this.radiobutton11 = new global::Gtk.RadioButton (global::Mono.Unix.Catalog.GetString ("radiobutton11"));
 			this.radiobutton11.CanFocus = true;
 			this.radiobutton11.Name = "radiobutton11";
-			this.radiobutton11.Active = false;
 			this.radiobutton11.DrawIndicator = true;
 			this.radiobutton11.UseUnderline = true;
 			this.radiobutton11.Group = this.radiobutton6.Group;
@@ -137,7 +136,6 @@ namespace FoT
 			this.radiobutton12 = new global::Gtk.RadioButton (global::Mono.Unix.Catalog.GetString ("radiobutton12"));
 			this.radiobutton12.CanFocus = true;
 			this.radiobutton12.Name = "radiobutton12";
-			this.radiobutton12.Active = false;
 			this.radiobutton12.DrawIndicator = true;
 			this.radiobutton12.UseUnderline = true;
 			this.radiobutton12.Group = this.radiobutton6.Group;
@@ -150,7 +148,6 @@ namespace FoT
 			this.radiobutton15 = new global::Gtk.RadioButton (global::Mono.Unix.Catalog.GetString ("radiobutton15"));
 			this.radiobutton15.CanFocus = true;
 			this.radiobutton15.Name = "radiobutton15";
-			this.radiobutton15.Active = false;
 			this.radiobutton15.DrawIndicator = true;
 			this.radiobutton15.UseUnderline = true;
 			this.radiobutton15.Group = this.radiobutton6.Group;
@@ -163,7 +160,6 @@ namespace FoT
 			this.radiobutton16 = new global::Gtk.RadioButton (global::Mono.Unix.Catalog.GetString ("radiobutton16"));
 			this.radiobutton16.CanFocus = true;
 			this.radiobutton16.Name = "radiobutton16";
-			this.radiobutton16.Active = false;
 			this.radiobutton16.DrawIndicator = true;
 			this.radiobutton16.UseUnderline = true;
 			this.radiobutton16.Group = this.radiobutton6.Group;
@@ -192,7 +188,6 @@ namespace FoT
 			this.radiobutton8 = new global::Gtk.RadioButton (global::Mono.Unix.Catalog.GetString ("radiobutton8"));
 			this.radiobutton8.CanFocus = true;
 			this.radiobutton8.Name = "radiobutton8";
-			this.radiobutton8.Active = false;
 			this.radiobutton8.DrawIndicator = true;
 			this.radiobutton8.UseUnderline = true;
 			this.radiobutton8.Group = this.radiobutton6.Group;
@@ -205,7 +200,6 @@ namespace FoT
 			this.radiobutton9 = new global::Gtk.RadioButton (global::Mono.Unix.Catalog.GetString ("radiobutton9"));
 			this.radiobutton9.CanFocus = true;
 			this.radiobutton9.Name = "radiobutton9";
-			this.radiobutton9.Active = false;
 			this.radiobutton9.DrawIndicator = true;
 			this.radiobutton9.UseUnderline = true;
 			this.radiobutton9.Group = this.radiobutton6.Group;
@@ -218,7 +212,6 @@ namespace FoT
 			this.radiobutton10 = new global::Gtk.RadioButton (global::Mono.Unix.Catalog.GetString ("radiobutton10"));
 			this.radiobutton10.CanFocus = true;
 			this.radiobutton10.Name = "radiobutton10";
-			this.radiobutton10.Active = false;
 			this.radiobutton10.DrawIndicator = true;
 			this.radiobutton10.UseUnderline = true;
 			this.radiobutton10.Group = this.radiobutton6.Group;
@@ -240,7 +233,6 @@ namespace FoT
 			this.radiobutton13 = new global::Gtk.RadioButton (global::Mono.Unix.Catalog.GetString ("radiobutton13"));
 			this.radiobutton13.CanFocus = true;
 			this.radiobutton13.Name = "radiobutton13";
-			this.radiobutton13.Active = false;
 			this.radiobutton13.DrawIndicator = true;
 			this.radiobutton13.UseUnderline = true;
 			this.radiobutton13.Group = this.radiobutton6.Group;
@@ -253,7 +245,6 @@ namespace FoT
 			this.radiobutton14 = new global::Gtk.RadioButton (global::Mono.Unix.Catalog.GetString ("radiobutton14"));
 			this.radiobutton14.CanFocus = true;
 			this.radiobutton14.Name = "radiobutton14";
-			this.radiobutton14.Active = false;
 			this.radiobutton14.DrawIndicator = true;
 			this.radiobutton14.UseUnderline = true;
 			this.radiobutton14.Group = this.radiobutton6.Group;
@@ -266,7 +257,6 @@ namespace FoT
 			this.radiobutton17 = new global::Gtk.RadioButton (global::Mono.Unix.Catalog.GetString ("radiobutton17"));
 			this.radiobutton17.CanFocus = true;
 			this.radiobutton17.Name = "radiobutton17";
-			this.radiobutton17.Active = false;
 			this.radiobutton17.DrawIndicator = true;
 			this.radiobutton17.UseUnderline = true;
 			this.radiobutton17.Group = this.radiobutton6.Group;
@@ -294,21 +284,29 @@ namespace FoT
 			w23.Expand = false;
 			w23.Fill = false;
 			// Container child hbox1.Gtk.Box+BoxChild
+			this.fixed1 = new global::Gtk.Fixed ();
+			this.fixed1.Name = "fixed1";
+			this.fixed1.HasWindow = false;
+			this.hbox1.Add (this.fixed1);
+			global::Gtk.Box.BoxChild w24 = ((global::Gtk.Box.BoxChild)(this.hbox1 [this.fixed1]));
+			w24.Position = 1;
+			// Container child hbox1.Gtk.Box+BoxChild
 			this.vseparator2 = new global::Gtk.VSeparator ();
 			this.vseparator2.Name = "vseparator2";
 			this.hbox1.Add (this.vseparator2);
-			global::Gtk.Box.BoxChild w24 = ((global::Gtk.Box.BoxChild)(this.hbox1 [this.vseparator2]));
-			w24.Position = 1;
-			w24.Expand = false;
-			w24.Fill = false;
+			global::Gtk.Box.BoxChild w25 = ((global::Gtk.Box.BoxChild)(this.hbox1 [this.vseparator2]));
+			w25.Position = 2;
+			w25.Expand = false;
+			w25.Fill = false;
 			this.Add (this.hbox1);
 			if ((this.Child != null)) {
 				this.Child.ShowAll ();
 			}
-			this.DefaultWidth = 600;
+			this.DefaultWidth = 700;
 			this.DefaultHeight = 300;
 			this.Show ();
 			this.combobox2.Changed += new global::System.EventHandler (this.OnCombobox2Changed);
+			this.combobox4.Changed += new global::System.EventHandler (this.OnCombobox4Changed);
 		}
 	}
 }
