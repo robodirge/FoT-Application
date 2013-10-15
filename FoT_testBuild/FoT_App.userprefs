@@ -1,16 +1,15 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Release|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="FoT_testBuild\Resources\DevWindow.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="FoT_testBuild\Resources\MainWindow.cs">
     <Files>
-      <File FileName="FoT_testBuild\Resources\MainWindow.cs" Line="97" Column="5" />
-      <File FileName="FoT_testBuild\Resources\DevWindow.cs" Line="264" Column="1" />
+      <File FileName="FoT_testBuild\Resources\MainWindow.cs" Line="202" Column="2" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
           <Node name="FoT" expanded="True">
             <Node name="Resources" expanded="True">
-              <Node name="DevWindow.cs" selected="True" />
+              <Node name="MainWindow.cs" selected="True" />
             </Node>
           </Node>
           <Node name="TestPackage" expanded="True" />

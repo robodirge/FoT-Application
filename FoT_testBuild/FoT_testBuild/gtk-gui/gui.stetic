@@ -448,10 +448,15 @@ Fields can be left blank</property>
         <property name="Type">Action</property>
         <property name="Label" translatable="yes" />
       </action>
-      <action id="bdtzdZbdDAction">
+      <action id="DesktopAction">
         <property name="Type">Action</property>
-        <property name="Label" translatable="yes">bdtzd zbd d</property>
-        <property name="ShortLabel" translatable="yes">bdtzd zbd d</property>
+        <property name="Label" translatable="yes">Desktop</property>
+        <property name="ShortLabel" translatable="yes">Desktop</property>
+      </action>
+      <action id="DeviceAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">Device</property>
+        <property name="ShortLabel" translatable="yes">Device</property>
       </action>
     </action-group>
     <property name="MemberName" />
@@ -466,7 +471,8 @@ Fields can be left blank</property>
           <widget class="Gtk.MenuBar" id="menubar1">
             <property name="MemberName" />
             <node name="__gtksharp_90_Stetic_Editor_ActionMenuBar" type="Menubar">
-              <node type="Menu" action="bdtzdZbdDAction" />
+              <node type="Menu" action="DesktopAction" />
+              <node type="Menu" action="DeviceAction" />
             </node>
           </widget>
           <packing>

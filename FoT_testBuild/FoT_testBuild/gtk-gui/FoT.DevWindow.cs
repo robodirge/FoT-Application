@@ -4,14 +4,30 @@ namespace FoT
 {
 	public partial class DevWindow
 	{
+		private global::Gtk.UIManager UIManager;
+		//private global::Gtk.Action Action;
+		private global::Gtk.Action DesktopAction;
+		private global::Gtk.Action DeviceAction;
 		private global::Gtk.VBox vbox2;
-		private global::Gtk.Label label1;
-		private global::Gtk.Label label2;
+		private global::Gtk.MenuBar menubar1;
+		private global::Gtk.MenuBar menubar2;
 
 		protected virtual void Build ()
 		{
 			global::Stetic.Gui.Initialize (this);
 			// Widget FoT.DevWindow
+			this.UIManager = new global::Gtk.UIManager ();
+			global::Gtk.ActionGroup w1 = new global::Gtk.ActionGroup ("Default");
+			//this.Action = new global::Gtk.Action ("Action", null, null, null);
+			w1.Add (this.Action, null);
+			this.DesktopAction = new global::Gtk.Action ("DesktopAction", global::Mono.Unix.Catalog.GetString ("Desktop"), null, null);
+			this.DesktopAction.ShortLabel = global::Mono.Unix.Catalog.GetString ("Desktop");
+			w1.Add (this.DesktopAction, null);
+			this.DeviceAction = new global::Gtk.Action ("DeviceAction", global::Mono.Unix.Catalog.GetString ("Device"), null, null);
+			this.DeviceAction.ShortLabel = global::Mono.Unix.Catalog.GetString ("Device");
+			w1.Add (this.DeviceAction, null);
+			this.UIManager.InsertActionGroup (w1, 0);
+			this.AddAccelGroup (this.UIManager.AccelGroup);
 			this.Name = "FoT.DevWindow";
 			this.Title = global::Mono.Unix.Catalog.GetString ("DevWindow");
 			this.WindowPosition = ((global::Gtk.WindowPosition)(4));
@@ -21,23 +37,24 @@ namespace FoT
 			this.vbox2.Name = "vbox2";
 			this.vbox2.Spacing = 6;
 			// Container child vbox2.Gtk.Box+BoxChild
-			this.label1 = new global::Gtk.Label ();
-			this.label1.Name = "label1";
-			this.label1.LabelProp = global::Mono.Unix.Catalog.GetString ("label1");
-			this.vbox2.Add (this.label1);
-			global::Gtk.Box.BoxChild w1 = ((global::Gtk.Box.BoxChild)(this.vbox2 [this.label1]));
-			w1.Position = 0;
-			w1.Expand = false;
-			w1.Fill = false;
-			// Container child vbox2.Gtk.Box+BoxChild
-			this.label2 = new global::Gtk.Label ();
-			this.label2.Name = "label2";
-			this.label2.LabelProp = global::Mono.Unix.Catalog.GetString ("label2");
-			this.vbox2.Add (this.label2);
-			global::Gtk.Box.BoxChild w2 = ((global::Gtk.Box.BoxChild)(this.vbox2 [this.label2]));
-			w2.Position = 1;
+			this.UIManager.AddUiFromString ("<ui><menubar name=\'menubar1\'><menu name=\'DesktopAction\' action=\'DesktopAction\'/><" +
+			"menu name=\'DeviceAction\' action=\'DeviceAction\'/></menubar></ui>");
+			this.menubar1 = ((global::Gtk.MenuBar)(this.UIManager.GetWidget ("/menubar1")));
+			this.menubar1.Name = "menubar1";
+			this.vbox2.Add (this.menubar1);
+			global::Gtk.Box.BoxChild w2 = ((global::Gtk.Box.BoxChild)(this.vbox2 [this.menubar1]));
+			w2.Position = 0;
 			w2.Expand = false;
 			w2.Fill = false;
+			// Container child vbox2.Gtk.Box+BoxChild
+			this.UIManager.AddUiFromString ("<ui><menubar name=\'menubar2\'/></ui>");
+			this.menubar2 = ((global::Gtk.MenuBar)(this.UIManager.GetWidget ("/menubar2")));
+			this.menubar2.Name = "menubar2";
+			this.vbox2.Add (this.menubar2);
+			global::Gtk.Box.BoxChild w3 = ((global::Gtk.Box.BoxChild)(this.vbox2 [this.menubar2]));
+			w3.Position = 1;
+			w3.Expand = false;
+			w3.Fill = false;
 			this.Add (this.vbox2);
 			if ((this.Child != null)) {
 				this.Child.ShowAll ();

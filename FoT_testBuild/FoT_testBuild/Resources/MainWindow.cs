@@ -13,6 +13,8 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
 using System.Globalization;
+using System.ComponentModel;
+using System.Diagnostics;
 
 using NetOffice;
 using Word = NetOffice.WordApi;
@@ -162,13 +164,22 @@ public partial class MainWindow: Gtk.Window{
 
 			pathClient1 = pathClient1 + @"Screenshots\";
 			massCreateFiles(ref pathClient1);
+
+
 		}
 
 		if(runDocMode == true)
 			runWordApplication();
 
-		runRepeatDoc();
+		if(runDocMode == true)
+			runRepeatDoc();
 
+		string tempchar4 = pathClient1;
+		tempchar4 = tempchar4.Replace(@"\\", @"\");
+		string args4 = ("/select, \"" + tempchar4 +"\"");
+		ProcessStartInfo pifi = new ProcessStartInfo("Explorer.exe", args4);
+		System.Diagnostics.Process.Start(pifi);
+		
 		Application.Quit ();
 	}
 
