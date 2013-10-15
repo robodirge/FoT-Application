@@ -83,12 +83,12 @@
       <DeployService-UseProjectRelativePath>True</DeployService-UseProjectRelativePath>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="Resources\DevWindow.cs" />
-    <Compile Include="gtk-gui\FoT.DevWindow.cs" />
     <Compile Include="Resources\ActionGroup.cs" />
     <Compile Include="gtk-gui\FoT.ActionGroup.cs" />
     <Compile Include="Resources\EnvironmentChooser.cs" />
     <Compile Include="gtk-gui\FoT.EnvironmentChooser.cs" />
+    <Compile Include="Resources\EnviroChooser2.cs" />
+    <Compile Include="gtk-gui\FoT.EnviroChooser2.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

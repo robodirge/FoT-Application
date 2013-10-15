@@ -1,18 +1,20 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Release|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="FoT_testBuild\Resources\MainWindow.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="FoT_testBuild\Resources\EnviroChooser2.cs">
     <Files>
-      <File FileName="FoT_testBuild\Resources\MainWindow.cs" Line="202" Column="2" />
+      <File FileName="FoT_testBuild\Resources\MainWindow.cs" Line="246" Column="28" />
+      <File FileName="FoT_testBuild\Resources\EnviroChooser2.cs" Line="19" Column="2" />
+      <File FileName="FoT_testBuild\Resources\EnvironmentChooser.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
           <Node name="FoT" expanded="True">
-            <Node name="Resources" expanded="True">
-              <Node name="MainWindow.cs" selected="True" />
-            </Node>
+            <Node name="Resources" expanded="True" />
           </Node>
-          <Node name="TestPackage" expanded="True" />
+          <Node name="TestPackage" expanded="True">
+            <Node name="Microsoft Windows Binaries" selected="True" />
+          </Node>
         </State>
       </Pad>
       <Pad Id="ClassPad">

@@ -52,22 +52,6 @@
             <property name="MemberName" />
             <property name="Spacing">6</property>
             <child>
-              <widget class="Gtk.MenuBar" id="menubar1">
-                <property name="MemberName" />
-                <node name="menubar1" type="Menubar">
-                  <node type="Menu" action="newAction">
-                    <node type="Menuitem" action="DevEnviromentAction" />
-                  </node>
-                </node>
-              </widget>
-              <packing>
-                <property name="Position">0</property>
-                <property name="AutoSize">True</property>
-                <property name="Expand">False</property>
-                <property name="Fill">False</property>
-              </packing>
-            </child>
-            <child>
               <widget class="Gtk.HBox" id="hbox3">
                 <property name="MemberName" />
                 <property name="Spacing">6</property>
@@ -103,7 +87,7 @@
                 </child>
               </widget>
               <packing>
-                <property name="Position">1</property>
+                <property name="Position">0</property>
                 <property name="AutoSize">True</property>
                 <property name="Expand">False</property>
                 <property name="Fill">False</property>
@@ -120,7 +104,7 @@
                 <signal name="Clicked" handler="OnButton2Clicked" />
               </widget>
               <packing>
-                <property name="Position">2</property>
+                <property name="Position">1</property>
                 <property name="AutoSize">True</property>
                 <property name="Expand">False</property>
                 <property name="Fill">False</property>
@@ -132,7 +116,7 @@
                 <property name="LabelProp" translatable="yes">label1</property>
               </widget>
               <packing>
-                <property name="Position">3</property>
+                <property name="Position">2</property>
                 <property name="AutoSize">True</property>
                 <property name="Expand">False</property>
                 <property name="Fill">False</property>
@@ -143,7 +127,7 @@
                 <property name="MemberName" />
               </widget>
               <packing>
-                <property name="Position">4</property>
+                <property name="Position">3</property>
                 <property name="AutoSize">True</property>
                 <property name="Expand">False</property>
                 <property name="Fill">False</property>
@@ -283,6 +267,22 @@
           </packing>
         </child>
         <child>
+          <widget class="Gtk.Button" id="button4">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="Type">TextOnly</property>
+            <property name="Label" translatable="yes">Enviro chooser 2 (Dev)</property>
+            <property name="UseUnderline">True</property>
+            <signal name="Clicked" handler="OnButton4Clicked" after="yes" />
+          </widget>
+          <packing>
+            <property name="Position">10</property>
+            <property name="AutoSize">True</property>
+            <property name="Expand">False</property>
+            <property name="Fill">False</property>
+          </packing>
+        </child>
+        <child>
           <widget class="Gtk.HBox" id="hbox1">
             <property name="MemberName" />
             <property name="Spacing">6</property>
@@ -331,7 +331,7 @@
             </child>
           </widget>
           <packing>
-            <property name="Position">10</property>
+            <property name="Position">11</property>
             <property name="AutoSize">True</property>
             <property name="Expand">False</property>
             <property name="Fill">False</property>
@@ -342,7 +342,7 @@
             <property name="MemberName" />
           </widget>
           <packing>
-            <property name="Position">11</property>
+            <property name="Position">12</property>
             <property name="AutoSize">True</property>
             <property name="Expand">False</property>
             <property name="Fill">False</property>
@@ -407,7 +407,7 @@
             </child>
           </widget>
           <packing>
-            <property name="Position">12</property>
+            <property name="Position">13</property>
             <property name="AutoSize">True</property>
             <property name="Expand">False</property>
             <property name="Fill">False</property>
@@ -418,7 +418,7 @@
             <property name="MemberName" />
           </widget>
           <packing>
-            <property name="Position">13</property>
+            <property name="Position">14</property>
             <property name="AutoSize">True</property>
             <property name="Expand">False</property>
             <property name="Fill">False</property>
@@ -433,62 +433,7 @@ Fields can be left blank</property>
             <property name="Wrap">True</property>
           </widget>
           <packing>
-            <property name="Position">14</property>
-            <property name="AutoSize">True</property>
-            <property name="Expand">False</property>
-            <property name="Fill">False</property>
-          </packing>
-        </child>
-      </widget>
-    </child>
-  </widget>
-  <widget class="Gtk.Window" id="FoT.DevWindow" design-size="400 300">
-    <action-group name="Default">
-      <action id="Action">
-        <property name="Type">Action</property>
-        <property name="Label" translatable="yes" />
-      </action>
-      <action id="DesktopAction">
-        <property name="Type">Action</property>
-        <property name="Label" translatable="yes">Desktop</property>
-        <property name="ShortLabel" translatable="yes">Desktop</property>
-      </action>
-      <action id="DeviceAction">
-        <property name="Type">Action</property>
-        <property name="Label" translatable="yes">Device</property>
-        <property name="ShortLabel" translatable="yes">Device</property>
-      </action>
-    </action-group>
-    <property name="MemberName" />
-    <property name="Title" translatable="yes">DevWindow</property>
-    <property name="WindowPosition">CenterOnParent</property>
-    <property name="DestroyWithParent">True</property>
-    <child>
-      <widget class="Gtk.VBox" id="vbox2">
-        <property name="MemberName" />
-        <property name="Spacing">6</property>
-        <child>
-          <widget class="Gtk.MenuBar" id="menubar1">
-            <property name="MemberName" />
-            <node name="__gtksharp_90_Stetic_Editor_ActionMenuBar" type="Menubar">
-              <node type="Menu" action="DesktopAction" />
-              <node type="Menu" action="DeviceAction" />
-            </node>
-          </widget>
-          <packing>
-            <property name="Position">0</property>
-            <property name="AutoSize">True</property>
-            <property name="Expand">False</property>
-            <property name="Fill">False</property>
-          </packing>
-        </child>
-        <child>
-          <widget class="Gtk.MenuBar" id="menubar2">
-            <property name="MemberName" />
-            <node name="__gtksharp_90_Stetic_Editor_ActionMenuBar" type="Menubar" />
-          </widget>
-          <packing>
-            <property name="Position">1</property>
+            <property name="Position">15</property>
             <property name="AutoSize">True</property>
             <property name="Expand">False</property>
             <property name="Fill">False</property>
@@ -849,6 +794,147 @@ Fields can be left blank</property>
         <child>
           <widget class="Gtk.VSeparator" id="vseparator2">
             <property name="MemberName" />
+          </widget>
+          <packing>
+            <property name="Position">2</property>
+            <property name="AutoSize">True</property>
+            <property name="Expand">False</property>
+            <property name="Fill">False</property>
+          </packing>
+        </child>
+      </widget>
+    </child>
+  </widget>
+  <widget class="Gtk.Window" id="FoT.EnviroChooser2" design-size="423 303">
+    <action-group name="Default">
+      <action id="DesktopAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">Desktop</property>
+        <property name="ShortLabel" translatable="yes">Desktop</property>
+        <signal name="Activated" handler="OnDesktopActionActivated" after="yes" />
+      </action>
+      <action id="DeviceAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">Device</property>
+        <property name="ShortLabel" translatable="yes">Device</property>
+      </action>
+      <action id="WindowsAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">Windows</property>
+        <property name="ShortLabel" translatable="yes">Windows</property>
+      </action>
+      <action id="OSXAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">OSX</property>
+        <property name="ShortLabel" translatable="yes">OSX</property>
+      </action>
+      <action id="OtherAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">Other</property>
+        <property name="ShortLabel" translatable="yes">Other</property>
+      </action>
+      <action id="AndroidAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">Android</property>
+        <property name="ShortLabel" translatable="yes">Android</property>
+      </action>
+      <action id="iOSAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">iOS</property>
+        <property name="ShortLabel" translatable="yes">iOS</property>
+      </action>
+      <action id="BBWinPhoneAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">BB / WinPhone</property>
+        <property name="ShortLabel" translatable="yes">BB / WinPhone</property>
+      </action>
+    </action-group>
+    <property name="MemberName" />
+    <property name="Title" translatable="yes">EnviroChooser2</property>
+    <property name="TypeHint">Dialog</property>
+    <property name="WindowPosition">CenterOnParent</property>
+    <child>
+      <widget class="Gtk.VBox" id="vbox2">
+        <property name="MemberName" />
+        <property name="Spacing">6</property>
+        <child>
+          <widget class="Gtk.VBox" id="vbox3">
+            <property name="MemberName" />
+            <property name="Spacing">6</property>
+            <child>
+              <widget class="Gtk.MenuBar" id="menubar1">
+                <property name="MemberName" />
+                <node name="__gtksharp_159_Stetic_Editor_ActionMenuBar" type="Menubar">
+                  <node type="Menu" action="DesktopAction" />
+                  <node type="Menu" action="DeviceAction" />
+                </node>
+              </widget>
+              <packing>
+                <property name="Position">0</property>
+                <property name="AutoSize">True</property>
+                <property name="Expand">False</property>
+                <property name="Fill">False</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="Gtk.MenuBar" id="menubar2">
+                <property name="MemberName" />
+                <property name="Visible">False</property>
+                <node name="__gtksharp_159_Stetic_Editor_ActionMenuBar" type="Menubar">
+                  <node type="Menu" action="WindowsAction" />
+                  <node type="Menu" action="OSXAction" />
+                  <node type="Menu" action="OtherAction" />
+                </node>
+              </widget>
+              <packing>
+                <property name="Position">1</property>
+                <property name="AutoSize">True</property>
+                <property name="Expand">False</property>
+                <property name="Fill">False</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="Gtk.MenuBar" id="menubar3">
+                <property name="MemberName" />
+                <property name="Visible">False</property>
+                <node name="__gtksharp_159_Stetic_Editor_ActionMenuBar" type="Menubar">
+                  <node type="Menu" action="AndroidAction" />
+                  <node type="Menu" action="iOSAction" />
+                  <node type="Menu" action="BBWinPhoneAction" />
+                </node>
+              </widget>
+              <packing>
+                <property name="Position">2</property>
+                <property name="AutoSize">True</property>
+                <property name="Expand">False</property>
+                <property name="Fill">False</property>
+              </packing>
+            </child>
+          </widget>
+          <packing>
+            <property name="Position">0</property>
+            <property name="AutoSize">True</property>
+            <property name="Expand">False</property>
+            <property name="Fill">False</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Fixed" id="fixed1">
+            <property name="MemberName" />
+            <property name="HeightRequest">100</property>
+            <property name="HasWindow">False</property>
+          </widget>
+          <packing>
+            <property name="Position">1</property>
+            <property name="AutoSize">True</property>
+            <property name="Expand">False</property>
+            <property name="Fill">False</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="label1">
+            <property name="MemberName" />
+            <property name="LabelProp" translatable="yes">label1</property>
           </widget>
           <packing>
             <property name="Position">2</property>

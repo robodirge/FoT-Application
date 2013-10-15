@@ -235,14 +235,14 @@ public partial class MainWindow: Gtk.Window{
 		checkbutton1.Active = false;
 		checkbutton2.Active = true;
 		checkbutton3.Active = false;
-	}
-	protected void OnDevEnviromentActionActivated (object sender, EventArgs e){
-		new FoT.DevWindow();
 	}
 
 	protected void OnButton3Clicked (object sender, EventArgs e){
-
 		new FoT.EnvironmentChooser();
+	}
+
+	protected void OnButton4Clicked (object sender, EventArgs e){
+		new FoT.EnviroChooser2();
 	}
 
 	#endregion
