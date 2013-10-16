@@ -149,6 +149,8 @@ public partial class MainWindow: Gtk.Window{
 		string pathClient1 = path;
 		pathClient1 = pathClient1 + halfDR + @"\";
 
+		bool bcontinue = false;
+
 		if(!Directory.Exists(pathClient1)){
 			DirectoryInfo di = Directory.CreateDirectory(pathClient1);
 
@@ -165,20 +167,23 @@ public partial class MainWindow: Gtk.Window{
 			pathClient1 = pathClient1 + @"Screenshots\";
 			massCreateFiles(ref pathClient1);
 
+			bcontinue = true;
 
 		}
 
-		if(runDocMode == true)
-			runWordApplication();
+		
+		if(bcontinue == true){		
+			if(runDocMode == true){
+				runWordApplication();
+				runRepeatDoc();
+			}
 
-		if(runDocMode == true)
-			runRepeatDoc();
-
-		string tempchar4 = pathClient1;
-		tempchar4 = tempchar4.Replace(@"\\", @"\");
-		string args4 = ("/select, \"" + tempchar4 +"\"");
-		ProcessStartInfo pifi = new ProcessStartInfo("Explorer.exe", args4);
-		System.Diagnostics.Process.Start(pifi);
+			string tempchar4 = pathClient1;
+			tempchar4 = tempchar4.Replace(@"\\", @"\");
+			string args4 = ("/select, \"" + tempchar4 +"\"");
+			ProcessStartInfo pifi = new ProcessStartInfo("Explorer.exe", args4);
+			System.Diagnostics.Process.Start(pifi);
+		}
 		
 		Application.Quit ();
 	}
