@@ -363,6 +363,24 @@ namespace FoT{
 			label1.Text = @"Android v2.0 devices";
 		}
 
+		protected void OnButton12Clicked (object sender, EventArgs e){
+			enableAlllvl4();
+			button12.Sensitive = false;
+			label1.Text = @"Android v3.0 devices";
+		}
+
+		protected void OnButton13Clicked (object sender, EventArgs e){
+			enableAlllvl4();
+			button13.Sensitive = false;
+			label1.Text = @"Android v4.1 devices";
+		}
+
+		protected void OnButton14Clicked (object sender, EventArgs e){
+			enableAlllvl4();
+			button14.Sensitive = false;
+			label1.Text = @"Android v4.2 devices";
+		}
+
 		public void enableAlllvl4(){
 			button9.Sensitive = true;
 			button10.Sensitive = true;

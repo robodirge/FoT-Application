@@ -101,7 +101,7 @@
                 <property name="Type">TextOnly</property>
                 <property name="Label" translatable="yes">File Directory Chooser</property>
                 <property name="UseUnderline">True</property>
-                <signal name="Clicked" handler="OnButton2Clicked" />
+                <signal name="Clicked" handler="OnButton2Clicked" after="yes" />
               </widget>
               <packing>
                 <property name="Position">1</property>
@@ -1220,6 +1220,7 @@ Fields can be left blank</property>
                         <property name="Type">TextOnly</property>
                         <property name="Label" translatable="yes">Android V.3</property>
                         <property name="UseUnderline">True</property>
+                        <signal name="Clicked" handler="OnButton12Clicked" />
                       </widget>
                       <packing>
                         <property name="Position">1</property>
@@ -1248,6 +1249,7 @@ Fields can be left blank</property>
                         <property name="Type">TextOnly</property>
                         <property name="Label" translatable="yes">Android V.4.0</property>
                         <property name="UseUnderline">True</property>
+                        <signal name="Clicked" handler="OnButton13Clicked" />
                       </widget>
                       <packing>
                         <property name="Position">0</property>
@@ -1264,6 +1266,7 @@ Fields can be left blank</property>
                         <property name="Type">TextOnly</property>
                         <property name="Label" translatable="yes">Android V.4.1+</property>
                         <property name="UseUnderline">True</property>
+                        <signal name="Clicked" handler="OnButton14Clicked" />
                       </widget>
                       <packing>
                         <property name="Position">1</property>
