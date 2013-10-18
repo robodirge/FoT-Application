@@ -171,14 +171,14 @@ namespace FoT{
 		}
 
 		//<param> enable visible lvl 3 items </param>
-		public void enablelvl3(int inumber)
-		{
+		public void enablelvl3(int inumber){
 			button9.Visible = true;
 			button10.Visible = true;
 			button11.Visible = true;
 			button12.Visible = true;
 			button13.Visible = true;
 			button14.Visible = true;
+			button15.Visible = true;
 			button16.Visible = true;
 			button17.Visible = true;
 			button18.Visible = true;
@@ -204,6 +204,7 @@ namespace FoT{
 				button12.Visible = false;
 				button13.Visible = false;
 				button14.Visible = false;
+				button15.Visible = false;
 				button16.Visible = false;
 				button17.Visible = false;
 				button18.Visible = false;
@@ -229,6 +230,7 @@ namespace FoT{
 				button12.Visible = false;
 				button13.Visible = false;
 				button14.Visible = false;
+				button15.Visible = false;
 				button16.Visible = false;
 				button17.Visible = false;
 				button18.Visible = false;
@@ -301,9 +303,8 @@ namespace FoT{
 				button12.Visible = false;
 				button13.Visible = false;
 				button14.Visible = false;
+				button15.Visible = false;
 
-
-				//button22.Sensitive = isAllTypesActive;
 				button22.Click();
 
 				break;
@@ -314,6 +315,7 @@ namespace FoT{
 				button12.Visible = false;
 				button13.Visible = false;
 				button14.Visible = false;
+				button15.Visible = false;
 				button16.Visible = false;
 				button17.Visible = false;
 				button18.Visible = false;
@@ -330,13 +332,9 @@ namespace FoT{
 		protected void OnButton22Clicked (object sender, EventArgs e){
 			if(isAllTypesActive == true){
 				button22.Sensitive = false;
-				//isAllTypesActive = false;
 				button9.Sensitive = true;
 				button10.Sensitive = true;
 				label1.Text = @"All Android devices // Or iOS // Or Other";
-			}
-			else{
-				return;
 			}
 		}
 
@@ -355,8 +353,7 @@ namespace FoT{
 			button10.Sensitive = false;
 			label1.Text = @"Mobile devices";
 		}
-
-
+		
 		protected void OnButton11Clicked (object sender, EventArgs e){
 			enableAlllvl4();
 			button11.Sensitive = false;
@@ -382,12 +379,13 @@ namespace FoT{
 		}
 
 		public void enableAlllvl4(){
-			button9.Sensitive = true;
-			button10.Sensitive = true;
+			//button9.Sensitive = true;
+			//button10.Sensitive = true;
 			button11.Sensitive = true;
 			button12.Sensitive = true;
 			button13.Sensitive = true;
 			button14.Sensitive = true;
+			button15.Sensitive = true;
 		}
 	}
 }
