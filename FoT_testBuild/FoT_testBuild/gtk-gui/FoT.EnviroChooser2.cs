@@ -716,6 +716,12 @@ namespace FoT
 			this.button12.Clicked += new global::System.EventHandler (this.OnButton12Clicked);
 			this.button13.Clicked += new global::System.EventHandler (this.OnButton13Clicked);
 			this.button14.Clicked += new global::System.EventHandler (this.OnButton14Clicked);
+			this.button16.Clicked += new global::System.EventHandler (this.OnButton16Clicked);
+			this.button17.Clicked += new global::System.EventHandler (this.OnButton17Clicked);
+			this.button18.Clicked += new global::System.EventHandler (this.OnButton18Clicked);
+			this.button19.Clicked += new global::System.EventHandler (this.OnButton19Clicked);
+			this.button20.Clicked += new global::System.EventHandler (this.OnButton20Clicked);
+			this.button21.Clicked += new global::System.EventHandler (this.OnButton21Clicked);
 			this.button15.Clicked += new global::System.EventHandler (this.OnButton15Clicked);
 		}
 	}

@@ -27,12 +27,17 @@ namespace FoT{
 		public EnviroChooser2 () : 
 				base(Gtk.WindowType.Toplevel){
 			this.Build ();
+			/*
 			button3.Visible = false;
 			button4.Visible = false;
 			button5.Visible = false;
 			button6.Visible = false;
 			button7.Visible = false;
 			button8.Visible = false;
+			*/
+
+			hbox2.Hide();
+			hbox3.Hide();
 
 			label3.Visible = false;
 			label4.Visible = false;
@@ -76,9 +81,11 @@ namespace FoT{
 			label3.Visible = true;
 			label4.Visible = false;
 
+			hbox2.Show();
 			button3.Visible = true;
 			button4.Visible = true;
 			button5.Visible = true;
+			hbox3.Hide();
 			button6.Visible = false;
 			button7.Visible = false;
 			button8.Visible = false;
@@ -104,9 +111,11 @@ namespace FoT{
 			label3.Visible = false;
 			label4.Visible = true;
 
+			hbox3.Show();
 			button3.Visible = false;
 			button4.Visible = false;
 			button5.Visible = false;
+			hbox2.Hide();
 			button6.Visible = true;
 			button7.Visible = true;
 			button8.Visible = true;
@@ -213,6 +222,7 @@ namespace FoT{
 
 		//<param> enable visible lvl 3 items </param>
 		public void enablelvl3(int inumber){
+			hbox4.Show();
 			button9.Visible = true;
 			button10.Visible = true;
 			button11.Visible = true;
@@ -265,6 +275,7 @@ namespace FoT{
 				button33.Visible = false;
 			}
 			else if((inumber < 6)&&(inumber != 0)){
+				hbox4.Hide();
 				button9.Visible = false;
 				button10.Visible = false;
 				button11.Visible = false;
@@ -379,7 +390,6 @@ namespace FoT{
 				button10.Sensitive = true;
 				sortActiveLayers();
 			}
-
 		}
 
 		public void sortActiveLayers(){
@@ -421,6 +431,24 @@ namespace FoT{
 				break;
 			case 5:
 				button14.Click();
+				break;
+			case 6:
+				button16.Click();
+				break;
+			case 7:
+				button17.Click();
+				break;
+			case 8:
+				button18.Click();
+				break;
+			case 9:
+				button19.Click();
+				break;
+			case 10:
+				button20.Click();
+				break;
+			case 11:
+				button21.Click();
 				break;
 			default:
 				break;
@@ -523,7 +551,7 @@ namespace FoT{
 			button15.Sensitive = true;
 			button16.Sensitive = true;
 			button17.Sensitive = true;
-			button17.Sensitive = true;
+			button18.Sensitive = true;
 			button19.Sensitive = true;
 			button20.Sensitive = true;
 			button21.Sensitive = true;
@@ -561,6 +589,93 @@ namespace FoT{
 			}
 
 			button15.Sensitive = false;
+		}
+
+		protected void OnButton16Clicked (object sender, EventArgs e){
+			currentLayer5 = 6; // Android
+			enableAlllvl4a();
+			button16.Sensitive = false;
+			label1.Text = @"iPod devices";
+		}
+
+		protected void OnButton17Clicked (object sender, EventArgs e){
+			currentLayer5 = 7; // Android
+			enableAlllvl4a();
+			button17.Sensitive = false;
+
+			if(currentLayer3 ==1){
+				label1.Text = @"Tablet iOS 3 / 4 ";
+			}
+			else if(currentLayer3 ==2){
+				label1.Text = @"Mobile iOS 3 / 4";
+			}			
+			else if(currentLayer3 == 3){
+				label1.Text = @"All iOS 3 / 4 devices";
+			}
+		}
+
+		protected void OnButton18Clicked (object sender, EventArgs e){
+			currentLayer5 = 8; // Android
+			enableAlllvl4a();
+			button18.Sensitive = false;
+
+			if(currentLayer3 ==1){
+				label1.Text = @"Tablet iOS 5 ";
+			}
+			else if(currentLayer3 ==2){
+				label1.Text = @"Mobile iOS 5";
+			}			
+			else if(currentLayer3 == 3){
+				label1.Text = @"All iOS 5 devices";
+			}
+		}
+
+		protected void OnButton19Clicked (object sender, EventArgs e){
+			currentLayer5 = 9; // Android
+			enableAlllvl4a();
+			button19.Sensitive = false;
+
+			if(currentLayer3 ==1){
+				label1.Text = @"Tablet iOS 6 ";
+			}
+			else if(currentLayer3 ==2){
+				label1.Text = @"Mobile iOS 6";
+			}			
+			else if(currentLayer3 == 3){
+				label1.Text = @"All iOS 6 devices";
+			}
+		}
+
+		protected void OnButton20Clicked (object sender, EventArgs e){
+			currentLayer5 = 10; // Android
+			enableAlllvl4a();
+			button20.Sensitive = false;
+
+			if(currentLayer3 ==1){
+				label1.Text = @"Tablet iOS 6.1 ";
+			}
+			else if(currentLayer3 ==2){
+				label1.Text = @"Mobile iOS 6.1";
+			}			
+			else if(currentLayer3 == 3){
+				label1.Text = @"All iOS 6.1 devices";
+			}
+		}
+
+		protected void OnButton21Clicked (object sender, EventArgs e){
+			currentLayer5 = 11; // Android
+			enableAlllvl4a();
+			button21.Sensitive = false;
+
+			if(currentLayer3 ==1){
+				label1.Text = @"Tablet iOS 7+ ";
+			}
+			else if(currentLayer3 ==2){
+				label1.Text = @"Mobile iOS 7+";
+			}			
+			else if(currentLayer3 == 3){
+				label1.Text = @"All iOS 7+ devices";
+			}
 		}
 	}
 }

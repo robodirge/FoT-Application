@@ -1283,6 +1283,7 @@ Fields can be left blank</property>
                         <property name="Type">TextOnly</property>
                         <property name="Label" translatable="yes">iPods</property>
                         <property name="UseUnderline">True</property>
+                        <signal name="Clicked" handler="OnButton16Clicked" />
                       </widget>
                       <packing>
                         <property name="Position">2</property>
@@ -1306,6 +1307,7 @@ Fields can be left blank</property>
                                 <property name="Type">TextOnly</property>
                                 <property name="Label" translatable="yes">iOS V.3 / V.4</property>
                                 <property name="UseUnderline">True</property>
+                                <signal name="Clicked" handler="OnButton17Clicked" />
                               </widget>
                               <packing>
                                 <property name="Position">0</property>
@@ -1321,6 +1323,7 @@ Fields can be left blank</property>
                                 <property name="Type">TextOnly</property>
                                 <property name="Label" translatable="yes">iOS V.5</property>
                                 <property name="UseUnderline">True</property>
+                                <signal name="Clicked" handler="OnButton18Clicked" />
                               </widget>
                               <packing>
                                 <property name="Position">1</property>
@@ -1336,6 +1339,7 @@ Fields can be left blank</property>
                                 <property name="Type">TextOnly</property>
                                 <property name="Label" translatable="yes">iOS V.6.0</property>
                                 <property name="UseUnderline">True</property>
+                                <signal name="Clicked" handler="OnButton19Clicked" />
                               </widget>
                               <packing>
                                 <property name="Position">2</property>
@@ -1363,6 +1367,7 @@ Fields can be left blank</property>
                                 <property name="Type">TextOnly</property>
                                 <property name="Label" translatable="yes">iOS V.6.1</property>
                                 <property name="UseUnderline">True</property>
+                                <signal name="Clicked" handler="OnButton20Clicked" />
                               </widget>
                               <packing>
                                 <property name="Position">0</property>
@@ -1378,6 +1383,7 @@ Fields can be left blank</property>
                                 <property name="Type">TextOnly</property>
                                 <property name="Label" translatable="yes">iOS V.7+</property>
                                 <property name="UseUnderline">True</property>
+                                <signal name="Clicked" handler="OnButton21Clicked" />
                               </widget>
                               <packing>
                                 <property name="Position">1</property>
