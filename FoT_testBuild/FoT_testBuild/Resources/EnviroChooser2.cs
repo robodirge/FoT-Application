@@ -376,10 +376,17 @@ namespace FoT{
 				button20.Visible = false;
 				button21.Visible = false;
 				button22.Visible = false;
+
+				showOption8();
 				break;
 			default:
 				break;
 			}
+		}
+
+		protected void showOption8(){
+			label1.Text = @"Black berry and other stuff.";
+			return;
 		}
 
 		protected void OnButton22Clicked (object sender, EventArgs e){
