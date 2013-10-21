@@ -5,6 +5,24 @@ namespace FoT{
 	public partial class EnviroChooser2 : Gtk.Window{
 
 		static public bool isAllTypesActive;
+		static public bool isAllTypesActive2;
+
+		//Current active
+
+		//Layer 1 (dekstop)
+		static public int currentLayer1;
+			//1 = Desktop
+			//2 = Device
+		//Layer 2 (OS)
+		static public int currentLayer2;
+			//1 - 3 = Desktop
+			//4 - 6 = Device
+		//Layer 3 (Type)
+		static public int currentLayer3;
+		//Layer 4 (V - Control)
+		static public int currentLayer4;
+		//Layer 5 (version)
+		static public int currentLayer5;
 
 		public EnviroChooser2 () : 
 				base(Gtk.WindowType.Toplevel){
@@ -21,14 +39,28 @@ namespace FoT{
 
 			//Gdk.Color c = new Gdk.Color();
 			//Gdk.Color.Parse("red", ref c);
+			activeSetup();
 
 			isAllTypesActive = true;
+			isAllTypesActive2 = false;
 
 			enablelvl3(0);
+		}
 
-		}
+		protected void activeSetup(){
+			currentLayer1 = 0; // None selected
+			currentLayer2 = 0; 
+			currentLayer3 = 0; 
+			currentLayer4 = 0; 
+			currentLayer5 = 0; 
+			return;
+		}
+
 		//<param> Desktop button clicked </param>
 		protected void OnButton1Clicked (object sender, EventArgs e){
+			activeSetup();
+			currentLayer1 = 1; //Destop selected
+
 			button1.Sensitive = false;
 			button2.Sensitive = true;
 
@@ -54,6 +86,9 @@ namespace FoT{
 
 		//<param> Device button clicked </param>
 		protected void OnButton2Clicked (object sender, EventArgs e){
+			activeSetup();
+			currentLayer1 = 2; //Destop selected
+
 			button1.Sensitive = true;
 			button2.Sensitive = false;
 
@@ -79,6 +114,7 @@ namespace FoT{
 
 		//<param> Windows button clicked </param>
 		protected void OnButton3Clicked (object sender, EventArgs e){
+			currentLayer2 = 1; // Windows
 			toggleactive(3);
 			label3.Text = @"Windows is selected";
 			enablelvl3(3);
@@ -86,6 +122,7 @@ namespace FoT{
 
 		//<param> OSX button clicked </param>
 		protected void OnButton4Clicked (object sender, EventArgs e){
+			currentLayer2 = 2; // OSX
 			toggleactive(4);
 			label3.Text = @"OSX is selected";
 			enablelvl3(4);
@@ -93,6 +130,7 @@ namespace FoT{
 
 		//<param> Other button clicked </param>
 		protected void OnButton5Clicked (object sender, EventArgs e){
+			currentLayer2 = 3; // Other
 			toggleactive(5);
 			label3.Text = @"Other is selected";
 			enablelvl3(5);
@@ -100,6 +138,7 @@ namespace FoT{
 
 		//<param> Android button clicked </param>
 		protected void OnButton6Clicked (object sender, EventArgs e){
+			currentLayer2 = 4; // Android
 			toggleactive(6);
 			label4.Text = @"Android is selected";
 			enablelvl3(6);
@@ -107,6 +146,7 @@ namespace FoT{
 
 		//<param> iOS button clicked </param>
 		protected void OnButton7Clicked (object sender, EventArgs e){
+			currentLayer2 = 5; // iOS
 			toggleactive(7);
 			label4.Text = @"iOS is selected";
 			enablelvl3(7);
@@ -114,6 +154,7 @@ namespace FoT{
 
 		//<param> BB / WinP button clicked </param>
 		protected void OnButton8Clicked (object sender, EventArgs e){
+			currentLayer2 = 6; // BB.Win
 			toggleactive(8);
 			label4.Text = @"BB / WinPhone is selected";
 			enablelvl3(8);
@@ -293,8 +334,8 @@ namespace FoT{
 				button19.Visible = false;
 				button20.Visible = false;
 				button21.Visible = false;
-			
-				//button22.Sensitive = isAllTypesActive;
+
+				currentLayer5 = 1;
 				button22.Click();
 
 				break;
@@ -303,8 +344,9 @@ namespace FoT{
 				button12.Visible = false;
 				button13.Visible = false;
 				button14.Visible = false;
-				button15.Visible = false;
+				//button15.Visible = false;
 
+				currentLayer5 = 1;
 				button22.Click();
 
 				break;
@@ -331,61 +373,194 @@ namespace FoT{
 
 		protected void OnButton22Clicked (object sender, EventArgs e){
 			if(isAllTypesActive == true){
+				currentLayer3 = 3;
 				button22.Sensitive = false;
 				button9.Sensitive = true;
 				button10.Sensitive = true;
-				label1.Text = @"All Android devices // Or iOS // Or Other";
+				sortActiveLayers();
+			}
+
+		}
+
+		public void sortActiveLayers(){
+			switch(currentLayer2){
+			case 0:
+				Console.WriteLine(@"No OS Selected");
+				break;
+			case 4:
+				currentLayer4 = 1; //Android
+				callActivelayer();
+				break;
+			case 5:
+				currentLayer4 = 2; //iOS
+				callActivelayer();
+				break;
+			default:
+				Console.WriteLine(@"Different OS Selected");
+				Console.WriteLine(@"----->" + currentLayer2);
+				break;
+			}
+			//------------------------------
+		}
+
+		public void callActivelayer(){
+			switch(currentLayer5){
+			case 0:
+				break;
+			case 1:
+				button15.Click();
+				break;
+			case 2:
+				button11.Click();
+				break;
+			case 3:
+				button12.Click();
+				break;
+			case 4:
+				button13.Click();
+				break;
+			case 5:
+				button14.Click();
+				break;
+			default:
+				break;
 			}
 		}
 
 		protected void OnButton9Clicked (object sender, EventArgs e){
+			currentLayer3 = 1; // Tablet
 			isAllTypesActive = true;
 			button22.Sensitive = true;
 			button9.Sensitive = false;
 			button10.Sensitive = true;
-			label1.Text = @"Tablet devices";
+			//label1.Text = @"Tablet devices";
+			callActivelayer();
 		}
 
 		protected void OnButton10Clicked (object sender, EventArgs e){
+			currentLayer3 = 2; //Mobile
 			isAllTypesActive = true;
 			button22.Sensitive = true;
 			button9.Sensitive = true;
 			button10.Sensitive = false;
-			label1.Text = @"Mobile devices";
+			//label1.Text = @"Mobile devices";
+			callActivelayer();
 		}
 		
 		protected void OnButton11Clicked (object sender, EventArgs e){
+			currentLayer5 = 2; // Android
 			enableAlllvl4();
 			button11.Sensitive = false;
-			label1.Text = @"Android v2.0 devices";
+
+			if(currentLayer3 ==1){
+				label1.Text = @"Tablet Android v2.0 devices";
+			}
+			else if(currentLayer3 ==2){
+				label1.Text = @"Mobile Android v2.0 devices";
+			}
+			else if(currentLayer3 == 3){
+				label1.Text = @"All Android v2.0 devices";
+			}
 		}
 
 		protected void OnButton12Clicked (object sender, EventArgs e){
+			currentLayer5 = 3; // Android
 			enableAlllvl4();
 			button12.Sensitive = false;
-			label1.Text = @"Android v3.0 devices";
+
+			if(currentLayer3 ==1){
+				label1.Text = @"Tablet Android v3.0 devices";
+			}
+			else if(currentLayer3 ==2){
+				label1.Text = @"Mobile Android v3.0 devices";
+			}
+			else if(currentLayer3 == 3){
+				label1.Text = @"All Android v3.0 devices";
+			}
 		}
 
 		protected void OnButton13Clicked (object sender, EventArgs e){
+			currentLayer5 = 4; // Android
 			enableAlllvl4();
 			button13.Sensitive = false;
-			label1.Text = @"Android v4.1 devices";
+
+			if(currentLayer3 ==1){
+				label1.Text = @"Tablet Android v4.1 devices";
+			}
+			else if(currentLayer3 ==2){
+				label1.Text = @"Mobile Android v4.1 devices";
+			}
+			else if(currentLayer3 == 3){
+				label1.Text = @"All Android v4.1 devices";
+			}
 		}
 
 		protected void OnButton14Clicked (object sender, EventArgs e){
+			currentLayer5 = 5; // Android
 			enableAlllvl4();
 			button14.Sensitive = false;
-			label1.Text = @"Android v4.2 devices";
+
+			if(currentLayer3 ==1){
+				label1.Text = @"Tablet Android v4.2+ devices";
+			}
+			else if(currentLayer3 ==2){
+				label1.Text = @"Mobile Android v4.2+ devices";
+			}			
+			else if(currentLayer3 == 3){
+				label1.Text = @"All Android v4.2+ devices";
+			}
 		}
 
 		public void enableAlllvl4(){
-			//button9.Sensitive = true;
-			//button10.Sensitive = true;
 			button11.Sensitive = true;
 			button12.Sensitive = true;
 			button13.Sensitive = true;
 			button14.Sensitive = true;
 			button15.Sensitive = true;
+		}
+
+		public void enableAlllvl4a(){
+			button15.Sensitive = true;
+			button16.Sensitive = true;
+			button17.Sensitive = true;
+			button17.Sensitive = true;
+			button19.Sensitive = true;
+			button20.Sensitive = true;
+			button21.Sensitive = true;
+		}
+
+		protected void OnButton15Clicked (object sender, EventArgs e){
+			currentLayer5 = 1;
+
+			switch(currentLayer4){
+			case 0:
+				Console.WriteLine(@"No Version Selected");
+				break;
+			case 1:
+				enableAlllvl4();
+				if(currentLayer3 ==3)
+					label1.Text = @"All android Active";
+				else if(currentLayer3 ==1)
+					label1.Text = @"Tablet Only android";
+				else if(currentLayer3 ==2)
+					label1.Text = @"Mobile Only android";
+				break;
+			case 2:
+				enableAlllvl4a();
+				if(currentLayer3 ==3)
+					label1.Text = @"All iOS Active";
+				else if(currentLayer3 ==1)
+					label1.Text = @"Tablet Only iOS";
+				else if(currentLayer3 ==2)
+					label1.Text = @"Mobile Only iOS";
+				break;
+			default:
+				Console.WriteLine(@"Different OS Selected");
+				Console.WriteLine(@"----->" + currentLayer4);
+				break;
+			}
+
+			button15.Sensitive = false;
 		}
 	}
 }

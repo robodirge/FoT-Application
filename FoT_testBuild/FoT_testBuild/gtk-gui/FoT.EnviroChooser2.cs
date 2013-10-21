@@ -38,16 +38,16 @@ namespace FoT
 		private global::Gtk.HBox hbox16;
 		private global::Gtk.Button button13;
 		private global::Gtk.Button button14;
-		private global::Gtk.Button button15;
+		private global::Gtk.Button button16;
 		private global::Gtk.HBox hbox9;
 		private global::Gtk.HBox hbox17;
-		private global::Gtk.Button button16;
 		private global::Gtk.Button button17;
 		private global::Gtk.Button button18;
-		private global::Gtk.HBox hbox18;
 		private global::Gtk.Button button19;
+		private global::Gtk.HBox hbox18;
 		private global::Gtk.Button button20;
 		private global::Gtk.Button button21;
+		private global::Gtk.Button button15;
 		private global::Gtk.HBox hbox5;
 		private global::Gtk.HBox hbox10;
 		private global::Gtk.Button button24;
@@ -388,13 +388,14 @@ namespace FoT
 			w30.Expand = false;
 			w30.Fill = false;
 			// Container child hbox16.Gtk.Box+BoxChild
-			this.button15 = new global::Gtk.Button ();
-			this.button15.CanFocus = true;
-			this.button15.Name = "button15";
-			this.button15.UseUnderline = true;
-			this.button15.Label = global::Mono.Unix.Catalog.GetString ("Implement ALL Versions");
-			this.hbox16.Add (this.button15);
-			global::Gtk.Box.BoxChild w31 = ((global::Gtk.Box.BoxChild)(this.hbox16 [this.button15]));
+			this.button16 = new global::Gtk.Button ();
+			this.button16.WidthRequest = 60;
+			this.button16.CanFocus = true;
+			this.button16.Name = "button16";
+			this.button16.UseUnderline = true;
+			this.button16.Label = global::Mono.Unix.Catalog.GetString ("iPods");
+			this.hbox16.Add (this.button16);
+			global::Gtk.Box.BoxChild w31 = ((global::Gtk.Box.BoxChild)(this.hbox16 [this.button16]));
 			w31.Position = 2;
 			w31.Expand = false;
 			w31.Fill = false;
@@ -407,28 +408,16 @@ namespace FoT
 			this.hbox17.Name = "hbox17";
 			this.hbox17.Spacing = 6;
 			// Container child hbox17.Gtk.Box+BoxChild
-			this.button16 = new global::Gtk.Button ();
-			this.button16.WidthRequest = 60;
-			this.button16.CanFocus = true;
-			this.button16.Name = "button16";
-			this.button16.UseUnderline = true;
-			this.button16.Label = global::Mono.Unix.Catalog.GetString ("iPods");
-			this.hbox17.Add (this.button16);
-			global::Gtk.Box.BoxChild w32 = ((global::Gtk.Box.BoxChild)(this.hbox17 [this.button16]));
-			w32.Position = 0;
-			w32.Expand = false;
-			w32.Fill = false;
-			// Container child hbox17.Gtk.Box+BoxChild
 			this.button17 = new global::Gtk.Button ();
 			this.button17.CanFocus = true;
 			this.button17.Name = "button17";
 			this.button17.UseUnderline = true;
 			this.button17.Label = global::Mono.Unix.Catalog.GetString ("iOS V.3 / V.4");
 			this.hbox17.Add (this.button17);
-			global::Gtk.Box.BoxChild w33 = ((global::Gtk.Box.BoxChild)(this.hbox17 [this.button17]));
-			w33.Position = 1;
-			w33.Expand = false;
-			w33.Fill = false;
+			global::Gtk.Box.BoxChild w32 = ((global::Gtk.Box.BoxChild)(this.hbox17 [this.button17]));
+			w32.Position = 0;
+			w32.Expand = false;
+			w32.Fill = false;
 			// Container child hbox17.Gtk.Box+BoxChild
 			this.button18 = new global::Gtk.Button ();
 			this.button18.CanFocus = true;
@@ -436,7 +425,18 @@ namespace FoT
 			this.button18.UseUnderline = true;
 			this.button18.Label = global::Mono.Unix.Catalog.GetString ("iOS V.5");
 			this.hbox17.Add (this.button18);
-			global::Gtk.Box.BoxChild w34 = ((global::Gtk.Box.BoxChild)(this.hbox17 [this.button18]));
+			global::Gtk.Box.BoxChild w33 = ((global::Gtk.Box.BoxChild)(this.hbox17 [this.button18]));
+			w33.Position = 1;
+			w33.Expand = false;
+			w33.Fill = false;
+			// Container child hbox17.Gtk.Box+BoxChild
+			this.button19 = new global::Gtk.Button ();
+			this.button19.CanFocus = true;
+			this.button19.Name = "button19";
+			this.button19.UseUnderline = true;
+			this.button19.Label = global::Mono.Unix.Catalog.GetString ("iOS V.6.0");
+			this.hbox17.Add (this.button19);
+			global::Gtk.Box.BoxChild w34 = ((global::Gtk.Box.BoxChild)(this.hbox17 [this.button19]));
 			w34.Position = 2;
 			w34.Expand = false;
 			w34.Fill = false;
@@ -450,27 +450,16 @@ namespace FoT
 			this.hbox18.Name = "hbox18";
 			this.hbox18.Spacing = 6;
 			// Container child hbox18.Gtk.Box+BoxChild
-			this.button19 = new global::Gtk.Button ();
-			this.button19.CanFocus = true;
-			this.button19.Name = "button19";
-			this.button19.UseUnderline = true;
-			this.button19.Label = global::Mono.Unix.Catalog.GetString ("iOS V.6.0");
-			this.hbox18.Add (this.button19);
-			global::Gtk.Box.BoxChild w36 = ((global::Gtk.Box.BoxChild)(this.hbox18 [this.button19]));
-			w36.Position = 0;
-			w36.Expand = false;
-			w36.Fill = false;
-			// Container child hbox18.Gtk.Box+BoxChild
 			this.button20 = new global::Gtk.Button ();
 			this.button20.CanFocus = true;
 			this.button20.Name = "button20";
 			this.button20.UseUnderline = true;
 			this.button20.Label = global::Mono.Unix.Catalog.GetString ("iOS V.6.1");
 			this.hbox18.Add (this.button20);
-			global::Gtk.Box.BoxChild w37 = ((global::Gtk.Box.BoxChild)(this.hbox18 [this.button20]));
-			w37.Position = 1;
-			w37.Expand = false;
-			w37.Fill = false;
+			global::Gtk.Box.BoxChild w36 = ((global::Gtk.Box.BoxChild)(this.hbox18 [this.button20]));
+			w36.Position = 0;
+			w36.Expand = false;
+			w36.Fill = false;
 			// Container child hbox18.Gtk.Box+BoxChild
 			this.button21 = new global::Gtk.Button ();
 			this.button21.CanFocus = true;
@@ -478,7 +467,18 @@ namespace FoT
 			this.button21.UseUnderline = true;
 			this.button21.Label = global::Mono.Unix.Catalog.GetString ("iOS V.7+");
 			this.hbox18.Add (this.button21);
-			global::Gtk.Box.BoxChild w38 = ((global::Gtk.Box.BoxChild)(this.hbox18 [this.button21]));
+			global::Gtk.Box.BoxChild w37 = ((global::Gtk.Box.BoxChild)(this.hbox18 [this.button21]));
+			w37.Position = 1;
+			w37.Expand = false;
+			w37.Fill = false;
+			// Container child hbox18.Gtk.Box+BoxChild
+			this.button15 = new global::Gtk.Button ();
+			this.button15.CanFocus = true;
+			this.button15.Name = "button15";
+			this.button15.UseUnderline = true;
+			this.button15.Label = global::Mono.Unix.Catalog.GetString ("ALL Versions");
+			this.hbox18.Add (this.button15);
+			global::Gtk.Box.BoxChild w38 = ((global::Gtk.Box.BoxChild)(this.hbox18 [this.button15]));
 			w38.Position = 2;
 			w38.Expand = false;
 			w38.Fill = false;
@@ -716,6 +716,7 @@ namespace FoT
 			this.button12.Clicked += new global::System.EventHandler (this.OnButton12Clicked);
 			this.button13.Clicked += new global::System.EventHandler (this.OnButton13Clicked);
 			this.button14.Clicked += new global::System.EventHandler (this.OnButton14Clicked);
+			this.button15.Clicked += new global::System.EventHandler (this.OnButton15Clicked);
 		}
 	}
 }
