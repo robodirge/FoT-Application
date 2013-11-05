@@ -3,12 +3,8 @@ using Gtk;
 
 namespace FoT{
 	public partial class EnviroChooser2 : Gtk.Window{
-
-		static public bool isAllTypesActive;
-		static public bool isAllTypesActive2;
-
+		
 		//Current active
-
 		//Layer 1 (dekstop)
 		static public int currentLayer1;
 			//1 = Desktop
@@ -23,31 +19,16 @@ namespace FoT{
 		static public int currentLayer4;
 		//Layer 5 (version)
 		static public int currentLayer5;
+		static public int currentLayer6;
 
 		public EnviroChooser2 () : 
 				base(Gtk.WindowType.Toplevel){
 			this.Build ();
-			/*
-			button3.Visible = false;
-			button4.Visible = false;
-			button5.Visible = false;
-			button6.Visible = false;
-			button7.Visible = false;
-			button8.Visible = false;
-			*/
 
-			hbox2.Hide();
-			hbox3.Hide();
+			//hbox2.Hide();
+			//hbox3.Hide();
 
-			label3.Visible = false;
-			label4.Visible = false;
-
-			//Gdk.Color c = new Gdk.Color();
-			//Gdk.Color.Parse("red", ref c);
 			activeSetup();
-
-			isAllTypesActive = true;
-			isAllTypesActive2 = false;
 
 			enablelvl3(0);
 		}
@@ -58,9 +39,9 @@ namespace FoT{
 			currentLayer3 = 0; 
 			currentLayer4 = 0; 
 			currentLayer5 = 0; 
+			currentLayer6 = 0;
 			return;
-		}
-
+		}
 		//<param> Desktop button clicked </param>
 		protected void OnButton1Clicked (object sender, EventArgs e){
 			activeSetup();
@@ -74,18 +55,12 @@ namespace FoT{
 
 			Gdk.Color c = new Gdk.Color();
 			Gdk.Color.Parse("red", ref c);
-			label2.ModifyFg(StateType.Normal, c);
-			label3.ModifyFg(StateType.Normal, c);
-			label2.Text = @"Desktop is selected";
 
-			label3.Visible = true;
-			label4.Visible = false;
-
-			hbox2.Show();
+			AreaB3.Hide();
 			button3.Visible = true;
 			button4.Visible = true;
 			button5.Visible = true;
-			hbox3.Hide();
+			AreaB2.Show();
 			button6.Visible = false;
 			button7.Visible = false;
 			button8.Visible = false;
@@ -104,18 +79,12 @@ namespace FoT{
 
 			Gdk.Color c = new Gdk.Color();
 			Gdk.Color.Parse("green", ref c);
-			label2.ModifyFg(StateType.Normal, c);
-			label4.ModifyFg(StateType.Normal, c);
-			label2.Text = @"Device is selected";
 
-			label3.Visible = false;
-			label4.Visible = true;
-
-			hbox3.Show();
+			AreaB2.Hide();
 			button3.Visible = false;
 			button4.Visible = false;
 			button5.Visible = false;
-			hbox2.Hide();
+			AreaB3.Show();
 			button6.Visible = true;
 			button7.Visible = true;
 			button8.Visible = true;
@@ -125,7 +94,6 @@ namespace FoT{
 		protected void OnButton3Clicked (object sender, EventArgs e){
 			currentLayer2 = 1; // Windows
 			toggleactive(3);
-			label3.Text = @"Windows is selected";
 			enablelvl3(3);
 		}
 
@@ -133,7 +101,6 @@ namespace FoT{
 		protected void OnButton4Clicked (object sender, EventArgs e){
 			currentLayer2 = 2; // OSX
 			toggleactive(4);
-			label3.Text = @"OSX is selected";
 			enablelvl3(4);
 		}
 
@@ -141,7 +108,6 @@ namespace FoT{
 		protected void OnButton5Clicked (object sender, EventArgs e){
 			currentLayer2 = 3; // Other
 			toggleactive(5);
-			label3.Text = @"Other is selected";
 			enablelvl3(5);
 		}
 
@@ -149,15 +115,18 @@ namespace FoT{
 		protected void OnButton6Clicked (object sender, EventArgs e){
 			currentLayer2 = 4; // Android
 			toggleactive(6);
-			label4.Text = @"Android is selected";
+			//AllVerHbox.Show();
+			//OtherHbox.Hide();
 			enablelvl3(6);
+
 		}
 
 		//<param> iOS button clicked </param>
 		protected void OnButton7Clicked (object sender, EventArgs e){
 			currentLayer2 = 5; // iOS
 			toggleactive(7);
-			label4.Text = @"iOS is selected";
+			//AllVerHbox.Hide();
+			//OtherHbox.Show();
 			enablelvl3(7);
 		}
 
@@ -165,7 +134,6 @@ namespace FoT{
 		protected void OnButton8Clicked (object sender, EventArgs e){
 			currentLayer2 = 6; // BB.Win
 			toggleactive(8);
-			label4.Text = @"BB / WinPhone is selected";
 			enablelvl3(8);
 		}
 
@@ -177,11 +145,6 @@ namespace FoT{
 			button6.Sensitive = true;
 			button7.Sensitive = true;
 			button8.Sensitive = true;
-
-			if(inumber < 6)
-				label3.Text = @"< -- Select a OS";
-			else
-				label4.Text = @"< -- Select a OS";
 
 			switch (inumber){
 				case 3:
@@ -216,13 +179,11 @@ namespace FoT{
 			button7.Sensitive = true;
 			button8.Sensitive = true;
 
-			label3.Text = @"< -- Select a OS";
-			label4.Text = @"< -- Select a OS";
 		}
 
 		//<param> enable visible lvl 3 items </param>
 		public void enablelvl3(int inumber){
-			hbox4.Show();
+			//hbox4.Show();
 			button9.Visible = true;
 			button10.Visible = true;
 			button11.Visible = true;
@@ -246,7 +207,6 @@ namespace FoT{
 			button30.Visible = true;
 			button31.Visible = true;
 			button32.Visible = true;
-			button33.Visible = true;
 
 			if(inumber == 0){
 				button9.Visible = false;
@@ -272,10 +232,9 @@ namespace FoT{
 				button30.Visible = false;
 				button31.Visible = false;
 				button32.Visible = false;
-				button33.Visible = false;
 			}
 			else if((inumber < 6)&&(inumber != 0)){
-				hbox4.Hide();
+				//hbox4.Hide();
 				button9.Visible = false;
 				button10.Visible = false;
 				button11.Visible = false;
@@ -303,7 +262,6 @@ namespace FoT{
 				button30.Visible = false;
 				button31.Visible = false;
 				button32.Visible = false;
-				button33.Visible = false;
 
 				enableSelection3(inumber);
 			}
@@ -317,7 +275,6 @@ namespace FoT{
 				button30.Visible = false;
 				button31.Visible = false;
 				button32.Visible = false;
-				button33.Visible = false;
 				break;
 			case 4:
 				button24.Visible = false;
@@ -325,7 +282,6 @@ namespace FoT{
 				button26.Visible = false;
 				button27.Visible = false;
 				button28.Visible = false;
-				button33.Visible = false;
 				break;
 			case 5:
 				button24.Visible = false;
@@ -390,13 +346,11 @@ namespace FoT{
 		}
 
 		protected void OnButton22Clicked (object sender, EventArgs e){
-			if(isAllTypesActive == true){
-				currentLayer3 = 3;
-				button22.Sensitive = false;
-				button9.Sensitive = true;
-				button10.Sensitive = true;
-				sortActiveLayers();
-			}
+			currentLayer3 = 3;
+			button22.Sensitive = false;
+			button9.Sensitive = true;
+			button10.Sensitive = true;
+			sortActiveLayers();
 		}
 
 		public void sortActiveLayers(){
@@ -417,68 +371,67 @@ namespace FoT{
 				Console.WriteLine(@"----->" + currentLayer2);
 				break;
 			}
-			//------------------------------
 		}
 
 		public void callActivelayer(){
+			Console.WriteLine("layer 5:");
+			Console.WriteLine(currentLayer5);
 			switch(currentLayer5){
 			case 0:
 				break;
 			case 1:
-				button15.Click();
+				button15.Click(); //all
 				break;
 			case 2:
-				button11.Click();
+				button11.Click();//and
 				break;
 			case 3:
-				button12.Click();
+				button12.Click();//and
 				break;
 			case 4:
-				button13.Click();
+				button13.Click();//and
 				break;
 			case 5:
-				button14.Click();
+				button14.Click();//and
 				break;
 			case 6:
-				button16.Click();
+				button16.Click();//ios
 				break;
 			case 7:
-				button17.Click();
+				button17.Click();//ios
 				break;
 			case 8:
-				button18.Click();
+				button18.Click();//ios
 				break;
 			case 9:
-				button19.Click();
+				button19.Click();//ios
 				break;
 			case 10:
-				button20.Click();
+				button20.Click();//ios
 				break;
 			case 11:
-				button21.Click();
+				button21.Click();//ios
 				break;
 			default:
 				break;
 			}
+
+			EnviroShow();
 		}
 
 		protected void OnButton9Clicked (object sender, EventArgs e){
 			currentLayer3 = 1; // Tablet
-			isAllTypesActive = true;
 			button22.Sensitive = true;
 			button9.Sensitive = false;
 			button10.Sensitive = true;
-			//label1.Text = @"Tablet devices";
 			callActivelayer();
 		}
 
 		protected void OnButton10Clicked (object sender, EventArgs e){
 			currentLayer3 = 2; //Mobile
-			isAllTypesActive = true;
 			button22.Sensitive = true;
 			button9.Sensitive = true;
 			button10.Sensitive = false;
-			//label1.Text = @"Mobile devices";
 			callActivelayer();
 		}
 		
@@ -488,14 +441,18 @@ namespace FoT{
 			button11.Sensitive = false;
 
 			if(currentLayer3 ==1){
+				currentLayer6 = 1;
 				label1.Text = @"Tablet Android v2.0 devices";
 			}
 			else if(currentLayer3 ==2){
+				currentLayer6 = 2;
 				label1.Text = @"Mobile Android v2.0 devices";
 			}
 			else if(currentLayer3 == 3){
+				currentLayer6 = 3;
 				label1.Text = @"All Android v2.0 devices";
 			}
+
 		}
 
 		protected void OnButton12Clicked (object sender, EventArgs e){
@@ -504,12 +461,15 @@ namespace FoT{
 			button12.Sensitive = false;
 
 			if(currentLayer3 ==1){
+				currentLayer6 = 4;
 				label1.Text = @"Tablet Android v3.0 devices";
 			}
 			else if(currentLayer3 ==2){
+				currentLayer6 = 5;
 				label1.Text = @"Mobile Android v3.0 devices";
 			}
 			else if(currentLayer3 == 3){
+				currentLayer6 = 6;
 				label1.Text = @"All Android v3.0 devices";
 			}
 		}
@@ -520,13 +480,16 @@ namespace FoT{
 			button13.Sensitive = false;
 
 			if(currentLayer3 ==1){
-				label1.Text = @"Tablet Android v4.1 devices";
+				currentLayer6 = 7;
+				label1.Text = @"Tablet Android v4.0 devices";
 			}
 			else if(currentLayer3 ==2){
-				label1.Text = @"Mobile Android v4.1 devices";
+				currentLayer6 = 8;
+				label1.Text = @"Mobile Android v4.0 devices";
 			}
 			else if(currentLayer3 == 3){
-				label1.Text = @"All Android v4.1 devices";
+				currentLayer6 = 9;
+				label1.Text = @"All Android v4.0 devices";
 			}
 		}
 
@@ -536,13 +499,16 @@ namespace FoT{
 			button14.Sensitive = false;
 
 			if(currentLayer3 ==1){
-				label1.Text = @"Tablet Android v4.2+ devices";
+				currentLayer6 = 10;
+				label1.Text = @"Tablet Android v4.1+ devices";
 			}
 			else if(currentLayer3 ==2){
-				label1.Text = @"Mobile Android v4.2+ devices";
+				currentLayer6 = 11;
+				label1.Text = @"Mobile Android v4.1+ devices";
 			}			
 			else if(currentLayer3 == 3){
-				label1.Text = @"All Android v4.2+ devices";
+				currentLayer6 = 12;
+				label1.Text = @"All Android v4.1+ devices";
 			}
 		}
 
@@ -573,21 +539,30 @@ namespace FoT{
 				break;
 			case 1:
 				enableAlllvl4();
-				if(currentLayer3 ==3)
+				if(currentLayer3 ==3){
+					currentLayer6 = 13;
 					label1.Text = @"All android Active";
-				else if(currentLayer3 ==1)
+				}
+				else if(currentLayer3 ==1){
+					currentLayer6 = 14;
 					label1.Text = @"Tablet Only android";
-				else if(currentLayer3 ==2)
+				}
+				else if(currentLayer3 ==2){
+					currentLayer6 = 15;
 					label1.Text = @"Mobile Only android";
+				}
 				break;
 			case 2:
 				enableAlllvl4a();
-				if(currentLayer3 ==3)
+				if(currentLayer3 ==3){
 					label1.Text = @"All iOS Active";
-				else if(currentLayer3 ==1)
+				}
+				else if(currentLayer3 ==1){
 					label1.Text = @"Tablet Only iOS";
-				else if(currentLayer3 ==2)
+				}
+				else if(currentLayer3 ==2){
 					label1.Text = @"Mobile Only iOS";
+				}
 				break;
 			default:
 				Console.WriteLine(@"Different OS Selected");
@@ -684,6 +659,384 @@ namespace FoT{
 				label1.Text = @"All iOS 7+ devices";
 			}
 		}
+
+		#region enviro
+
+		public void EnviroShow(){
+			Console.WriteLine(currentLayer6);
+
+			#region switch 1
+			switch (currentLayer6){
+			case 0:
+				break;
+			case 1:
+				Console.WriteLine("Switch 1");
+				//AND >> TAB >> V.2
+				#region enviro - 1
+				Option1.Label = "HTC - Legend - (2.2)";
+				Option2.Label = "Samsung - Galaxy Ace S5830 - (2.2.1)";
+				Option3.Label = "HTC - Wildfire (PC49100) - (2.2.1)";
+				Option4.Label = "Samsung - Galaxy S - GT-i9000 - (2.2.2)";
+				Option5.Label = "HTC - Desire (PB99200)\t(2.3.3)";
+				Option6.Label = "Samsung - Galaxy S2 - GT-i9100 - 2.3.3";
+				Option7.Label = "HTC - Desire HD - (2.3.5)";
+				Option8.Label = "HTC - Wildfire S A510e - (2.3.5)";
+				Option9.Label = "Samsung - Galaxy Ace S5830i - (2.3.6)";
+				Option10.Label = "HTC - Google Nexus One - (2.3.6)";
+				Option11.Label = "Samsung\tY - S5360 - (2.3.6)";
+				Option12.Label = "Samsung - Galaxy Tab 10.1 - (3.1)";
+				Option13.Label = "Dell - Streak 7 - (3.2)";
+				Option14.Label = "Motorola - Xoom - (3.2)";
+				Option15.Label = "";
+				Option16.Label = "";
+				Option17.Label = "";
+				Option18.Label = "";
+				#endregion
+				break;
+			case 2:
+				#region enviro - 2
+				Option1.Label = "";
+				Option2.Label = "";
+				Option3.Label = "";
+				Option4.Label = "";
+				Option5.Label = "";
+				Option6.Label = "";
+				Option7.Label = "";
+				Option8.Label = "";
+				Option9.Label = "";
+				Option10.Label = "";
+				Option11.Label = "";
+				Option12.Label = "";
+				Option13.Label = "";
+				Option14.Label = "";
+				Option15.Label = "";
+				Option16.Label = "";
+				Option17.Label = "";
+				Option18.Label = "";
+				
+				
+				#endregion
+				break;
+			case 3:
+				#region enviro - 3
+				Option1.Label = "";
+				Option2.Label = "";
+				Option3.Label = "";
+				Option4.Label = "";
+				Option5.Label = "";
+				Option6.Label = "";
+				Option7.Label = "";
+				Option8.Label = "";
+				Option9.Label = "";
+				Option10.Label = "";
+				Option11.Label = "";
+				Option12.Label = "";
+				Option13.Label = "";
+				Option14.Label = "";
+				Option15.Label = "";
+				Option16.Label = "";
+				Option17.Label = "";
+				Option18.Label = "";
+				
+				
+				#endregion
+				break;
+			case 4:
+				#region enviro - 4
+				Option1.Label = "";
+				Option2.Label = "";
+				Option3.Label = "";
+				Option4.Label = "";
+				Option5.Label = "";
+				Option6.Label = "";
+				Option7.Label = "";
+				Option8.Label = "";
+				Option9.Label = "";
+				Option10.Label = "";
+				Option11.Label = "";
+				Option12.Label = "";
+				Option13.Label = "";
+				Option14.Label = "";
+				Option15.Label = "";
+				Option16.Label = "";
+				Option17.Label = "";
+				Option18.Label = "";
+				
+				
+				#endregion
+				break;
+			case 5:
+				#region enviro - 5
+				Option1.Label = "";
+				Option2.Label = "";
+				Option3.Label = "";
+				Option4.Label = "";
+				Option5.Label = "";
+				Option6.Label = "";
+				Option7.Label = "";
+				Option8.Label = "";
+				Option9.Label = "";
+				Option10.Label = "";
+				Option11.Label = "";
+				Option12.Label = "";
+				Option13.Label = "";
+				Option14.Label = "";
+				Option15.Label = "";
+				Option16.Label = "";
+				Option17.Label = "";
+				Option18.Label = "";
+				
+				
+				#endregion
+				break;
+			case 6:
+				#region enviro - 6
+				Option1.Label = "";
+				Option2.Label = "";
+				Option3.Label = "";
+				Option4.Label = "";
+				Option5.Label = "";
+				Option6.Label = "";
+				Option7.Label = "";
+				Option8.Label = "";
+				Option9.Label = "";
+				Option10.Label = "";
+				Option11.Label = "";
+				Option12.Label = "";
+				Option13.Label = "";
+				Option14.Label = "";
+				Option15.Label = "";
+				Option16.Label = "";
+				Option17.Label = "";
+				Option18.Label = "";
+				
+				
+				#endregion
+				break;
+			case 7:
+				#region enviro - 7
+				Option1.Label = "";
+				Option2.Label = "";
+				Option3.Label = "";
+				Option4.Label = "";
+				Option5.Label = "";
+				Option6.Label = "";
+				Option7.Label = "";
+				Option8.Label = "";
+				Option9.Label = "";
+				Option10.Label = "";
+				Option11.Label = "";
+				Option12.Label = "";
+				Option13.Label = "";
+				Option14.Label = "";
+				Option15.Label = "";
+				Option16.Label = "";
+				Option17.Label = "";
+				Option18.Label = "";
+				
+				
+				#endregion
+				break;
+			case 8:
+				#region enviro - 8
+				Option1.Label = "";
+				Option2.Label = "";
+				Option3.Label = "";
+				Option4.Label = "";
+				Option5.Label = "";
+				Option6.Label = "";
+				Option7.Label = "";
+				Option8.Label = "";
+				Option9.Label = "";
+				Option10.Label = "";
+				Option11.Label = "";
+				Option12.Label = "";
+				Option13.Label = "";
+				Option14.Label = "";
+				Option15.Label = "";
+				Option16.Label = "";
+				Option17.Label = "";
+				Option18.Label = "";
+				
+				
+				#endregion
+				break;
+			case 9:
+				#region enviro - 9
+				Option1.Label = "";
+				Option2.Label = "";
+				Option3.Label = "";
+				Option4.Label = "";
+				Option5.Label = "";
+				Option6.Label = "";
+				Option7.Label = "";
+				Option8.Label = "";
+				Option9.Label = "";
+				Option10.Label = "";
+				Option11.Label = "";
+				Option12.Label = "";
+				Option13.Label = "";
+				Option14.Label = "";
+				Option15.Label = "";
+				Option16.Label = "";
+				Option17.Label = "";
+				Option18.Label = "";
+				
+				
+				#endregion
+				break;
+			case 10:
+				#region enviro - 10
+				Option1.Label = "";
+				Option2.Label = "";
+				Option3.Label = "";
+				Option4.Label = "";
+				Option5.Label = "";
+				Option6.Label = "";
+				Option7.Label = "";
+				Option8.Label = "";
+				Option9.Label = "";
+				Option10.Label = "";
+				Option11.Label = "";
+				Option12.Label = "";
+				Option13.Label = "";
+				Option14.Label = "";
+				Option15.Label = "";
+				Option16.Label = "";
+				Option17.Label = "";
+				Option18.Label = "";
+				
+				
+				#endregion
+				break;			
+			case 11:
+				#region enviro - 11
+				Option1.Label = "";
+				Option2.Label = "";
+				Option3.Label = "";
+				Option4.Label = "";
+				Option5.Label = "";
+				Option6.Label = "";
+				Option7.Label = "";
+				Option8.Label = "";
+				Option9.Label = "";
+				Option10.Label = "";
+				Option11.Label = "";
+				Option12.Label = "";
+				Option13.Label = "";
+				Option14.Label = "";
+				Option15.Label = "";
+				Option16.Label = "";
+				Option17.Label = "";
+				Option18.Label = "";
+				
+				
+				#endregion
+				break;
+			case 12:
+				#region enviro - 12
+				Option1.Label = "";
+				Option2.Label = "";
+				Option3.Label = "";
+				Option4.Label = "";
+				Option5.Label = "";
+				Option6.Label = "";
+				Option7.Label = "";
+				Option8.Label = "";
+				Option9.Label = "";
+				Option10.Label = "";
+				Option11.Label = "";
+				Option12.Label = "";
+				Option13.Label = "";
+				Option14.Label = "";
+				Option15.Label = "";
+				Option16.Label = "";
+				Option17.Label = "";
+				Option18.Label = "";
+				
+				
+				#endregion
+				break;
+			case 13:
+				#region enviro - 13
+				Option1.Label = "HTC - Legend - (2.2)";
+				Option2.Label = "Samsung - Galaxy Ace S5830 - (2.2.1)";
+				Option3.Label = "HTC - Wildfire (PC49100) - (2.2.1)";
+				Option4.Label = "Samsung - Galaxy S - GT-i9000 - (2.2.2)";
+				Option5.Label = "HTC - Desire (PB99200)\t(2.3.3)";
+				Option6.Label = "Samsung - Galaxy S2 - GT-i9100 - 2.3.3";
+				Option7.Label = "HTC - Desire HD - (2.3.5)";
+				Option8.Label = "HTC - Wildfire S A510e - (2.3.5)";
+				Option9.Label = "Samsung - Galaxy Ace S5830i - (2.3.6)";
+				Option10.Label = "HTC - Google Nexus One - (2.3.6)";
+				Option11.Label = "Samsung\tY - S5360 - (2.3.6)";
+				Option12.Label = "Samsung - Galaxy Tab 10.1 - (3.1)";
+				Option13.Label = "Dell - Streak 7 - (3.2)";
+				Option14.Label = "Motorola - Xoom - (3.2)";
+				Option15.Label = "";
+				Option16.Label = "";
+				Option17.Label = "";
+				Option18.Label = "";	
+				#endregion
+				break;
+			case 14:
+				#region enviro - 14
+				Option1.Label = "";
+				Option2.Label = "";
+				Option3.Label = "";
+				Option4.Label = "";
+				Option5.Label = "";
+				Option6.Label = "";
+				Option7.Label = "";
+				Option8.Label = "";
+				Option9.Label = "";
+				Option10.Label = "";
+				Option11.Label = "";
+				Option12.Label = "";
+				Option13.Label = "";
+				Option14.Label = "";
+				Option15.Label = "";
+				Option16.Label = "";
+				Option17.Label = "";
+				Option18.Label = "";
+				
+				
+				#endregion
+				
+				break;			
+			case 15:
+				#region enviro - 15
+				Option1.Label = "";
+				Option2.Label = "";
+				Option3.Label = "";
+				Option4.Label = "";
+				Option5.Label = "";
+				Option6.Label = "";
+				Option7.Label = "";
+				Option8.Label = "";
+				Option9.Label = "";
+				Option10.Label = "";
+				Option11.Label = "";
+				Option12.Label = "";
+				Option13.Label = "";
+				Option14.Label = "";
+				Option15.Label = "";
+				Option16.Label = "";
+				Option17.Label = "";
+				Option18.Label = "";
+				
+				
+				#endregion
+				break;
+			default:
+				break;
+			}
+			#endregion
+
+			return;
+		}
+
+		#endregion
 	}
 }
 

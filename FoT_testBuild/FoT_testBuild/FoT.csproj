@@ -110,6 +110,7 @@
     <None Include="Resources\log.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="Resources\Content.xml" />
   </ItemGroup>
   <ProjectExtensions>
     <MonoDevelop>

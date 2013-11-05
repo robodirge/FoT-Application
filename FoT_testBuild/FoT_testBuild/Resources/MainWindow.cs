@@ -520,6 +520,23 @@ DO NOT:
 		table.Cell(9,1).Select();
 		wordApplication.Selection.TypeText(@"");
 
+
+		table.Cell(5,1).Select();
+		wordApplication.Selection.TypeText(@"1");
+		wordApplication.Selection.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphRight;
+		table.Cell(6,1).Select();
+		wordApplication.Selection.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphRight;
+		wordApplication.Selection.TypeText(@"2");
+		table.Cell(7,1).Select();
+		wordApplication.Selection.TypeText(@"3");
+		wordApplication.Selection.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphRight;
+		table.Cell(8,1).Select();
+		wordApplication.Selection.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphRight;
+		wordApplication.Selection.TypeText(@"4");
+		table.Cell(9,1).Select();
+		wordApplication.Selection.TypeText(@"5");
+		wordApplication.Selection.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphRight;
+
 		table.Cell(2,2).Select();
 		wordApplication.Selection.TypeText(@"N");
 		table.Cell(3,2).Select();
