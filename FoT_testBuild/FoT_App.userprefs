@@ -3,8 +3,8 @@
   <MonoDevelop.Ide.Workbench ActiveDocument="FoT_testBuild\Resources\EnvironmentChooser.cs">
     <Files>
       <File FileName="FoT_testBuild\Resources\MainWindow.cs" Line="1" Column="1" />
-      <File FileName="FoT_testBuild\Resources\EnvironmentChooser.cs" Line="28" Column="46" />
-      <File FileName="FoT_testBuild\gtk-gui\MainWindow.cs" Line="370" Column="5" />
+      <File FileName="FoT_testBuild\Resources\EnvironmentChooser.cs" Line="38" Column="21" />
+      <File FileName="FoT_testBuild\gtk-gui\MainWindow.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

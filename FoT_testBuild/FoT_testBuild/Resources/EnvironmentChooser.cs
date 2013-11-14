@@ -6,8 +6,7 @@ namespace FoT
 
 	public partial class EnvironmentChooser : Gtk.Window
 	{
-		//Gtk.TreeStore musicList;
-		Gtk.ListStore enviroList;
+		Gtk.TreeStore musicList;
 		Gtk.CellRendererToggle myToggle;
 
 		public EnvironmentChooser () : 
@@ -18,59 +17,66 @@ namespace FoT
 			int tbool = 0;
 			int stext1 = 1;
 			int stext2 = 2;
+			int stext3 = 3;
 
-			enviroList = new Gtk.ListStore(typeof(bool), typeof (string), typeof (string));
+			musicList = new Gtk.TreeStore(typeof(bool), typeof (string), typeof (string), typeof (string), typeof (int));
 
-			/*
-			Gtk.TreeIter iter = musicList.AppendValues("dance");
-			musicList.AppendValues(iter, "Entry 1", "Version 1");
-			musicList.AppendValues(iter, "Entry 2", "Version 2");
-			iter = musicList.AppendValues ("hip-hop");
-			musicList.AppendValues(iter, "Entry 3", "Version 3");
-			*/
-			//enviroList.Append(false, "Phone1", "V2.0");
-			enviroList.AppendValues(false, "Phone1", "V2.0");
-			enviroList.AppendValues(false, "Phone2", "V2.0");
-			enviroList.AppendValues(false, "Phone3", "V2.0");
+			Gtk.TreeIter iter = musicList.AppendValues(false, "Mobile", "", "", 0);
+			musicList.AppendValues(iter, false, "iOS", "Entry 1", "Version 1", 1);
+			musicList.AppendValues(iter, false, "And", "Entry 2", "Version 2", 2);
+			iter = musicList.AppendValues(false, "Desktop", "", "", 3);
+			musicList.AppendValues(iter, false, "Win7", "Entry 3", "Version 3", 4);
 
-			//EnviroTree.Model = enviroList;
-			EnviroTree.Model = enviroList;
+			EnviroTree.Model = musicList;
 
 			myToggle = new Gtk.CellRendererToggle();
 			myToggle.Activatable = true;
 			myToggle.Toggled += myToggle_toggled;
 			Gtk.TreeViewColumn column_toggle = new Gtk.TreeViewColumn("Toggle", myToggle, tbool);
 			EnviroTree.AppendColumn(column_toggle);
-		
-			Gtk.CellRendererText artistNameCell = new Gtk.CellRendererText();
-			Gtk.TreeViewColumn artistCol = new Gtk.TreeViewColumn("Name", artistNameCell, stext1);
-			EnviroTree.AppendColumn(artistCol);
+
+			Gtk.CellRendererText SubGroup = new Gtk.CellRendererText();
+			Gtk.TreeViewColumn subGRPCol = new Gtk.TreeViewColumn("Type", SubGroup, stext1);
+			EnviroTree.AppendColumn(subGRPCol);
 
 			Gtk.CellRendererText songNameCell = new Gtk.CellRendererText();
 			Gtk.TreeViewColumn songCol = new Gtk.TreeViewColumn("Version", songNameCell, stext2);
 			EnviroTree.AppendColumn(songCol);
+		
+			Gtk.CellRendererText artistNameCell = new Gtk.CellRendererText();
+			Gtk.TreeViewColumn artistCol = new Gtk.TreeViewColumn("Name", artistNameCell, stext3);
+			EnviroTree.AppendColumn(artistCol);
 
 			column_toggle.AddAttribute(myToggle, "active", 0);
-			artistCol.AddAttribute(artistNameCell, "text", 1);
-			songCol.AddAttribute(songNameCell, "text", 2);
+			subGRPCol.AddAttribute(SubGroup, "text", 1);
+			artistCol.AddAttribute(artistNameCell, "text", 2);
+			songCol.AddAttribute(songNameCell, "text", 3);
 
-
-			EnviroTree.Model = enviroList;
-
-			//ShowAll();
-
+			EnviroTree.Model = musicList;
 		}
 	
 		protected void myToggle_toggled (object o, ToggledArgs args)
 		{
-			Console.WriteLine("muahahah");
-
 			TreeIter iter;
+			if(musicList.GetIter(out iter, new TreePath(args.Path))){
+				bool old = (bool) musicList.GetValue(iter, 0);
+				musicList.SetValue(iter, 0, !old);
+				/*
+				if(old == true)
+					Console.WriteLine("Off");
+				else if(old == false)
+					Console.WriteLine("On");
+				*/
 
-			if(enviroList.GetIter(out iter, new TreePath(args.Path))){
-				bool old = (bool) enviroList.GetValue(iter, 0);
-				enviroList.SetValue(iter, 0, !old);
-				//enviroList.SetValue(iter, 0, !myToggle.Active);
+				int test = (int) musicList.GetValue(iter, 4);
+
+				if(test == 0){
+					//select entire coll
+					for(int x = 0; x < 3; x++){
+
+					}
+					//else
+				}
 			}
 
 		}
