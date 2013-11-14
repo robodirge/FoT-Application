@@ -19,13 +19,14 @@ namespace FoT
 			int stext2 = 2;
 			int stext3 = 3;
 
-			musicList = new Gtk.TreeStore(typeof(bool), typeof (string), typeof (string), typeof (string), typeof (int));
+			musicList = new Gtk.TreeStore(typeof(bool), typeof (string), typeof (string), typeof (string), typeof (float));
 
-			Gtk.TreeIter iter = musicList.AppendValues(false, "Mobile", "", "", 0);
+			//ID MAY CHANGE!!!!//ID MAY CHANGE!!!!//ID MAY CHANGE!!!!//ID MAY CHANGE!!!!
+			Gtk.TreeIter iter = musicList.AppendValues(false, "Mobile", "", "", 1000);
 			musicList.AppendValues(iter, false, "iOS", "Entry 1", "Version 1", 1);
-			musicList.AppendValues(iter, false, "And", "Entry 2", "Version 2", 2);
-			iter = musicList.AppendValues(false, "Desktop", "", "", 3);
-			musicList.AppendValues(iter, false, "Win7", "Entry 3", "Version 3", 4);
+			musicList.AppendValues(iter, false, "And", "Entry 2", "Version 2", 1);
+			iter = musicList.AppendValues(false, "Desktop", "", "", 2000);
+			musicList.AppendValues(iter, false, "Win7", "Entry 3", "Version 3", 3);
 
 			EnviroTree.Model = musicList;
 
@@ -70,13 +71,6 @@ namespace FoT
 
 				int test = (int) musicList.GetValue(iter, 4);
 
-				if(test == 0){
-					//select entire coll
-					for(int x = 0; x < 3; x++){
-
-					}
-					//else
-				}
 			}
 
 		}
