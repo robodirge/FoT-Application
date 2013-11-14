@@ -111,6 +111,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Resources\Content.xml" />
+    <None Include="Resources\Layer6.xlsx">
+      <Visible>False</Visible>
+    </None>
   </ItemGroup>
   <ProjectExtensions>
     <MonoDevelop>
