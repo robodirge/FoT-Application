@@ -207,7 +207,8 @@ public partial class MainWindow: Gtk.Window{
 
 	protected void OnRadioResource2Toggled (object sender, EventArgs e){
 		return;
-	}
+	}
+
 	protected void OnNewActionActivated(object sender, EventArgs e){
 		return;
 	}

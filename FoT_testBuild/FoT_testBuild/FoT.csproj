@@ -114,6 +114,9 @@
     <None Include="Resources\Layer6.xlsx">
       <Visible>False</Visible>
     </None>
+    <None Include="Resources\AndroidEnviro.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ProjectExtensions>
     <MonoDevelop>

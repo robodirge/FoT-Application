@@ -1,0 +1,8 @@
+**Enabled	&&	FALSE	&&	TRUE	&&	TRUE	&&	FALSE	&&	FALSE	&&	FALSE	**	
+**Manufacturer	&&	HTC	&&	Samsung	&&	HTC	&&	Samsung	&&	HTC	&&	Samsung	**	
+**Type	&&	Handset	&&	Handset	&&	Handset	&&	Handset	&&	Handset	&&	Handset	**	
+**Name	&&	Legend	&&	Galaxy Ace S5830	&&	Wildfire (PC49100) 	&&	Galaxy S - GT-i9000 	&&	Desire (PB99200) 	&&	Galaxy S2 - GT-i9100 	**	
+**OS	&&	Android	&&	Android	&&	Android	&&	Android	&&	Android	&&	Android	**	
+**Version	&&	2.2	&&	2.2.1 	&&	2.2.1	&&	2.3.2	&&	2.3.3	&&	2.3.3	**	
+**ID	&&	1	&&	2	&&	3	&&	4	&&	5	&&	6	**	
+														
