@@ -33,17 +33,40 @@ namespace FoT
 			int stext2 = 2;
 			int stext3 = 3;
 
-			musicList = new Gtk.TreeStore(typeof(bool), typeof (string), typeof (string), typeof (string),typeof (string), typeof (string), typeof (int));
+			musicList = new Gtk.TreeStore(typeof(bool), typeof (string), typeof (string), typeof (string),typeof (string),typeof (string),typeof (int));
 
 			//ID MAY CHANGE!!!!//ID MAY CHANGE!!!!//ID MAY CHANGE!!!!//ID MAY CHANGE!!!!
-			Gtk.TreeIter iter = musicList.AppendValues(false, "Mobile", "", "", "","", "1000");
+			Gtk.TreeIter iter = musicList.AppendValues(false,"Mobile","","","","",1000);
 			for(int x = 0; x < enviroBools.Length-1; x++){
 				musicList.AppendValues(iter, enviroBools[x], enviroManu[x], enviroType[x], enviroName[x], enviroOS[x], enviroVersion[x], enviroID[x]);
 			}
-			iter = musicList.AppendValues(false, "Desktop", "", "", "","", "2000");
-			//musicList.AppendValues(iter, false, "Win7", "Entry 3", "Version 3", 3);
+			iter = musicList.AppendValues(false, "Desktop", "a", "a", "a","a", 2000);
+
+			/*
+			 // Think about how to use iter 
+			// Issue when select / enable tick box!!!!!!!!!!!!!!!
+
+			for(int x = 0; x < enviroBools.Length-1; x++){
+				if(enviroOS[x] == "Android"){
+					if(enviroManu[x] == "HTC"){
+
+					}
+				}
+			}
+			 */
+
 
 			EnviroTree.Model = musicList;
+
+			/*
+			static bool[] enviroBools;
+			static string[] enviroManu;
+			static string[] enviroType;
+			static string[] enviroName;
+			static string[] enviroOS;
+			static string[] enviroVersion;
+			static int[] enviroID;
+			*/
 
 			myToggle = new Gtk.CellRendererToggle();
 			myToggle.Activatable = true;
@@ -52,21 +75,36 @@ namespace FoT
 			EnviroTree.AppendColumn(column_toggle);
 
 			Gtk.CellRendererText SubGroup = new Gtk.CellRendererText();
-			Gtk.TreeViewColumn subGRPCol = new Gtk.TreeViewColumn("Type", SubGroup, stext1);
+			Gtk.TreeViewColumn subGRPCol = new Gtk.TreeViewColumn("Manufacturer", SubGroup, stext1);
 			EnviroTree.AppendColumn(subGRPCol);
 
 			Gtk.CellRendererText songNameCell = new Gtk.CellRendererText();
-			Gtk.TreeViewColumn songCol = new Gtk.TreeViewColumn("Version", songNameCell, stext2);
+			Gtk.TreeViewColumn songCol = new Gtk.TreeViewColumn("Type", songNameCell, stext2);
 			EnviroTree.AppendColumn(songCol);
 		
 			Gtk.CellRendererText artistNameCell = new Gtk.CellRendererText();
 			Gtk.TreeViewColumn artistCol = new Gtk.TreeViewColumn("Name", artistNameCell, stext3);
 			EnviroTree.AppendColumn(artistCol);
 
+			Gtk.CellRendererText OSNameCell = new Gtk.CellRendererText();
+			Gtk.TreeViewColumn OSCol = new Gtk.TreeViewColumn("OS", OSNameCell, stext3);
+			EnviroTree.AppendColumn(OSCol);
+
+			Gtk.CellRendererText VerNameCell = new Gtk.CellRendererText();
+			Gtk.TreeViewColumn VerCol = new Gtk.TreeViewColumn("Version", VerNameCell, stext3);
+			EnviroTree.AppendColumn(VerCol);
+
+			Gtk.CellRendererText IDNameCell = new Gtk.CellRendererText();
+			Gtk.TreeViewColumn IDCol = new Gtk.TreeViewColumn("ID", IDNameCell, stext3);
+			EnviroTree.AppendColumn(IDCol);
+
 			column_toggle.AddAttribute(myToggle, "active", 0);
 			subGRPCol.AddAttribute(SubGroup, "text", 1);
 			artistCol.AddAttribute(artistNameCell, "text", 2);
 			songCol.AddAttribute(songNameCell, "text", 3);
+			OSCol.AddAttribute(OSNameCell, "text", 4);
+			VerCol.AddAttribute(VerNameCell, "text", 5);
+			IDCol.AddAttribute(IDNameCell, "text", 6);
 
 			EnviroTree.Model = musicList;
 		}
@@ -103,7 +141,7 @@ namespace FoT
 					enviroBools = new bool[words.Length-1];
 					for(int x = 0; x < words.Length-1;x++){
 						enviroBools[testa] = Boolean.Parse(words[testa]);
-						Console.WriteLine(enviroBools[testa].ToString());
+						//Console.WriteLine(enviroBools[testa].ToString());
 						testa++;
 					}
 					testa = 0;
@@ -151,6 +189,9 @@ namespace FoT
 				if(line.Contains(@"**Type")){
 					search = line;
 					string[] words = search.Split(new char[]{'&', '*'}, StringSplitOptions.RemoveEmptyEntries);
+					for(int a = 0; a < words.Length -1; a++){
+						words[a] = words[a+1];
+					}
 
 					Array.Resize(ref words, words.Length -1);
 					enviroType = new string[words.Length-1];
@@ -165,6 +206,9 @@ namespace FoT
 				if(line.Contains(@"**Name")){
 					search = line;
 					string[] words = search.Split(new char[]{'&', '*'}, StringSplitOptions.RemoveEmptyEntries);
+					for(int a = 0; a < words.Length -1; a++){
+						words[a] = words[a+1];
+					}
 
 					Array.Resize(ref words, words.Length -1);
 					enviroName = new string[words.Length-1];
@@ -179,6 +223,9 @@ namespace FoT
 				if(line.Contains(@"**OS")){
 					search = line;
 					string[] words = search.Split(new char[]{'&', '*'}, StringSplitOptions.RemoveEmptyEntries);
+					for(int a = 0; a < words.Length -1; a++){
+						words[a] = words[a+1];
+					}
 
 					Array.Resize(ref words, words.Length -1);
 					enviroOS = new string[words.Length-1];
@@ -207,14 +254,18 @@ namespace FoT
 				if(line.Contains(@"**ID")){
 					search = line;
 					string[] words = search.Split(new char[]{'&', '*'}, StringSplitOptions.RemoveEmptyEntries);
-
 					for(int a = 0; a < words.Length -1; a++){
 						words[a] = words[a+1];
 					}
 
 					Array.Resize(ref words, words.Length -1);
 					enviroID = new int[words.Length-1];
-					enviroID = Array.ConvertAll(words, int.Parse);
+					for(int x = 0; x < words.Length-1;x++){
+						enviroID[testa] =  int.Parse(words[testa]);
+						//Console.WriteLine(enviroID[testa].ToString());
+						testa++;
+					}
+					testa = 0;
 
 				}
 
@@ -223,9 +274,7 @@ namespace FoT
 			file.Close();
 			return;
 		}
-
-
-
+		
 		protected void myToggle_toggled (object o, ToggledArgs args)
 		{
 			TreeIter iter;
