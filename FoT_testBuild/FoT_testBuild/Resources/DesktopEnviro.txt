@@ -1,0 +1,11 @@
+**Enabled	*	FALSE	*	FALSE	*	FALSE	*	FALSE	*	FALSE	*	FALSE	*	FALSE	*	FALSE	*	FALSE	*
+**Platform	*	Windows	*	Windows	*	Windows	*	Windows	*	Windows	*	Windows	*	Windows	*	Windows	*	Windows	*
+**OS	*	XP	*	XP	*	Vista	*	Vista	*	Vista	*	7	*	7	*	8	*	8.1	*
+**SP	*	SP2	*	SP3	*	SP0	*	SP1	*	SP2	*	SP1	*	SP1	*	SP0	*	SP0	*
+**IE	*	IE: 	*	IE: 	*	IE: 	*	IE: 	*	IE: 	*	IE: 	*	IE: 	*	IE: 	*	IE: 	*
+**Chrome	*	Chrome: 	*	Chrome: 	*	Chrome: 	*	Chrome: 	*	Chrome: 	*	Chrome: 	*	Chrome: 	*	Chrome: 	*	Chrome: 	*
+**ID	*	10000	*	20000	*	30000	*	40000	*	50000	*	60000	*	70000	*	80000	*	90000	*
+**Firefox	*	Firefox: 	*	Firefox: 	*	Firefox: 	*	Firefox: 	*	Firefox: 	*	Firefox: 	*	Firefox: 	*	Firefox: 	*	Firefox: 	*
+**Safari	*	Safari: 	*	Safari: 	*	Safari: 	*	Safari: 	*	Safari: 	*	Safari: 	*	Safari: 	*	Safari: 	*	Safari: 	*
+**Opera	*	Opera: 	*	Opera: 	*	Opera: 	*	Opera: 	*	Opera: 	*	Opera: 	*	Opera: 	*	Opera: 	*	Opera: 	*
+**DM	*	None	*	Outlook 2002	*	None	*	None	*	None	*	Outlook 2003	*	Outlook 2007	*	None	*	None	*

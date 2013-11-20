@@ -461,6 +461,8 @@ Fields can be left blank</property>
                 <property name="MemberName" />
                 <property name="CanFocus">True</property>
                 <property name="ShowScrollbars">True</property>
+                <property name="EnableSearch">False</property>
+                <property name="RulesHint">True</property>
               </widget>
             </child>
           </widget>

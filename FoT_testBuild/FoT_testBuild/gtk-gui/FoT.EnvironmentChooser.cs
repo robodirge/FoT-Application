@@ -30,6 +30,8 @@ namespace FoT
 			this.EnviroTree = new global::Gtk.TreeView ();
 			this.EnviroTree.CanFocus = true;
 			this.EnviroTree.Name = "EnviroTree";
+			this.EnviroTree.EnableSearch = false;
+			this.EnviroTree.RulesHint = true;
 			this.GtkScrolledWindow.Add (this.EnviroTree);
 			this.hbox26.Add (this.GtkScrolledWindow);
 			global::Gtk.Box.BoxChild w2 = ((global::Gtk.Box.BoxChild)(this.hbox26 [this.GtkScrolledWindow]));
