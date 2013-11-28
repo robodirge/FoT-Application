@@ -367,6 +367,7 @@ public partial class MainWindow
 		this.Show ();
 		this.DeleteEvent += new global::Gtk.DeleteEventHandler (this.OnDeleteEvent);
 		this.clearAction.Activated += new global::System.EventHandler (this.OnClearActionActivated);
+		//this.DevEnviromentAction.Activated += new global::System.EventHandler (this.OnDevEnviromentActionActivated);
 		this.button2.Clicked += new global::System.EventHandler (this.OnButton2Clicked);
 		this.button3.Clicked += new global::System.EventHandler (this.OnButton3Clicked);
 		this.button4.Clicked += new global::System.EventHandler (this.OnButton4Clicked);

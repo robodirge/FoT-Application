@@ -2,12 +2,30 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
   <MonoDevelop.Ide.Workbench ActiveDocument="FoT_testBuild\Resources\EnvironmentChooser.cs">
     <Files>
-      <File FileName="FoT_testBuild\Resources\EnvironmentChooser.cs" Line="727" Column="1" />
-      <File FileName="FoT_testBuild\Resources\ActionGroup.cs" Line="1" Column="1" />
+      <File FileName="FoT_testBuild\Resources\EnvironmentChooser.cs" Line="631" Column="4" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="C:\Users\Ben\Desktop\Develop_WIP\GitRepo\Test\FoT_testBuild\FoT_testBuild\Resources\EnvironmentChooser.cs" line="1833" column="1" />
+      <Breakpoint file="C:\Users\Ben\Desktop\Develop_WIP\GitRepo\Test\FoT_testBuild\FoT_testBuild\Resources\EnvironmentChooser.cs" line="1489" column="1" />
+      <Breakpoint file="C:\Users\Ben\Desktop\Develop_WIP\GitRepo\Test\FoT_testBuild\FoT_testBuild\Resources\EnvironmentChooser.cs" line="1803" column="1" />
+      <Breakpoint file="C:\Users\Ben\Desktop\Develop_WIP\GitRepo\Test\FoT_testBuild\FoT_testBuild\Resources\EnvironmentChooser.cs" line="1322" column="1" />
+      <Breakpoint file="C:\Users\Ben\Desktop\Develop_WIP\GitRepo\Test\FoT_testBuild\FoT_testBuild\Resources\EnvironmentChooser.cs" line="1119" column="1" />
+      <Breakpoint file="C:\Users\Ben\Desktop\Develop_WIP\GitRepo\Test\FoT_testBuild\FoT_testBuild\Resources\EnvironmentChooser.cs" line="1120" column="1" />
+      <Breakpoint file="C:\Users\Ben\Desktop\Develop_WIP\GitRepo\Test\FoT_testBuild\FoT_testBuild\Resources\EnvironmentChooser.cs" line="1121" column="1" />
+      <Breakpoint file="C:\Users\Ben\Desktop\Develop_WIP\GitRepo\Test\FoT_testBuild\FoT_testBuild\Resources\EnvironmentChooser.cs" line="1122" column="1" />
+      <Breakpoint file="C:\Users\Ben\Desktop\Develop_WIP\GitRepo\Test\FoT_testBuild\FoT_testBuild\Resources\EnvironmentChooser.cs" line="1123" column="1" />
+      <Breakpoint file="C:\Users\Ben\Desktop\Develop_WIP\GitRepo\Test\FoT_testBuild\FoT_testBuild\Resources\EnvironmentChooser.cs" line="1126" column="1" />
+      <Breakpoint file="C:\Users\Ben\Desktop\Develop_WIP\GitRepo\Test\FoT_testBuild\FoT_testBuild\Resources\EnvironmentChooser.cs" line="1128" column="1" />
+      <Breakpoint file="C:\Users\Ben\Desktop\Develop_WIP\GitRepo\Test\FoT_testBuild\FoT_testBuild\Resources\EnvironmentChooser.cs" line="1127" column="1" />
+      <Breakpoint file="C:\Users\Ben\Desktop\Develop_WIP\GitRepo\Test\FoT_testBuild\FoT_testBuild\Resources\EnvironmentChooser.cs" line="1130" column="1" />
+      <Breakpoint file="C:\Users\Ben\Desktop\Develop_WIP\GitRepo\Test\FoT_testBuild\FoT_testBuild\Resources\EnvironmentChooser.cs" line="1129" column="1" />
+      <Breakpoint file="C:\Users\Ben\Desktop\Develop_WIP\GitRepo\Test\FoT_testBuild\FoT_testBuild\Resources\EnvironmentChooser.cs" line="1133" column="1" />
+      <Breakpoint file="C:\Users\Ben\Desktop\Develop_WIP\GitRepo\Test\FoT_testBuild\FoT_testBuild\Resources\EnvironmentChooser.cs" line="1134" column="1" />
+      <Breakpoint file="C:\Users\Ben\Desktop\Develop_WIP\GitRepo\Test\FoT_testBuild\FoT_testBuild\Resources\EnvironmentChooser.cs" line="1132" column="1" />
+      <Breakpoint file="C:\Users\Ben\Desktop\Develop_WIP\GitRepo\Test\FoT_testBuild\FoT_testBuild\Resources\EnvironmentChooser.cs" line="1136" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches>
     <Watch file="FoT_testBuild\MainWindow.cs" line="152" offsetX="374" offsetY="2558" expression="MainWindow.baseLocation" liveUpdate="False" />
@@ -19,7 +37,7 @@
     <Watch file="FoT_testBuild\Resources\EnvironmentChooser.cs" line="354" offsetX="475" offsetY="5970" expression="words" liveUpdate="False" />
     <Watch file="FoT_testBuild\Resources\EnvironmentChooser.cs" line="116" offsetX="382" offsetY="1980" expression="enviroBools" liveUpdate="False" />
     <Watch file="FoT_testBuild\Resources\EnvironmentChooser.cs" line="331" offsetX="822" offsetY="5499" expression="count" liveUpdate="False" />
-    <Watch file="FoT_testBuild\Resources\EnvironmentChooser.cs" line="635" offsetX="765" offsetY="4833" expression="x" liveUpdate="False" />
-    <Watch file="FoT_testBuild\Resources\EnvironmentChooser.cs" line="635" offsetX="393" offsetY="4845" expression="enviroBools" liveUpdate="False" />
+    <Watch file="FoT_testBuild\Resources\EnvironmentChooser.cs" line="100" offsetX="531" offsetY="1635" expression="x" liveUpdate="False" />
+    <Watch file="FoT_testBuild\Resources\EnvironmentChooser.cs" line="100" offsetX="794" offsetY="1630" expression="disCount" liveUpdate="False" />
   </MonoDevelop.Ide.DebuggingService.PinnedWatches>
 </Properties>

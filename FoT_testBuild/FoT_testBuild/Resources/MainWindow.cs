@@ -81,7 +81,8 @@ public partial class MainWindow: Gtk.Window{
 	}
 
 	protected void OnButtonQuitClicked (object sender, EventArgs e){
-		Gtk.Main.Quit (); 
+		//Gtk.Main.Quit (); 
+		Application.Quit ();
 	}
 
 	protected void OnButton2Clicked(object sender, EventArgs e){
