@@ -2,7 +2,8 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
   <MonoDevelop.Ide.Workbench ActiveDocument="FoT_testBuild\Resources\EnvironmentChooser.cs">
     <Files>
-      <File FileName="FoT_testBuild\Resources\EnvironmentChooser.cs" Line="218" Column="4" />
+      <File FileName="FoT_testBuild\Resources\EnvironmentChooser.cs" Line="727" Column="1" />
+      <File FileName="FoT_testBuild\Resources\ActionGroup.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
@@ -18,5 +19,7 @@
     <Watch file="FoT_testBuild\Resources\EnvironmentChooser.cs" line="354" offsetX="475" offsetY="5970" expression="words" liveUpdate="False" />
     <Watch file="FoT_testBuild\Resources\EnvironmentChooser.cs" line="116" offsetX="382" offsetY="1980" expression="enviroBools" liveUpdate="False" />
     <Watch file="FoT_testBuild\Resources\EnvironmentChooser.cs" line="331" offsetX="822" offsetY="5499" expression="count" liveUpdate="False" />
+    <Watch file="FoT_testBuild\Resources\EnvironmentChooser.cs" line="635" offsetX="765" offsetY="4833" expression="x" liveUpdate="False" />
+    <Watch file="FoT_testBuild\Resources\EnvironmentChooser.cs" line="635" offsetX="393" offsetY="4845" expression="enviroBools" liveUpdate="False" />
   </MonoDevelop.Ide.DebuggingService.PinnedWatches>
 </Properties>

@@ -9,6 +9,32 @@ namespace FoT
 	{
 		Gtk.TreeStore musicList;
 		Gtk.CellRendererToggle myToggle;
+		Gtk.TreeIter treeLevel1_Enviroment;
+		Gtk.TreeIter treeLevel2_Desktop; // Type
+		Gtk.TreeIter treeLevel3_Wind; // desktop 
+		Gtk.TreeIter treeLevel4_XP; // desktop  
+		Gtk.TreeIter treeLevel4_Vista; // desktop  
+		Gtk.TreeIter treeLevel4_7; // desktop
+		Gtk.TreeIter treeLevel4_8; // desktop  
+		Gtk.TreeIter treeLevel4_81; // desktop 
+		Gtk.TreeIter treeLevel2_Devices; // Type
+		Gtk.TreeIter treeLevel3_iOS; // Devices  
+		Gtk.TreeIter treeLevel3_i_3o4; //iOS
+		Gtk.TreeIter treeLevel3_i_5; //iOS
+		Gtk.TreeIter treeLevel3_i_6; //iOS
+		Gtk.TreeIter treeLevel3_i_7; //iOS
+		Gtk.TreeIter treeLevel3_Android; // Devices
+		Gtk.TreeIter treeLevel3_Other; // Devices
+		Gtk.TreeIter treeLevel3_A_HTC; // Android
+		Gtk.TreeIter treeLevel3_A_Samsung; // Android
+		Gtk.TreeIter treeLevel3_A_Other; // Android
+		Gtk.TreeIter treeLevel5_1; // desktop
+		Gtk.TreeIter treeLevel5_2; // desktop
+		Gtk.TreeIter treeLevel5_3; // desktop
+		Gtk.TreeIter treeLevel5_4; // desktop
+		Gtk.TreeIter treeLevel5_5; // desktop
+		//Gtk.TreeIter tempX;
+
 
 		static bool[] enviroBools;
 		static string[] enviroManu;
@@ -49,25 +75,7 @@ namespace FoT
 				typeof (string), typeof (string), 
 				typeof (string));
 
-			Gtk.TreeIter treeLevel1_Enviroment; // Main
-			Gtk.TreeIter treeLevel2_Desktop; // Type
-			Gtk.TreeIter treeLevel3_Wind; // desktop 
-			Gtk.TreeIter treeLevel4_XP; // desktop  
-			Gtk.TreeIter treeLevel4_Vista; // desktop  
-			Gtk.TreeIter treeLevel4_7; // desktop
-			Gtk.TreeIter treeLevel4_8; // desktop  
-			Gtk.TreeIter treeLevel4_81; // desktop 
-			Gtk.TreeIter treeLevel2_Devices; // Type
-			Gtk.TreeIter treeLevel3_iOS; // Devices  
-			Gtk.TreeIter treeLevel3_i_3o4; //iOS
-			Gtk.TreeIter treeLevel3_i_5; //iOS
-			Gtk.TreeIter treeLevel3_i_6; //iOS
-			Gtk.TreeIter treeLevel3_i_7; //iOS
-			Gtk.TreeIter treeLevel3_Android; // Devices
-			Gtk.TreeIter treeLevel3_Other; // Devices
-			Gtk.TreeIter treeLevel3_A_HTC; // Android
-			Gtk.TreeIter treeLevel3_A_Samsung; // Android
-			Gtk.TreeIter treeLevel3_A_Other; // Android
+
 
 			treeLevel1_Enviroment = musicList.AppendValues(false,"Environments","","","","",1000);
 			treeLevel2_Desktop = musicList.AppendValues(treeLevel1_Enviroment, false,"Desktop","","","","",2000);
@@ -92,62 +100,87 @@ namespace FoT
 			for(int x = 0; x < enviroBools.Length; x++){
 				if(enviroManu[x] == "Windows"){
 					if(enviroType[x] == "XP"){
-						Gtk.TreeIter tempX = musicList.AppendValues(treeLevel4_XP, enviroBools[x], enviroName[x]);
-						musicList.AppendValues(tempX, false, enviroOS[x], "", "(Latest)");
-						musicList.AppendValues(tempX, false, enviroVersion[x], "", "(Latest)");
-						musicList.AppendValues(tempX, false, enviroFF[x-77], "", "(Latest)");
-						musicList.AppendValues(tempX, false, enviroSafari[x-77], "", "(Latest)");
-						musicList.AppendValues(tempX, false, enviroOpera[x-77], "", "(Latest)");
+						//Gtk.TreeIter tempX;
 						if(enviroDM[x-77] != "None"){
-							musicList.AppendValues(tempX, false, "Mail", enviroType[x], enviroDM[x-77]);
+							treeLevel5_1 = musicList.AppendValues(treeLevel4_XP, enviroBools[x], (enviroName[x] + " " + enviroDM[x-77]));
+						}else{
+							treeLevel5_1 = musicList.AppendValues(treeLevel4_XP, enviroBools[x], enviroName[x]);
+						}
+						musicList.AppendValues(treeLevel5_1, false, enviroOS[x], "", "(Latest)");
+						musicList.AppendValues(treeLevel5_1, false, enviroVersion[x], "", "(Latest)");
+						musicList.AppendValues(treeLevel5_1, false, enviroFF[x-77], "", "(Latest)");
+						musicList.AppendValues(treeLevel5_1, false, enviroSafari[x-77], "", "(Latest)");
+						musicList.AppendValues(treeLevel5_1, false, enviroOpera[x-77], "", "(Latest)");
+						if(enviroDM[x-77] != "None"){
+							musicList.AppendValues(treeLevel5_1, false, "Mail", enviroType[x], enviroDM[x-77]);
 						}
 					}
 					else if(enviroType[x] == "Vista"){
-						Gtk.TreeIter tempX = musicList.AppendValues(treeLevel4_Vista, enviroBools[x], enviroName[x]);
-						musicList.AppendValues(tempX, false, enviroOS[x], "", "(Latest)");
-						musicList.AppendValues(tempX, false, enviroVersion[x], "", "(Latest)");
-						musicList.AppendValues(tempX, false, enviroFF[x-77], "", "(Latest)");
-						musicList.AppendValues(tempX, false, enviroSafari[x-77], "", "(Latest)");
-						musicList.AppendValues(tempX, false, enviroOpera[x-77], "", "(Latest)");
+						//Gtk.TreeIter tempX;
 						if(enviroDM[x-77] != "None"){
-							musicList.AppendValues(tempX, false, "Mail", enviroType[x], enviroDM[x-77]);
+							treeLevel5_2 = musicList.AppendValues(treeLevel4_Vista, enviroBools[x], (enviroName[x] + " " + enviroDM[x-77]));
+						}else{
+							treeLevel5_2 = musicList.AppendValues(treeLevel4_Vista, enviroBools[x], enviroName[x]);
+						}
+						musicList.AppendValues(treeLevel5_2, false, enviroOS[x], "", "(Latest)");
+						musicList.AppendValues(treeLevel5_2, false, enviroVersion[x], "", "(Latest)");
+						musicList.AppendValues(treeLevel5_2, false, enviroFF[x-77], "", "(Latest)");
+						musicList.AppendValues(treeLevel5_2, false, enviroSafari[x-77], "", "(Latest)");
+						musicList.AppendValues(treeLevel5_2, false, enviroOpera[x-77], "", "(Latest)");
+						if(enviroDM[x-77] != "None"){
+							musicList.AppendValues(treeLevel5_2, false, "Mail", enviroType[x], enviroDM[x-77]);
 						}
 					}
 					else if(enviroType[x] == "7"){
-						Gtk.TreeIter tempX = musicList.AppendValues(treeLevel4_7, enviroBools[x], enviroName[x]);
-						musicList.AppendValues(tempX, false, enviroOS[x], "", "(Latest)");
-						musicList.AppendValues(tempX, false, enviroVersion[x], "", "(Latest)");
-						musicList.AppendValues(tempX, false, enviroFF[x-77], "", "(Latest)");
-						musicList.AppendValues(tempX, false, enviroSafari[x-77], "", "(Latest)");
-						musicList.AppendValues(tempX, false, enviroOpera[x-77], "", "(Latest)");
+						//Gtk.TreeIter tempX;
 						if(enviroDM[x-77] != "None"){
-							musicList.AppendValues(tempX, false, "Mail", enviroType[x], enviroDM[x-77]);
+							treeLevel5_3 = musicList.AppendValues(treeLevel4_7, enviroBools[x], (enviroName[x] + " " + enviroDM[x-77]));
+						}else{
+							treeLevel5_3 = musicList.AppendValues(treeLevel4_7, enviroBools[x], enviroName[x]);
+						}
+						musicList.AppendValues(treeLevel5_3, false, enviroOS[x], "", "(Latest)");
+						musicList.AppendValues(treeLevel5_3, false, enviroVersion[x], "", "(Latest)");
+						musicList.AppendValues(treeLevel5_3, false, enviroFF[x-77], "", "(Latest)");
+						musicList.AppendValues(treeLevel5_3, false, enviroSafari[x-77], "", "(Latest)");
+						musicList.AppendValues(treeLevel5_3, false, enviroOpera[x-77], "", "(Latest)");
+						if(enviroDM[x-77] != "None"){
+							musicList.AppendValues(treeLevel5_3, false, "Mail", enviroType[x], enviroDM[x-77]);
 						}
 					}
 					else if(enviroType[x] == "8"){
-						Gtk.TreeIter tempX = musicList.AppendValues(treeLevel4_8, enviroBools[x], enviroName[x]);
-						musicList.AppendValues(tempX, false, enviroOS[x], "", "(Latest)");
-						musicList.AppendValues(tempX, false, enviroVersion[x], "", "(Latest)");
-						musicList.AppendValues(tempX, false, enviroFF[x-77], "", "(Latest)");
-						musicList.AppendValues(tempX, false, enviroSafari[x-77], "", "(Latest)");
-						musicList.AppendValues(tempX, false, enviroOpera[x-77], "", "(Latest)");
+						//Gtk.TreeIter tempX;
 						if(enviroDM[x-77] != "None"){
-							musicList.AppendValues(tempX, false, "Mail", enviroType[x], enviroDM[x-77]);
+							treeLevel5_4 = musicList.AppendValues(treeLevel4_8, enviroBools[x], (enviroName[x] + " " + enviroDM[x-77]));
+						}else{
+							treeLevel5_4 = musicList.AppendValues(treeLevel4_8, enviroBools[x], enviroName[x]);
+						}
+						musicList.AppendValues(treeLevel5_4, false, enviroOS[x], "", "(Latest)");
+						musicList.AppendValues(treeLevel5_4, false, enviroVersion[x], "", "(Latest)");
+						musicList.AppendValues(treeLevel5_4, false, enviroFF[x-77], "", "(Latest)");
+						musicList.AppendValues(treeLevel5_4, false, enviroSafari[x-77], "", "(Latest)");
+						musicList.AppendValues(treeLevel5_4, false, enviroOpera[x-77], "", "(Latest)");
+						if(enviroDM[x-77] != "None"){
+							musicList.AppendValues(treeLevel5_4, false, "Mail", enviroType[x], enviroDM[x-77]);
 						}
 					}//treeLevel4_8
 					else if(enviroType[x] == "8.1"){
-						Gtk.TreeIter tempX = musicList.AppendValues(treeLevel4_81, enviroBools[x], enviroName[x]);
-						musicList.AppendValues(tempX, false, enviroOS[x], "", "(Latest)");
-						musicList.AppendValues(tempX, false, enviroVersion[x], "", "(Latest)");
-						musicList.AppendValues(tempX, false, enviroFF[x-77], "", "(Latest)");
-						musicList.AppendValues(tempX, false, enviroSafari[x-77], "", "(Latest)");
-						musicList.AppendValues(tempX, false, enviroOpera[x-77], "", "(Latest)");
+						//Gtk.TreeIter tempX;
 						if(enviroDM[x-77] != "None"){
-							musicList.AppendValues(tempX, false, "Mail", enviroType[x], enviroDM[x-77]);
+							treeLevel5_5 = musicList.AppendValues(treeLevel4_81, enviroBools[x], (enviroName[x] + " " + enviroDM[x-77]));
+						}else{
+							treeLevel5_5 = musicList.AppendValues(treeLevel4_81, enviroBools[x], enviroName[x]);
+						}
+						musicList.AppendValues(treeLevel5_5, false, enviroOS[x], "", "(Latest)");
+						musicList.AppendValues(treeLevel5_5, false, enviroVersion[x], "", "(Latest)");
+						musicList.AppendValues(treeLevel5_5, false, enviroFF[x-77], "", "(Latest)");
+						musicList.AppendValues(treeLevel5_5, false, enviroSafari[x-77], "", "(Latest)");
+						musicList.AppendValues(treeLevel5_5, false, enviroOpera[x-77], "", "(Latest)");
+						if(enviroDM[x-77] != "None"){
+							musicList.AppendValues(treeLevel5_5, false, "Mail", enviroType[x], enviroDM[x-77]);
 						}
 					}
 				}
-				if(enviroOS[x] == "iOS"){
+				else if(enviroOS[x] == "iOS"){
 					if((enviroVersion[x].StartsWith("3"))){
 						musicList.AppendValues(treeLevel3_i_3o4, enviroBools[x], enviroManu[x], enviroType[x], enviroName[x], enviroOS[x], enviroVersion[x], enviroID[x]);
 					}
@@ -220,8 +253,6 @@ namespace FoT
 			Gtk.TreeViewColumn IDCol = new Gtk.TreeViewColumn("ID", IDNameCell, 6);
 			//EnviroTree.AppendColumn(IDCol);
 
-
-
 			column_toggle.AddAttribute(myToggle, "active", 0);
 			subGRPCol.AddAttribute(SubGroup, "text", 1);
 			//artistCol.AddAttribute(artistNameCell, "text", 2);
@@ -234,9 +265,6 @@ namespace FoT
 
 			EnviroTree.Model = musicList;
 			EnviroTree.ExpandRow(musicList.GetPath(treeLevel1_Enviroment), false);
-
-
-
 			//EnviroTree.ExpandRow(musicList.GetPath(temp), false);
 		}
 	
@@ -602,18 +630,145 @@ namespace FoT
 				bool old = (bool) musicList.GetValue(iter, 0);
 				musicList.SetValue(iter, 0, !old);
 
-				//int id = (int) musicList.GetValue(iter, 6);
-				//Console.WriteLine(@"ID number"); Console.WriteLine(id);
-				//Console.WriteLine(@"To string Var: "); Console.WriteLine(musicList.IterDepth(iter).ToString());
-				//Console.WriteLine(@"IterNChildren: "); Console.WriteLine(musicList.IterNChildren());
-				//Console.WriteLine(@"IterNChildren(iter): "); Console.WriteLine( musicList.IterNChildren(iter));
+				//get 6
+				int id = (int) musicList.GetValue(iter, 6);
 
-				//if(musicList.IterNext(ref iter)){
-				//	id = (int) musicList.GetValue(iter, 6);
-				//	Console.WriteLine(@"ID number"); Console.WriteLine(id);
-				//}
+				for(int x = 0; x < enviroBools.Length; x++){
+					if(enviroID[x] == id){
+						enviroBools[x] = !old;
+						return;
+					}
+				}
 			}
 		}
+
+		protected void OnButton3Clicked (object sender, EventArgs e)
+		{
+			for(int x = 0; x < enviroBools.Length; x++){
+				//enviroBools[x]
+
+				//EnviroMegaList.Text += 
+				if(enviroBools[x] == true){
+					if(enviroType[x] == "Handset"){
+						 //TextView.Text += (@"Handset: " +  enviroName[x] + " - " + enviroVersion[x]);
+						textview1.Buffer.Text += (@"Handset: " +  enviroName[x] + " - " + enviroVersion[x] + "\n");
+					}
+					else if(enviroType[x] == "Tablet"){
+						textview1.Buffer.Text += (@"Tablet: " +  enviroName[x] + " - " + enviroVersion[x] + "\n");
+					}
+					else {
+
+					}
+				}
+
+				//temp
+				enviroBools[x] = false;
+			}
+		}
+
+		protected void OnButton1Clicked (object sender, EventArgs e){
+			return;
+		}
+
+		protected void OnButton2Clicked (object sender, EventArgs e){
+			//TreeIter iter;
+			/*
+			musicList.GetIter(out iter,musicList.GetPath(treeLevel1_Enviroment));
+			musicList.SetValue(iter, 0, false);
+
+			musicList.GetIter(out iter,musicList.GetPath(treeLevel2_Devices));
+			musicList.SetValue(iter, 0, false);
+			musicList.GetIter(out iter,musicList.GetPath(treeLevel2_Desktop));
+			musicList.SetValue(iter, 0, false);
+			musicList.GetIter(out iter,musicList.GetPath(treeLevel3_Android));
+			musicList.SetValue(iter, 0, false);
+			musicList.GetIter(out iter,musicList.GetPath(treeLevel3_iOS));
+			musicList.SetValue(iter, 0, false);
+			musicList.GetIter(out iter,musicList.GetPath(treeLevel3_Other));
+			musicList.SetValue(iter, 0, false);
+
+
+			musicList.GetIter(out iter,musicList.GetPath(treeLevel4_Vista));
+			musicList.SetValue(iter, 0, false);
+			musicList.GetIter(out iter,musicList.GetPath(treeLevel4_7));
+			musicList.SetValue(iter, 0, false);
+			musicList.GetIter(out iter,musicList.GetPath(treeLevel4_8));
+			musicList.SetValue(iter, 0, false);
+			musicList.GetIter(out iter,musicList.GetPath(treeLevel4_81));
+			musicList.SetValue(iter, 0, false);
+			musicList.GetIter(out iter,musicList.GetPath(treeLevel3_A_HTC));
+			musicList.SetValue(iter, 0, false);
+			musicList.GetIter(out iter,musicList.GetPath(treeLevel3_A_Samsung));
+			musicList.SetValue(iter, 0, false);
+			musicList.GetIter(out iter,musicList.GetPath(treeLevel3_A_Other));
+			musicList.SetValue(iter, 0, false);
+			musicList.GetIter(out iter,musicList.GetPath(treeLevel3_i_3o4));
+			musicList.SetValue(iter, 0, false);
+			musicList.GetIter(out iter,musicList.GetPath(treeLevel3_i_5));
+			musicList.SetValue(iter, 0, false);
+			musicList.GetIter(out iter,musicList.GetPath(treeLevel3_i_6));
+			musicList.SetValue(iter, 0, false);
+			musicList.GetIter(out iter,musicList.GetPath(treeLevel3_i_7));
+			musicList.SetValue(iter, 0, false);
+
+
+			musicList.GetIter(out iter,musicList.GetPath(treeLevel2_Desktop));
+			musicList.SetValue(iter, 0, false);
+			musicList.GetIter(out iter,musicList.GetPath(treeLevel3_Wind));
+			musicList.SetValue(iter, 0, false);
+			musicList.GetIter(out iter,musicList.GetPath(treeLevel4_XP));
+			musicList.SetValue(iter, 0, false);
+			musicList.GetIter(out iter,musicList.GetPath(treeLevel5_1));
+			*/
+
+			//iter = treeLevel1_Enviroment;
+		
+
+			EnviroTree.Model.Foreach((model, path, iter) => {
+				musicList.SetValue(iter, 0, false);
+				return false;
+			});
+
+			/*
+			musicList.GetIter(out iter,musicList.GetPath(treeLevel1_Enviroment));
+			musicList.SetValue(iter, 0, false);
+			Console.WriteLine(musicList.IterDepth(iter));
+			if(musicList.IterHasChild(iter)){
+				Console.WriteLine("Yes");
+				Console.WriteLine(musicList.IterNChildren(iter));
+				if(musicList.IterNthChild(out iter, 0)){
+					Console.WriteLine("Yes 0");
+					Console.WriteLine(musicList.IterDepth(iter));
+					musicList.SetValue(iter, 0, false);
+				}
+				if(musicList.IterNthChild(out iter, 1))
+					Console.WriteLine("Yes 1");
+				if(musicList.IterNthChild(out iter, 2))
+					Console.WriteLine("Yes 2");
+			}
+			*/
+
+
+			//musicList.SetValue(iter, 0, false);
+			//musicList.IterNext(ref treeLevel4_XP);
+			//musicList.SetValue(iter, 0, false);
+			//musicList.IterNext(ref treeLevel4_XP);
+			//musicList.SetValue(iter, 0, false);
+
+
+			/*
+			musicList.GetIter(out iter,musicList.GetPath(treeLevel5_2));
+			musicList.SetValue(iter, 0, false);
+			musicList.IterChildren(out treeLevel5_2);
+			musicList.SetValue(iter, 0, false);
+			musicList.IterNext(ref treeLevel5_2);
+			musicList.SetValue(iter, 0, false);
+			*/
+			//	}
+
+
+		}
+		
 	}
 }
 
