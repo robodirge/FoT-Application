@@ -24,6 +24,8 @@ namespace FoT
 		private global::Gtk.Button button5;
 		private global::Gtk.Button button6;
 		private global::Gtk.VSeparator vseparator2;
+		private global::Gtk.ScrolledWindow GtkScrolledWindow2;
+		private global::Gtk.TreeView selTree;
 		private global::Gtk.HBox RightSideLower1;
 		private global::Gtk.HSeparator hseparator1;
 		private global::Gtk.Button button7;
@@ -206,6 +208,18 @@ namespace FoT
 			global::Gtk.Box.BoxChild w18 = ((global::Gtk.Box.BoxChild)(this.RightSideAll1 [this.RightUpper1]));
 			w18.Position = 0;
 			// Container child RightSideAll1.Gtk.Box+BoxChild
+			this.GtkScrolledWindow2 = new global::Gtk.ScrolledWindow ();
+			this.GtkScrolledWindow2.Name = "GtkScrolledWindow2";
+			this.GtkScrolledWindow2.ShadowType = ((global::Gtk.ShadowType)(1));
+			// Container child GtkScrolledWindow2.Gtk.Container+ContainerChild
+			this.selTree = new global::Gtk.TreeView ();
+			this.selTree.CanFocus = true;
+			this.selTree.Name = "selTree";
+			this.GtkScrolledWindow2.Add (this.selTree);
+			this.RightSideAll1.Add (this.GtkScrolledWindow2);
+			global::Gtk.Box.BoxChild w20 = ((global::Gtk.Box.BoxChild)(this.RightSideAll1 [this.GtkScrolledWindow2]));
+			w20.Position = 1;
+			// Container child RightSideAll1.Gtk.Box+BoxChild
 			this.RightSideLower1 = new global::Gtk.HBox ();
 			this.RightSideLower1.Name = "RightSideLower1";
 			this.RightSideLower1.Spacing = 6;
@@ -213,8 +227,8 @@ namespace FoT
 			this.hseparator1 = new global::Gtk.HSeparator ();
 			this.hseparator1.Name = "hseparator1";
 			this.RightSideLower1.Add (this.hseparator1);
-			global::Gtk.Box.BoxChild w19 = ((global::Gtk.Box.BoxChild)(this.RightSideLower1 [this.hseparator1]));
-			w19.Position = 0;
+			global::Gtk.Box.BoxChild w21 = ((global::Gtk.Box.BoxChild)(this.RightSideLower1 [this.hseparator1]));
+			w21.Position = 0;
 			// Container child RightSideLower1.Gtk.Box+BoxChild
 			this.button7 = new global::Gtk.Button ();
 			this.button7.WidthRequest = 150;
@@ -223,18 +237,18 @@ namespace FoT
 			this.button7.UseUnderline = true;
 			this.button7.Label = global::Mono.Unix.Catalog.GetString ("Continue");
 			this.RightSideLower1.Add (this.button7);
-			global::Gtk.Box.BoxChild w20 = ((global::Gtk.Box.BoxChild)(this.RightSideLower1 [this.button7]));
-			w20.Position = 1;
-			w20.Expand = false;
-			w20.Fill = false;
-			this.RightSideAll1.Add (this.RightSideLower1);
-			global::Gtk.Box.BoxChild w21 = ((global::Gtk.Box.BoxChild)(this.RightSideAll1 [this.RightSideLower1]));
-			w21.Position = 1;
-			w21.Expand = false;
-			w21.Fill = false;
-			this.hbox26.Add (this.RightSideAll1);
-			global::Gtk.Box.BoxChild w22 = ((global::Gtk.Box.BoxChild)(this.hbox26 [this.RightSideAll1]));
+			global::Gtk.Box.BoxChild w22 = ((global::Gtk.Box.BoxChild)(this.RightSideLower1 [this.button7]));
 			w22.Position = 1;
+			w22.Expand = false;
+			w22.Fill = false;
+			this.RightSideAll1.Add (this.RightSideLower1);
+			global::Gtk.Box.BoxChild w23 = ((global::Gtk.Box.BoxChild)(this.RightSideAll1 [this.RightSideLower1]));
+			w23.Position = 2;
+			w23.Expand = false;
+			w23.Fill = false;
+			this.hbox26.Add (this.RightSideAll1);
+			global::Gtk.Box.BoxChild w24 = ((global::Gtk.Box.BoxChild)(this.hbox26 [this.RightSideAll1]));
+			w24.Position = 1;
 			this.Add (this.hbox26);
 			if ((this.Child != null)) {
 				this.Child.ShowAll ();
