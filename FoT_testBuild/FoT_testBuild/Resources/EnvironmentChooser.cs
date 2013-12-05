@@ -69,7 +69,9 @@ namespace FoT
 		Gtk.TreeIter selANDLeve4;
 		Gtk.TreeIter selDOtherLeve4;
 
-		static int disCount; //Count (-76)
+		TreeSelection selSelection;
+
+		static int disCount;
 		static int previousCount;
 		static bool enabletree;
 		static bool enabletreedesktop;
@@ -93,6 +95,8 @@ namespace FoT
 		static bool enableIOS;
 		static bool enableAND;
 		static bool enableDevOther;
+
+		static bool reenable;
 
 		static bool[] enviroBools;
 		static string[] enviroManu;
@@ -668,6 +672,7 @@ namespace FoT
 			readFile();
 			enviroPath = Environment.CurrentDirectory + @"\Resources\DesktopEnviro.txt";
 			readFile_Desktop();
+
 			enabletree = false;
 			enabletreedesktop = false;
 			enabletreewindows = false;
@@ -684,6 +689,16 @@ namespace FoT
 			enableOSX7 = false;
 			enableOSX8 = false;
 			enableOSX9 = false;
+
+			reenable = false;
+			enableDevices= false;
+			enableIOS= false;
+			enableAND= false;
+			enableDevOther= false;
+
+			//colorbutton2.
+			//colorbutton2.ModifyBase(StateType.Normal, Color.Red);
+
 
 			return;
 		}
@@ -1062,237 +1077,236 @@ namespace FoT
 			int posNum = 99999;
 
 				EnviroTree.Model.Foreach((model, path, iter) => {
-				bool selected = (bool) enviroStore.GetValue(iter, 0);
-				if(selected){
-					int idNumber = (int) enviroStore.GetValue(iter, 6);
-					if(idNumber != 99999){
-						for(int count2 = 0; count2 < enviroID.Length ; count2++){
-							if(enviroID[count2] == idNumber){
-								posNum = count2;
-								break;
+					bool selected = (bool) enviroStore.GetValue(iter, 0);
+
+					if(selected){
+						int idNumber = (int) enviroStore.GetValue(iter, 6);
+
+						if(idNumber != 99999){
+							for(int count2 = 0; count2 < enviroID.Length ; count2++){
+								if(enviroID[count2] == idNumber){
+									posNum = count2;
+									break;
+								}
 							}
-						}
 
-						if(posNum != 99999){
-							if(inList[posNum] == false){
-								if(!enabletree)
-									StartTreetwo();
-								#region Windows
-								if((idNumber > 4000) && ( idNumber < 99999)){
-									if(!enabletreedesktop){
-										selDesktopLevel2 = selectedStore.AppendValues(selTreeLevel1, "Desktop","",99999);
-										enabletreedesktop = true;
-										selTree.ExpandRow(selectedStore.GetPath(selTreeLevel1), false);
-									}
-
-									if(!enabletreewindows){
-										selWindowLeve3 = selectedStore.AppendValues(selDesktopLevel2, "Windows","",99999);
-										enabletreewindows = true;
-										selTree.ExpandRow(selectedStore.GetPath(selDesktopLevel2), false);
-
-									}
-
-									string nameType = (string) enviroStore.GetValue(iter, 1);
-									string nameType2 = (string) enviroStore.GetValue(iter, 3);
-									string nameType3 = (string) enviroStore.GetValue(iter, 5);
-
-									if((idNumber > 41000)&&(idNumber < 42000)){
-										if(!enableXP){
-											selWindowXPLeve4 = selectedStore.AppendValues(selWindowLeve3, "XP","",99999);
-											enableXP = true;
-										}
-
-										selectedStore.AppendValues(selWindowXPLeve4, (nameType + " - " + nameType2), nameType3);
-									}
-									else if((idNumber > 42000)&&(idNumber < 43000)){
-										if(!enableVista){
-											selWindowVistaLeve4 = selectedStore.AppendValues(selWindowLeve3, "Vista","",99999);
-											enableVista = true;
-										}
-										selectedStore.AppendValues(selWindowVistaLeve4, (nameType + " - " + nameType2), nameType3);
-									}
-									else if((idNumber > 43000)&&(idNumber < 44000)){
-										if(!enableWin7){
-											selWindowWin7Leve4 = selectedStore.AppendValues(selWindowLeve3, "Win7","",99999);
-											enableWin7 = true;
-										}
-										selectedStore.AppendValues(selWindowWin7Leve4, (nameType + " - " + nameType2), nameType3);
-									}
-									else if((idNumber > 44000)&&(idNumber < 45000)){
-										if(!enableWin8){
-											selWindowWin8Leve4 = selectedStore.AppendValues(selWindowLeve3, "Win8","",99999);
-											enableWin8 = true;
-										}
-										selectedStore.AppendValues(selWindowWin8Leve4, (nameType + " - " + nameType2), nameType3);
-									}
-									else if((idNumber > 45000)&&(idNumber < 46000)){
-										if(!enableWin81){
-											selWindowWin81Leve4 = selectedStore.AppendValues(selWindowLeve3, "Win8.1","",99999);
-											enableWin81 = true;
-										}
-										selectedStore.AppendValues(selWindowWin81Leve4, (nameType + " - " + nameType2), nameType3);
-									}
-									else{
-										if(!enableDOther){
-											selWindowDOtherLeve4 = selectedStore.AppendValues(selWindowLeve3, "Other","",99999);
-											enableDOther = true;
-										}
-										selectedStore.AppendValues(selWindowDOtherLeve4, (nameType + " - " + nameType2), nameType3);
-
-									}
-
-
-									if((idNumber > 41000)&&(idNumber < 46000))
-										selTree.ExpandRow(selectedStore.GetPath(selWindowLeve3), false);
-
-									inList[posNum] = true;
-
-								}
-								#endregion
-
-								else if(idNumber >= 141000){
-									#region OSX
-									if(!enabletreedesktop){
-										selDesktopLevel2 = selectedStore.AppendValues(selTreeLevel1, "Desktop","",99999);
-										enabletreedesktop = true;
-										selTree.ExpandRow(selectedStore.GetPath(selTreeLevel1), false);
-									}
-
-									if(!enableOSX){
-										selOSXLeve3 = selectedStore.AppendValues(selDesktopLevel2, "OS X","",99999);
-										enableOSX = true;
-										selTree.ExpandRow(selectedStore.GetPath(selDesktopLevel2), false);
-
-									}
-
-									string nameType = (string) enviroStore.GetValue(iter, 1);
-									string nameType2 = (string) enviroStore.GetValue(iter, 3);
-									string nameType3 = (string) enviroStore.GetValue(iter, 5);
-
-									if((idNumber > 141000)&&(idNumber < 142000)){
-										if(!enableOSX5){
-											selOSX_5_Leve4 = selectedStore.AppendValues(selOSXLeve3, "10.5","",99999);
-											enableOSX5 = true;
-										}
-
-										selectedStore.AppendValues(selOSX_5_Leve4, (nameType + " - " + nameType2), nameType3);
-									}
-									else if((idNumber > 142000)&&(idNumber < 143000)){
-										if(!enableOSX6){
-											selOSX_6_Leve4 = selectedStore.AppendValues(selOSXLeve3, "10.6","",99999);
-											enableOSX6 = true;
-										}
-
-										selectedStore.AppendValues(selOSX_6_Leve4, (nameType + " - " + nameType2), nameType3);
-									}
-									else if((idNumber > 143000)&&(idNumber < 144000)){
-										if(!enableOSX7){
-											selOSX_7_Leve4 = selectedStore.AppendValues(selOSXLeve3, "10.7","",99999);
-											enableOSX7 = true;
-										}
-
-										selectedStore.AppendValues(selOSX_7_Leve4, (nameType + " - " + nameType2), nameType3);
-									}
-									else if((idNumber > 144000)&&(idNumber < 145000)){
-										if(!enableOSX8){
-											selOSX_8_Leve4 = selectedStore.AppendValues(selOSXLeve3, "10.8","",99999);
-											enableOSX8 = true;
-										}
-
-										selectedStore.AppendValues(selOSX_8_Leve4, (nameType + " - " + nameType2), nameType3);
-									}
-									else if((idNumber > 145000)&&(idNumber < 146000)){
-										if(!enableOSX9){
-											selOSX_9_Leve4 = selectedStore.AppendValues(selOSXLeve3, "10.9","",99999);
-											enableOSX9 = true;
-										}
-
-										selectedStore.AppendValues(selOSX_9_Leve4, (nameType + " - " + nameType2), nameType3);
-									}
-									else{
-										if(!enableOSXOther){
-											selOSX_Other_Leve4 = selectedStore.AppendValues(selWindowLeve3, "Other","",99999);
-											enableOSXOther = true;
-										}
-										selectedStore.AppendValues(selOSX_Other_Leve4, (nameType + " - " + nameType2), nameType3);
-
-									}
-
-									if((idNumber > 141000)&&(idNumber < 146000))
-										selTree.ExpandRow(selectedStore.GetPath(selOSXLeve3), false);
-
-									inList[posNum] = true;
-									#endregion
-								}
-								else{
-									if(posNum <= enviroType.Length){
-										if(!enableDevices){
-											selDevicesLeve3 = selectedStore.AppendValues(selTreeLevel1, "Devices","",99999);
-											enableDevices = true;
+							if(posNum != 99999){
+								if(inList[posNum] == false){
+									if(!enabletree)
+										StartTreetwo();
+									#region Windows
+									if((idNumber > 4000) && ( idNumber < 99999)){
+										if(!enabletreedesktop){
+											selDesktopLevel2 = selectedStore.AppendValues(selTreeLevel1, "Desktop","",99999);
+											enabletreedesktop = true;
 											selTree.ExpandRow(selectedStore.GetPath(selTreeLevel1), false);
 										}
 
-										if(enviroOS[posNum] == "Android"){
-											//textview1.Buffer.Text += (@"Handset: " +  enviroName[posNum] + " (" + enviroVersion[posNum] + ")" + "\n");
-											if(!enableAND){
-												selANDLeve4 = selectedStore.AppendValues(selDevicesLeve3, "Android","",99999);
-												enableAND = true;
-												selTree.ExpandRow(selectedStore.GetPath(selDevicesLeve3), false);
-
-											}
-
-											string nameType = (string) enviroStore.GetValue(iter, 1);
-											string nameType2 = (string) enviroStore.GetValue(iter, 3);
-											string nameType3 = (string) enviroStore.GetValue(iter, 5);
-
-											selectedStore.AppendValues(selANDLeve4, (nameType + " - " + nameType2), nameType3);
+										if(!enabletreewindows){
+											selWindowLeve3 = selectedStore.AppendValues(selDesktopLevel2, "Windows","",99999);
+											enabletreewindows = true;
+											selTree.ExpandRow(selectedStore.GetPath(selDesktopLevel2), false);
 
 										}
-										else if(enviroOS[posNum] == "iOS"){
-											//textview1.Buffer.Text += (@"Tablet: " +  enviroName[posNum] + " (" + enviroVersion[posNum] + ")" + "\n");
-											if(!enableIOS){
-												selIOSLeve4 = selectedStore.AppendValues(selDevicesLeve3, "iOS","",99999);
-												enableIOS = true;
-												selTree.ExpandRow(selectedStore.GetPath(selDevicesLeve3), false);
 
+										string nameType = (string) enviroStore.GetValue(iter, 1);
+										string nameType2 = (string) enviroStore.GetValue(iter, 3);
+										string nameType3 = (string) enviroStore.GetValue(iter, 5);
+										int intID = (int) enviroStore.GetValue(iter, 6);
+
+										if((idNumber > 41000)&&(idNumber < 42000)){
+											if(!enableXP){
+												selWindowXPLeve4 = selectedStore.AppendValues(selWindowLeve3, "XP","",99999);
+												enableXP = true;
 											}
 
-											string nameType = (string) enviroStore.GetValue(iter, 1);
-											string nameType2 = (string) enviroStore.GetValue(iter, 3);
-											string nameType3 = (string) enviroStore.GetValue(iter, 5);
-
-											selectedStore.AppendValues(selIOSLeve4, (nameType + " - " + nameType2), nameType3);
+											selectedStore.AppendValues(selWindowXPLeve4, (nameType + " - " + nameType2), nameType3, intID);
+										}
+										else if((idNumber > 42000)&&(idNumber < 43000)){
+											if(!enableVista){
+												selWindowVistaLeve4 = selectedStore.AppendValues(selWindowLeve3, "Vista","",99999);
+												enableVista = true;
+											}
+											selectedStore.AppendValues(selWindowVistaLeve4, (nameType + " - " + nameType2), nameType3, intID);
+										}
+										else if((idNumber > 43000)&&(idNumber < 44000)){
+											if(!enableWin7){
+												selWindowWin7Leve4 = selectedStore.AppendValues(selWindowLeve3, "Win7","",99999);
+												enableWin7 = true;
+											}
+											selectedStore.AppendValues(selWindowWin7Leve4, (nameType + " - " + nameType2), nameType3, intID);
+										}
+										else if((idNumber > 44000)&&(idNumber < 45000)){
+											if(!enableWin8){
+												selWindowWin8Leve4 = selectedStore.AppendValues(selWindowLeve3, "Win8","",99999);
+												enableWin8 = true;
+											}
+											selectedStore.AppendValues(selWindowWin8Leve4, (nameType + " - " + nameType2), nameType3, intID);
+										}
+										else if((idNumber > 45000)&&(idNumber < 46000)){
+											if(!enableWin81){
+												selWindowWin81Leve4 = selectedStore.AppendValues(selWindowLeve3, "Win8.1","",99999);
+												enableWin81 = true;
+											}
+											selectedStore.AppendValues(selWindowWin81Leve4, (nameType + " - " + nameType2), nameType3, intID);
 										}
 										else{
-											//textview1.Buffer.Text += (@"Something: " +  enviroName[posNum] + " ("  + enviroVersion[posNum] + ")" + "\n");
-											if(!enableDevOther){
-												selDOtherLeve4 = selectedStore.AppendValues(selDevicesLeve3, "Other","",99999);
-												enableDevOther = true;
-												selTree.ExpandRow(selectedStore.GetPath(selDevicesLeve3), false);
+											if(!enableDOther){
+												selWindowDOtherLeve4 = selectedStore.AppendValues(selWindowLeve3, "Other","",99999);
+												enableDOther = true;
+											}
+											selectedStore.AppendValues(selWindowDOtherLeve4, (nameType + " - " + nameType2), nameType3, intID);
 
+										}
+
+
+										if((idNumber > 41000)&&(idNumber < 46000))
+											selTree.ExpandRow(selectedStore.GetPath(selWindowLeve3), false);
+
+										inList[posNum] = true;
+
+									}
+									#endregion
+
+									else if(idNumber >= 141000){
+										#region OSX
+										if(!enabletreedesktop){
+											selDesktopLevel2 = selectedStore.AppendValues(selTreeLevel1, "Desktop","",99999);
+											enabletreedesktop = true;
+											selTree.ExpandRow(selectedStore.GetPath(selTreeLevel1), false);
+										}
+
+										if(!enableOSX){
+											selOSXLeve3 = selectedStore.AppendValues(selDesktopLevel2, "OS X","",99999);
+											enableOSX = true;
+											selTree.ExpandRow(selectedStore.GetPath(selDesktopLevel2), false);
+
+										}
+
+										string nameType = (string) enviroStore.GetValue(iter, 1);
+										string nameType2 = (string) enviroStore.GetValue(iter, 3);
+										string nameType3 = (string) enviroStore.GetValue(iter, 5);
+										int intID = (int) enviroStore.GetValue(iter, 6);
+
+										if((idNumber > 141000)&&(idNumber < 142000)){
+											if(!enableOSX5){
+												selOSX_5_Leve4 = selectedStore.AppendValues(selOSXLeve3, "10.5","",99999);
+												enableOSX5 = true;
+											}
+
+											selectedStore.AppendValues(selOSX_5_Leve4, (nameType + " - " + nameType2), nameType3, intID);
+										}
+										else if((idNumber > 142000)&&(idNumber < 143000)){
+											if(!enableOSX6){
+												selOSX_6_Leve4 = selectedStore.AppendValues(selOSXLeve3, "10.6","",99999);
+												enableOSX6 = true;
+											}
+
+											selectedStore.AppendValues(selOSX_6_Leve4, (nameType + " - " + nameType2), nameType3, intID);
+										}
+										else if((idNumber > 143000)&&(idNumber < 144000)){
+											if(!enableOSX7){
+												selOSX_7_Leve4 = selectedStore.AppendValues(selOSXLeve3, "10.7","",99999);
+												enableOSX7 = true;
+											}
+
+											selectedStore.AppendValues(selOSX_7_Leve4, (nameType + " - " + nameType2), nameType3, intID);
+										}
+										else if((idNumber > 144000)&&(idNumber < 145000)){
+											if(!enableOSX8){
+												selOSX_8_Leve4 = selectedStore.AppendValues(selOSXLeve3, "10.8","",99999);
+												enableOSX8 = true;
+											}
+
+											selectedStore.AppendValues(selOSX_8_Leve4, (nameType + " - " + nameType2), nameType3, intID);
+										}
+										else if((idNumber > 145000)&&(idNumber < 146000)){
+											if(!enableOSX9){
+												selOSX_9_Leve4 = selectedStore.AppendValues(selOSXLeve3, "10.9","",99999);
+												enableOSX9 = true;
+											}
+
+											selectedStore.AppendValues(selOSX_9_Leve4, (nameType + " - " + nameType2), nameType3, intID);
+										}
+										else{
+											if(!enableOSXOther){
+												selOSX_Other_Leve4 = selectedStore.AppendValues(selWindowLeve3, "Other","",99999);
+												enableOSXOther = true;
+											}
+											selectedStore.AppendValues(selOSX_Other_Leve4, (nameType + " - " + nameType2), nameType3, intID);
+
+										}
+
+										if((idNumber > 141000)&&(idNumber < 146000))
+											selTree.ExpandRow(selectedStore.GetPath(selOSXLeve3), false);
+
+										inList[posNum] = true;
+										#endregion
+									}
+									else{
+										if(posNum <= enviroType.Length){
+											if(!enableDevices){
+												selDevicesLeve3 = selectedStore.AppendValues(selTreeLevel1, "Devices","",99999);
+												enableDevices = true;
+												selTree.ExpandRow(selectedStore.GetPath(selTreeLevel1), false);
 											}
 
 											string nameType = (string) enviroStore.GetValue(iter, 1);
 											string nameType2 = (string) enviroStore.GetValue(iter, 3);
 											string nameType3 = (string) enviroStore.GetValue(iter, 5);
+											int intID = (int) enviroStore.GetValue(iter, 6);
 
-											selectedStore.AppendValues(selDOtherLeve4, (nameType + " - " + nameType2), nameType3);
+											if(enviroOS[posNum] == "Android"){
+												//textview1.Buffer.Text += (@"Handset: " +  enviroName[posNum] + " (" + enviroVersion[posNum] + ")" + "\n");
+												if(!enableAND){
+													selANDLeve4 = selectedStore.AppendValues(selDevicesLeve3, "Android","",99999);
+													enableAND = true;
+													selTree.ExpandRow(selectedStore.GetPath(selDevicesLeve3), false);
+
+												}
+
+												selectedStore.AppendValues(selANDLeve4, (nameType + " - " + nameType2), nameType3, intID);
+
+											}
+											else if(enviroOS[posNum] == "iOS"){
+												//textview1.Buffer.Text += (@"Tablet: " +  enviroName[posNum] + " (" + enviroVersion[posNum] + ")" + "\n");
+												if(!enableIOS){
+													selIOSLeve4 = selectedStore.AppendValues(selDevicesLeve3, "iOS","",99999);
+													enableIOS = true;
+													selTree.ExpandRow(selectedStore.GetPath(selDevicesLeve3), false);
+
+												}
+
+												selectedStore.AppendValues(selIOSLeve4, (nameType + " - " + nameType2), nameType3, intID);
+											}
+											else{
+												//textview1.Buffer.Text += (@"Something: " +  enviroName[posNum] + " ("  + enviroVersion[posNum] + ")" + "\n");
+												if(!enableDevOther){
+													selDOtherLeve4 = selectedStore.AppendValues(selDevicesLeve3, "Other","",99999);
+													enableDevOther = true;
+													selTree.ExpandRow(selectedStore.GetPath(selDevicesLeve3), false);
+
+												}
+
+												selectedStore.AppendValues(selDOtherLeve4, (nameType + " - " + nameType2), nameType3, intID);
+											}
+											inList[posNum] = true;
 										}
-										inList[posNum] = true;
 									}
 								}
+							button4.Sensitive = true;
 							}
 						}
+						loop++;
 					}
-					loop++;
-				}
-				count++;
-				return false;
+					count++;
+					return false;
 				});
 		}
 
 		#region Otherstyff
 
+		//<param> Set up tree 2 </param>
 		protected void StartTreetwo(){
 			selectedStore = new Gtk.TreeStore(typeof (string), typeof (string), typeof (int));
 			selTreeLevel1 = selectedStore.AppendValues("Selected","",99999);
@@ -1301,13 +1315,17 @@ namespace FoT
 			SelRT1.CellBackground = "light blue";
 			Gtk.TreeViewColumn SelCol1 = new Gtk.TreeViewColumn("", SelRT1, 0);
 			SelCol1.Expand = true;
-			selTree.AppendColumn(SelCol1);
+			//selTree.AppendColumn(SelCol1);
 
 			Gtk.CellRendererText SelRT2 = new Gtk.CellRendererText();
 			SelRT2.CellBackground = "light blue";
 			Gtk.TreeViewColumn SelCol2 = new Gtk.TreeViewColumn("", SelRT2, 1);
 			SelCol2.Expand = true;
-			selTree.AppendColumn(SelCol2);
+
+			if(!reenable){
+				selTree.AppendColumn(SelCol1);
+				selTree.AppendColumn(SelCol2);
+			}
 
 			SelCol1.AddAttribute(SelRT1, "text", 0);
 			SelCol2.AddAttribute(SelRT2, "text", 1);
@@ -1315,7 +1333,11 @@ namespace FoT
 			selTree.Model = selectedStore;
 			selTree.HeadersVisible = false;
 			//selTree.RulesHint = true;
+			selSelection = selTree.Selection;
+			selSelection.Mode = SelectionMode.Single;
+
 			enabletree = true;
+
 			return;
 		}
 
@@ -1332,6 +1354,90 @@ namespace FoT
 				return false;
 			});
 		}	
+
+		//<param> Remove selected item from tree 2 </param>
+		protected void OnButton4Clicked (object sender, EventArgs e)
+		{
+			//TreeModel temp = selTree.Model;
+			TreeModel temp;
+			TreeIter itertemp;
+			if(selSelection.GetSelected(out temp, out itertemp)){
+
+				int intID = (int) selectedStore.GetValue(itertemp, 2);
+
+				if(intID != 99999){
+					selectedStore.Remove(ref itertemp);
+
+					int loop = 0;
+
+					EnviroTree.Model.Foreach((model, path, iter) => {
+						if(loop < enviroID.Length){
+							if(intID == enviroID[loop]){
+								inList[loop] = false;
+
+								enviroStore.SetValue(iter, 0, false);
+								return true;
+							}
+						}
+
+						loop++;
+						return false;
+					});
+
+					bool bconti = false;
+
+					selTree.Model.Foreach((model, path, iter) => {
+						intID = (int) selectedStore.GetValue(iter, 2);
+						if(intID != 99999){
+							bconti = true;
+							return true;
+						}
+						return false;
+					});
+
+					if(!bconti){
+						resetTree2();
+					}
+
+				}else{
+					Console.WriteLine("Not an environment");
+				}
+			}
+
+			return;
+		}
+
+		//<param> Reset tree 2 no selected content </param>
+		protected void resetTree2(){
+
+			selectedStore.Clear();
+
+			reenable = true;
+
+			enabletree = false;
+			enabletreedesktop = false;
+			enabletreewindows = false;
+
+			enableXP = false;
+			enableVista = false;
+			enableWin7 = false;
+			enableWin8 = false;
+			enableWin81 = false;
+
+			enableOSX = false;
+			enableOSX5 = false;
+			enableOSX6 = false;
+			enableOSX7 = false;
+			enableOSX8 = false;
+			enableOSX9 = false;
+
+			enableDevices= false;
+			enableIOS= false;
+			enableAND= false;
+			enableDevOther= false;
+
+			return;
+		}
 
 		#endregion
 	}
