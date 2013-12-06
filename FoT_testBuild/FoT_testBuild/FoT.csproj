@@ -120,6 +120,7 @@
     <None Include="Resources\DesktopEnviro.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="Resources\~%24repeatable.docx" />
   </ItemGroup>
   <ProjectExtensions>
     <MonoDevelop>

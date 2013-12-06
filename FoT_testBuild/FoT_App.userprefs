@@ -1,31 +1,31 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="FoT_testBuild\Resources\EnvironmentChooser.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="FoT_testBuild\Resources\MainWindow.cs">
     <Files>
-      <File FileName="FoT_testBuild\Resources\EnvironmentChooser.cs" Line="1368" Column="24" />
-      <File FileName="FoT_testBuild\Resources\ActionGroup.cs" Line="1" Column="1" />
+      <File FileName="FoT_testBuild\Resources\MainWindow.cs" Line="228" Column="12" />
+      <File FileName="FoT_testBuild\Resources\log.txt" Line="5" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="C:\Users\Ben\Desktop\Develop_WIP\GitRepo\Test\FoT_testBuild\FoT_testBuild\Resources\EnvironmentChooser.cs" line="2578" column="1" />
-      <Breakpoint file="C:\Users\Ben\Desktop\Develop_WIP\GitRepo\Test\FoT_testBuild\FoT_testBuild\Resources\EnvironmentChooser.cs" line="2234" column="1" />
-      <Breakpoint file="C:\Users\Ben\Desktop\Develop_WIP\GitRepo\Test\FoT_testBuild\FoT_testBuild\Resources\EnvironmentChooser.cs" line="2548" column="1" />
-      <Breakpoint file="C:\Users\Ben\Desktop\Develop_WIP\GitRepo\Test\FoT_testBuild\FoT_testBuild\Resources\EnvironmentChooser.cs" line="2067" column="1" />
-      <Breakpoint file="C:\Users\Ben\Desktop\Develop_WIP\GitRepo\Test\FoT_testBuild\FoT_testBuild\Resources\EnvironmentChooser.cs" line="1864" column="1" />
-      <Breakpoint file="C:\Users\Ben\Desktop\Develop_WIP\GitRepo\Test\FoT_testBuild\FoT_testBuild\Resources\EnvironmentChooser.cs" line="1865" column="1" />
-      <Breakpoint file="C:\Users\Ben\Desktop\Develop_WIP\GitRepo\Test\FoT_testBuild\FoT_testBuild\Resources\EnvironmentChooser.cs" line="1866" column="1" />
-      <Breakpoint file="C:\Users\Ben\Desktop\Develop_WIP\GitRepo\Test\FoT_testBuild\FoT_testBuild\Resources\EnvironmentChooser.cs" line="1867" column="1" />
-      <Breakpoint file="C:\Users\Ben\Desktop\Develop_WIP\GitRepo\Test\FoT_testBuild\FoT_testBuild\Resources\EnvironmentChooser.cs" line="1868" column="1" />
+      <Breakpoint file="C:\Users\Ben\Desktop\Develop_WIP\GitRepo\Test\FoT_testBuild\FoT_testBuild\Resources\EnvironmentChooser.cs" line="2584" column="1" />
+      <Breakpoint file="C:\Users\Ben\Desktop\Develop_WIP\GitRepo\Test\FoT_testBuild\FoT_testBuild\Resources\EnvironmentChooser.cs" line="2240" column="1" />
+      <Breakpoint file="C:\Users\Ben\Desktop\Develop_WIP\GitRepo\Test\FoT_testBuild\FoT_testBuild\Resources\EnvironmentChooser.cs" line="2554" column="1" />
+      <Breakpoint file="C:\Users\Ben\Desktop\Develop_WIP\GitRepo\Test\FoT_testBuild\FoT_testBuild\Resources\EnvironmentChooser.cs" line="2073" column="1" />
+      <Breakpoint file="C:\Users\Ben\Desktop\Develop_WIP\GitRepo\Test\FoT_testBuild\FoT_testBuild\Resources\EnvironmentChooser.cs" line="1870" column="1" />
       <Breakpoint file="C:\Users\Ben\Desktop\Develop_WIP\GitRepo\Test\FoT_testBuild\FoT_testBuild\Resources\EnvironmentChooser.cs" line="1871" column="1" />
-      <Breakpoint file="C:\Users\Ben\Desktop\Develop_WIP\GitRepo\Test\FoT_testBuild\FoT_testBuild\Resources\EnvironmentChooser.cs" line="1873" column="1" />
       <Breakpoint file="C:\Users\Ben\Desktop\Develop_WIP\GitRepo\Test\FoT_testBuild\FoT_testBuild\Resources\EnvironmentChooser.cs" line="1872" column="1" />
-      <Breakpoint file="C:\Users\Ben\Desktop\Develop_WIP\GitRepo\Test\FoT_testBuild\FoT_testBuild\Resources\EnvironmentChooser.cs" line="1875" column="1" />
+      <Breakpoint file="C:\Users\Ben\Desktop\Develop_WIP\GitRepo\Test\FoT_testBuild\FoT_testBuild\Resources\EnvironmentChooser.cs" line="1873" column="1" />
       <Breakpoint file="C:\Users\Ben\Desktop\Develop_WIP\GitRepo\Test\FoT_testBuild\FoT_testBuild\Resources\EnvironmentChooser.cs" line="1874" column="1" />
-      <Breakpoint file="C:\Users\Ben\Desktop\Develop_WIP\GitRepo\Test\FoT_testBuild\FoT_testBuild\Resources\EnvironmentChooser.cs" line="1878" column="1" />
-      <Breakpoint file="C:\Users\Ben\Desktop\Develop_WIP\GitRepo\Test\FoT_testBuild\FoT_testBuild\Resources\EnvironmentChooser.cs" line="1879" column="1" />
       <Breakpoint file="C:\Users\Ben\Desktop\Develop_WIP\GitRepo\Test\FoT_testBuild\FoT_testBuild\Resources\EnvironmentChooser.cs" line="1877" column="1" />
+      <Breakpoint file="C:\Users\Ben\Desktop\Develop_WIP\GitRepo\Test\FoT_testBuild\FoT_testBuild\Resources\EnvironmentChooser.cs" line="1879" column="1" />
+      <Breakpoint file="C:\Users\Ben\Desktop\Develop_WIP\GitRepo\Test\FoT_testBuild\FoT_testBuild\Resources\EnvironmentChooser.cs" line="1878" column="1" />
       <Breakpoint file="C:\Users\Ben\Desktop\Develop_WIP\GitRepo\Test\FoT_testBuild\FoT_testBuild\Resources\EnvironmentChooser.cs" line="1881" column="1" />
+      <Breakpoint file="C:\Users\Ben\Desktop\Develop_WIP\GitRepo\Test\FoT_testBuild\FoT_testBuild\Resources\EnvironmentChooser.cs" line="1880" column="1" />
+      <Breakpoint file="C:\Users\Ben\Desktop\Develop_WIP\GitRepo\Test\FoT_testBuild\FoT_testBuild\Resources\EnvironmentChooser.cs" line="1884" column="1" />
+      <Breakpoint file="C:\Users\Ben\Desktop\Develop_WIP\GitRepo\Test\FoT_testBuild\FoT_testBuild\Resources\EnvironmentChooser.cs" line="1885" column="1" />
+      <Breakpoint file="C:\Users\Ben\Desktop\Develop_WIP\GitRepo\Test\FoT_testBuild\FoT_testBuild\Resources\EnvironmentChooser.cs" line="1883" column="1" />
+      <Breakpoint file="C:\Users\Ben\Desktop\Develop_WIP\GitRepo\Test\FoT_testBuild\FoT_testBuild\Resources\EnvironmentChooser.cs" line="1887" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches>

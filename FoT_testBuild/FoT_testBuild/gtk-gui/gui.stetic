@@ -39,9 +39,9 @@
     <property name="Title" translatable="yes">FoT Application</property>
     <property name="Icon">stock:gtk-apply Menu</property>
     <property name="TypeHint">Dialog</property>
-    <property name="WindowPosition">CenterOnParent</property>
     <property name="BorderWidth">9</property>
     <property name="Resizable">False</property>
+    <property name="AllowShrink">True</property>
     <signal name="DeleteEvent" handler="OnDeleteEvent" />
     <child>
       <widget class="Gtk.VBox" id="vbox1">
@@ -251,13 +251,9 @@
           </packing>
         </child>
         <child>
-          <widget class="Gtk.Button" id="button3">
+          <widget class="Gtk.Label" id="label4">
             <property name="MemberName" />
-            <property name="CanFocus">True</property>
-            <property name="Type">TextOnly</property>
-            <property name="Label" translatable="yes">Environment Chooser (Dev)</property>
-            <property name="UseUnderline">True</property>
-            <signal name="Clicked" handler="OnButton3Clicked" after="yes" />
+            <property name="LabelProp" translatable="yes">Tester Name/s</property>
           </widget>
           <packing>
             <property name="Position">9</property>
@@ -267,16 +263,30 @@
           </packing>
         </child>
         <child>
-          <widget class="Gtk.Button" id="button4">
+          <widget class="Gtk.Entry" id="testerNameTB1">
             <property name="MemberName" />
             <property name="CanFocus">True</property>
-            <property name="Type">TextOnly</property>
-            <property name="Label" translatable="yes">Enviro chooser 2 (Dev)</property>
-            <property name="UseUnderline">True</property>
-            <signal name="Clicked" handler="OnButton4Clicked" after="yes" />
+            <property name="IsEditable">True</property>
+            <property name="InvisibleChar">●</property>
           </widget>
           <packing>
             <property name="Position">10</property>
+            <property name="AutoSize">True</property>
+            <property name="Expand">False</property>
+            <property name="Fill">False</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Button" id="button3">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="Type">TextOnly</property>
+            <property name="Label" translatable="yes">Environment Chooser (Dev)</property>
+            <property name="UseUnderline">True</property>
+            <signal name="Clicked" handler="OnButton3Clicked" after="yes" />
+          </widget>
+          <packing>
+            <property name="Position">11</property>
             <property name="AutoSize">True</property>
             <property name="Expand">False</property>
             <property name="Fill">False</property>
@@ -331,7 +341,7 @@
             </child>
           </widget>
           <packing>
-            <property name="Position">11</property>
+            <property name="Position">12</property>
             <property name="AutoSize">True</property>
             <property name="Expand">False</property>
             <property name="Fill">False</property>
@@ -342,7 +352,7 @@
             <property name="MemberName" />
           </widget>
           <packing>
-            <property name="Position">12</property>
+            <property name="Position">13</property>
             <property name="AutoSize">True</property>
             <property name="Expand">False</property>
             <property name="Fill">False</property>
@@ -407,7 +417,7 @@
             </child>
           </widget>
           <packing>
-            <property name="Position">13</property>
+            <property name="Position">14</property>
             <property name="AutoSize">True</property>
             <property name="Expand">False</property>
             <property name="Fill">False</property>
@@ -418,7 +428,7 @@
             <property name="MemberName" />
           </widget>
           <packing>
-            <property name="Position">14</property>
+            <property name="Position">15</property>
             <property name="AutoSize">True</property>
             <property name="Expand">False</property>
             <property name="Fill">False</property>
@@ -429,11 +439,11 @@
             <property name="MemberName" />
             <property name="LabelProp" translatable="yes">Notes:
 Do not add / , . \ into Client or Project name fields 
-Fields can be left blank</property>
+All fields can be left blank if needed</property>
             <property name="Wrap">True</property>
           </widget>
           <packing>
-            <property name="Position">15</property>
+            <property name="Position">16</property>
             <property name="AutoSize">True</property>
             <property name="Expand">False</property>
             <property name="Fill">False</property>
@@ -735,6 +745,7 @@ Fields can be left blank</property>
                     <property name="Type">TextOnly</property>
                     <property name="Label" translatable="yes">Continue</property>
                     <property name="UseUnderline">True</property>
+                    <signal name="Clicked" handler="OnButton7Clicked" after="yes" />
                   </widget>
                   <packing>
                     <property name="Position">1</property>

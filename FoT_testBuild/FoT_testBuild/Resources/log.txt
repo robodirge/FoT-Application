@@ -1,14 +1,6 @@
-HTC - Legend - (2.2)
-Samsung - Galaxy Ace S5830 - (2.2.1)
-HTC - Wildfire (PC49100) - (2.2.1)
-Samsung - Galaxy S - GT-i9000 - (2.2.2)
-HTC - Desire (PB99200)	(2.3.3)
-Samsung - Galaxy S2 - GT-i9100 - 2.3.3
-HTC - Desire HD - (2.3.5)
-HTC - Wildfire S A510e - (2.3.5)
-Samsung - Galaxy Ace S5830i - (2.3.6)
-HTC - Google Nexus One - (2.3.6)
-Samsung	Y - S5360 - (2.3.6)
-Samsung - Galaxy Tab 10.1 - (3.1)
-Dell - Streak 7 - (3.2)
-Motorola - Xoom - (3.2)
+Issue verified as fixed   06/12/2013 
+url http://svn578.test.unit9.net/
+Issue verified as not fixed   06/12/2013 
+url http://svn578.test.unit9.net/
+Closing issue based on above Comments       06/12/2013 
+url http://svn578.test.unit9.net/

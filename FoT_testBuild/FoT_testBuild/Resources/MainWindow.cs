@@ -22,6 +22,7 @@ using NetOffice.WordApi.Enums;
 
 
 public partial class MainWindow: Gtk.Window{	
+
 	public static bool enabledSection { get; set; }
 	public static string baseLocation { get; set; }
 	public static string baseLocation1 { get; set; }
@@ -38,6 +39,8 @@ public partial class MainWindow: Gtk.Window{
 	public static string txtVersion{get; set;}
 	public static string newPath {get; set; }
 
+	static string[] configLines; 
+
 	Word.Application wordApplication = null;
 	Word.Document newDocument = null;
 
@@ -47,7 +50,7 @@ public partial class MainWindow: Gtk.Window{
 		label2.Text = currentPath;
 		entry4.Text = DateTime.Now.ToString(@"dd/MM/yyyy");
 	}
-
+	#region stuff
 	/*General start up parameters*/
 	protected void onStartActions(){
 		runDocMode = true;  //<----- word doc mode
@@ -59,19 +62,43 @@ public partial class MainWindow: Gtk.Window{
 		baseLocation = Environment.CurrentDirectory + @"\Resources\Client Name - Project Name Daily Report - DDMMYYYY.docx";
 
 		try{
-			using(StreamReader sr = new StreamReader(configLocation)){
-				string line = sr.ReadToEnd();
+			using(StreamReader file = new StreamReader(configLocation)){
+				string line;
+				int lineCount = 0;
 
-				if(line == "Default"){
-					currentPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-					currentPath = currentPath + @"\FoT\";
-				}else{
-					currentPath = line;
-					currentPath = currentPath;
+				while((line = file.ReadLine()) != null){
+					lineCount++;
 				}
+
+				configLines = new string[lineCount];
+				lineCount = 0;
+				file.Close();
+			}
+			using(StreamReader file = new StreamReader(configLocation)){
+				string line;
+				int lineCount = 0;
+
+				while((line = file.ReadLine()) != null){
+					if(lineCount == 0){
+						if(line == "Default"){
+							currentPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+							currentPath = currentPath + @"\FoT\";
+							configLines[lineCount] = currentPath;
+						}else{
+							currentPath = line;
+							configLines[lineCount] = line;
+						}
+					}else if(lineCount == 1){
+						testerNameTB1.Text = line;
+						configLines[lineCount] = line;
+					}
+					lineCount++;
+				}
+
+				file.Close();
 			}
 		}catch{
-			Console.WriteLine("Can not locate 'Config.txt'");
+			Console.WriteLine("Cannot locate 'Config.txt'");
 		}
 	}
 
@@ -81,7 +108,6 @@ public partial class MainWindow: Gtk.Window{
 	}
 
 	protected void OnButtonQuitClicked (object sender, EventArgs e){
-		//Gtk.Main.Quit (); 
 		Application.Quit ();
 	}
 
@@ -92,16 +118,15 @@ public partial class MainWindow: Gtk.Window{
 		if(fc.Run() == (int)ResponseType.Accept){
 			mytempfilename = fc.CurrentFolder;
 
-			FileInfo fi = new FileInfo(configLocation);
-
-			using(TextWriter tw = new StreamWriter(fi.Open(FileMode.Truncate))){
-				tw.Write(mytempfilename);
-				tw.Close();
+			if(File.Exists(configLocation)){
+				configLines[0] = mytempfilename;
+				File.WriteAllLines(configLocation, configLines);
 			}
 
 			currentPath = mytempfilename;
 			label2.Text = mytempfilename;
 			fc.Destroy();
+
 		}else{
 			fc.Destroy();
 		}
@@ -110,6 +135,11 @@ public partial class MainWindow: Gtk.Window{
 	protected void OnButtonContinueClicked (object sender, EventArgs e){
 		if(!Directory.Exists(currentPath)){
 			DirectoryInfo di = Directory.CreateDirectory(currentPath);
+		}
+
+		if(File.Exists(configLocation)){
+			configLines[1] = testerNameTB1.Text;
+			File.WriteAllLines(configLocation, configLines);
 		}
 
 		//Collect the data the user entered
@@ -154,16 +184,10 @@ public partial class MainWindow: Gtk.Window{
 
 		if(!Directory.Exists(pathClient1)){
 			DirectoryInfo di = Directory.CreateDirectory(pathClient1);
-
-			// Copy dayily report here
-			//string tempNameString = pathClient1 + @"Client Name - Project Name Daily Report - DDMMYYYY.docx";
-			//File.Copy(baseLocation, tempNameString);
-			//System.IO.File.Move(tempNameString, (pathClient1 + halfDR + DailyDate + @".docx"));
 			newPath = (pathClient1 + halfDR + DailyDate + @".docx");
 
 			DirectoryInfo wd = Directory.CreateDirectory((pathClient1 + @"Working_Docs\"));
 			tempLocString = pathClient1 + @"Working_Docs\Unrepeatable.docx";
-			//File.Copy(baseLocation1, tempLocString);
 
 			pathClient1 = pathClient1 + @"Screenshots\";
 			massCreateFiles(ref pathClient1);
@@ -189,8 +213,6 @@ public partial class MainWindow: Gtk.Window{
 		Application.Quit ();
 	}
 
-	#region region1
-
 	protected void massCreateFiles(ref string dirPath){
 		DirectoryInfo ss = Directory.CreateDirectory(dirPath);
 		//sub folders
@@ -203,22 +225,8 @@ public partial class MainWindow: Gtk.Window{
 		DirectoryInfo iOb3 = Directory.CreateDirectory((dirPath + @"iOS\Batch3\"));
 		DirectoryInfo Wp = Directory.CreateDirectory((dirPath + @"WindowsPhone\"));
 	}
-
-	#region deadsections
-
-	protected void OnRadioResource2Toggled (object sender, EventArgs e){
-		return;
-	}
-
-	protected void OnNewActionActivated(object sender, EventArgs e){
-		return;
-	}
-
-	protected void OnClearActionActivated(object sender, EventArgs e){
-		return;
-	}
-
 	#endregion
+	#region Buttons
 
 	protected void OnButton1Clicked (object sender, EventArgs e){
 		FileInfo fi = new FileInfo(configLocation);
@@ -253,6 +261,7 @@ public partial class MainWindow: Gtk.Window{
 	}
 
 	#endregion
+	#region region1
 
 	protected void runWordApplication(){
 		wordApplication = new Word.Application();
@@ -380,7 +389,7 @@ For issue verifications please state: Retests executed in environments the issue
 		wordApplication.Selection.TypeText(@"Date:");
 
 		table.Cell(2,2).Select();
-		wordApplication.Selection.TypeText(@"BV / TY");
+		wordApplication.Selection.TypeText(configLines[1]);  //////////////////////////////////////////
 		table.Cell(3,2).Select();
 		wordApplication.Selection.TypeText(DateTime.Now.ToString(@"dd/MM/yyyy"));
 
@@ -618,7 +627,6 @@ DO NOT:
 
 	#endregion
 
-
 	protected void runRepeatDoc(){
 		wordApplication = new Word.Application();
 		wordApplication.DisplayAlerts = WdAlertLevel.wdAlertsNone;
@@ -627,35 +635,60 @@ DO NOT:
 		Word.Table table = newDocument.Tables.Add(wordApplication.Selection.Range, 2, 1);
 
 		table.Cell(1,1).Select();
-		//wordApplication.Selection.TypeText
 
 		string mylongtextstring = (@"Title: 
-
+A one sentence descriptive title for the issue
 
 Description: 
-
+A detailed description of the issue, including the failure and reasoning.
 
 Steps to Recreate: 
-1.	Go to URL: " + txtURL + @"
-2.	Log in with valid details 
+Go to URL: " + txtURL + @"
+Log in with valid details 
 
 Environment:
-
+Device - Device used during the testing
+Operating System - The operating system used during the testing
+Browser - The web browser used during the testing
+Firmware - Firmware version of the device if relevant
+Login Details for Account used - Add login details if applicable
 
 Supporting material:
-
+Add where appropriate screenshots, log files etc to aid detection of the issue and its correction.
 
 Version
-URL: " + txtURL + @"
+" + txtURL + @"
 
 Date:
 " + DateTime.Now.ToString(@"dd/MM/yyyy") + @"
 
 Severity:
-4
+1. Application Crash - Complete failure of the application/crash
+2. Major Impact on Functionality - failure of entire or parts of system but work arounds exist
+3. Minor Impact on Functionality - does not result in failure but causes incorrect, incomplete, or inconsistent results, or the defect impairs the system usability.
+4. Cosmetic Issue - Issue does not impact functionality at all - Colours/Spelling Errors
+5. Feature Enhancement/Suggestion
 ");
 
 		wordApplication.Selection.TypeText(mylongtextstring);
+
+		wordApplication.Selection.MoveDown();
+		wordApplication.Selection.MoveDown();
+		wordApplication.Selection.TypeParagraph();
+
+		Word.Table table2 = newDocument.Tables.Add(wordApplication.Selection.Range, 3, 1);
+		table2.Cell(1,1).Select();
+		string temp4s = (@"Issue verified as fixed - " + DateTime.Now.ToString(@"dd/MM/yyyy") + @"
+Version: " + txtURL);
+		wordApplication.Selection.TypeText(temp4s);
+		table2.Cell(2,1).Select();
+		temp4s = (@"Issue verified as not fixed - " + DateTime.Now.ToString(@"dd/MM/yyyy") + @"
+Version: " + txtURL);
+		wordApplication.Selection.TypeText(temp4s);
+		table2.Cell(3,1).Select();
+		temp4s = (@"Closing issue based on above Comments - " + DateTime.Now.ToString(@"dd/MM/yyyy") + @"
+Version: " + txtURL);
+		wordApplication.Selection.TypeText(temp4s);
 
 		String bobone = wordApplication.Version;
 
@@ -663,10 +696,16 @@ Severity:
 			table.Style = "Table Grid";
 			table.ApplyStyleFirstColumn = false;
 			table.ApplyStyleHeadingRows = false;
+			table2.Style = "Table Grid";
+			table2.ApplyStyleFirstColumn = false;
+			table2.ApplyStyleHeadingRows = false;
 		}else{
 			table.Style = "Table Grid";
 			table.ApplyStyleFirstColumn = false;
 			table.ApplyStyleHeadingRows = false;
+			table2.Style = "Table Grid";
+			table2.ApplyStyleFirstColumn = false;
+			table2.ApplyStyleHeadingRows = false;
 		}
 
 		string documentFile = tempLocString;
@@ -682,4 +721,8 @@ Severity:
 		wordApplication.Dispose();
 	}
 
+	public void getData(){
+
+		#endregion
+	}
 }

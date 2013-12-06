@@ -1439,6 +1439,12 @@ namespace FoT
 			return;
 		}
 
+
+		protected void OnButton7Clicked (object sender, EventArgs e){
+			//getData();
+			//System.
+
+		}
 		#endregion
 	}
 }

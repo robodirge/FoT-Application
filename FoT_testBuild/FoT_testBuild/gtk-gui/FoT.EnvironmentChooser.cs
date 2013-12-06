@@ -276,6 +276,7 @@ namespace FoT
 			this.button2.Clicked += new global::System.EventHandler (this.OnButton2Clicked);
 			this.button3.Clicked += new global::System.EventHandler (this.OnButton3Clicked);
 			this.button4.Clicked += new global::System.EventHandler (this.OnButton4Clicked);
+			this.button7.Clicked += new global::System.EventHandler (this.OnButton7Clicked);
 		}
 	}
 }
