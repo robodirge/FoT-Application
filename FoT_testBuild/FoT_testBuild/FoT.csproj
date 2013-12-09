@@ -72,7 +72,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="gtk-gui\generated.cs" />
     <Compile Include="gtk-gui\MainWindow.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\Program.cs">
@@ -82,11 +81,12 @@
     <Compile Include="Resources\MainWindow.cs">
       <DeployService-Deploy>True</DeployService-Deploy>
       <DeployService-UseProjectRelativePath>True</DeployService-UseProjectRelativePath>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="gtk-gui\FoT.ActionGroup.cs" />
     <Compile Include="Resources\EnvironmentChooser.cs" />
     <Compile Include="gtk-gui\FoT.EnvironmentChooser.cs" />
+    <Compile Include="gtk-gui\generated.cs" />
+    <Compile Include="Resources\ActionGroup.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -99,17 +99,11 @@
     <None Include="Program.cs">
       <Visible>False</Visible>
     </None>
-    <None Include="Resources\meh.txt">
-      <Visible>False</Visible>
-    </None>
     <None Include="Resources\ZoonouLogo.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Resources\log.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Resources\Layer6.xlsx">
-      <Visible>False</Visible>
     </None>
     <None Include="Resources\AndroidEnviro.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

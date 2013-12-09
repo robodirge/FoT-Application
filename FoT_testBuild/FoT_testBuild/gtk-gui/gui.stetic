@@ -9,37 +9,17 @@
     <widget-library name="../bin/Debug/FoT.exe" internal="true" />
   </import>
   <action-group name="FoT.ActionGroup" />
-  <widget class="Gtk.Window" id="MainWindow" design-size="500 600">
-    <action-group name="Default">
-      <action id="newAction">
-        <property name="Type">Action</property>
-        <property name="Label" translatable="yes">File</property>
-        <property name="ShortLabel" translatable="yes">File</property>
-        <property name="StockId">gtk-new</property>
-      </action>
-      <action id="clearAction">
-        <property name="Type">Action</property>
-        <property name="HideIfEmpty">False</property>
-        <property name="Label" translatable="yes">Reset</property>
-        <property name="ShortLabel" translatable="yes">Reset</property>
-        <property name="StockId">gtk-clear</property>
-        <signal name="Activated" handler="OnClearActionActivated" after="yes" />
-      </action>
-      <action id="DevEnviromentAction">
-        <property name="Type">Action</property>
-        <property name="Label" translatable="yes">Dev Enviroment</property>
-        <property name="ShortLabel" translatable="yes">Dev Enviroment</property>
-        <signal name="Activated" handler="OnDevEnviromentActionActivated" after="yes" />
-      </action>
-    </action-group>
+  <action-group name="FoT.ActionGroup" />
+  <action-group name="FoT.ActionGroup" />
+  <widget class="Gtk.Window" id="MainWindow" design-size="500 630">
+    <action-group name="Default" />
     <property name="MemberName" />
     <property name="WidthRequest">500</property>
     <property name="HeightRequest">600</property>
     <property name="Tooltip" translatable="yes" />
     <property name="Title" translatable="yes">FoT Application</property>
     <property name="Icon">stock:gtk-apply Menu</property>
-    <property name="TypeHint">Dialog</property>
-    <property name="BorderWidth">9</property>
+    <property name="BorderWidth">6</property>
     <property name="Resizable">False</property>
     <property name="AllowShrink">True</property>
     <signal name="DeleteEvent" handler="OnDeleteEvent" />
@@ -67,7 +47,7 @@
                 <child>
                   <widget class="Gtk.Label" id="label1">
                     <property name="MemberName" />
-                    <property name="LabelProp" translatable="yes">Either select a file path or leave to default</property>
+                    <property name="LabelProp" translatable="yes">Either select a file path or leave it to default</property>
                   </widget>
                   <packing>
                     <property name="Position">1</property>
@@ -439,11 +419,70 @@
             <property name="MemberName" />
             <property name="LabelProp" translatable="yes">Notes:
 Do not add / , . \ into Client or Project name fields 
-All fields can be left blank if needed</property>
+All fields can be left blank if needed
+Include:</property>
             <property name="Wrap">True</property>
           </widget>
           <packing>
             <property name="Position">16</property>
+            <property name="AutoSize">True</property>
+            <property name="Expand">False</property>
+            <property name="Fill">False</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.HBox" id="EnableFiles">
+            <property name="MemberName" />
+            <property name="Spacing">6</property>
+            <child>
+              <widget class="Gtk.CheckButton" id="checkbutton4">
+                <property name="MemberName" />
+                <property name="Sensitive">False</property>
+                <property name="CanFocus">True</property>
+                <property name="Label" translatable="yes">Create Folders</property>
+                <property name="Active">True</property>
+                <property name="DrawIndicator">True</property>
+                <property name="HasLabel">True</property>
+                <property name="UseUnderline">True</property>
+              </widget>
+              <packing>
+                <property name="Position">0</property>
+                <property name="AutoSize">True</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="Gtk.CheckButton" id="dailyCheck">
+                <property name="MemberName" />
+                <property name="CanFocus">True</property>
+                <property name="Label" translatable="yes">Daily Report</property>
+                <property name="Active">True</property>
+                <property name="DrawIndicator">True</property>
+                <property name="HasLabel">True</property>
+                <property name="UseUnderline">True</property>
+              </widget>
+              <packing>
+                <property name="Position">1</property>
+                <property name="AutoSize">True</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="Gtk.CheckButton" id="repeatCheck">
+                <property name="MemberName" />
+                <property name="CanFocus">True</property>
+                <property name="Label" translatable="yes">Unrepeatable Doc</property>
+                <property name="Active">True</property>
+                <property name="DrawIndicator">True</property>
+                <property name="HasLabel">True</property>
+                <property name="UseUnderline">True</property>
+              </widget>
+              <packing>
+                <property name="Position">2</property>
+                <property name="AutoSize">True</property>
+              </packing>
+            </child>
+          </widget>
+          <packing>
+            <property name="Position">17</property>
             <property name="AutoSize">True</property>
             <property name="Expand">False</property>
             <property name="Fill">False</property>

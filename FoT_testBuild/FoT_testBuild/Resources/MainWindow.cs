@@ -23,6 +23,8 @@ using NetOffice.WordApi.Enums;
 
 public partial class MainWindow: Gtk.Window{	
 
+	#region Globals
+
 	public static bool enabledSection { get; set; }
 	public static string baseLocation { get; set; }
 	public static string baseLocation1 { get; set; }
@@ -44,13 +46,16 @@ public partial class MainWindow: Gtk.Window{
 	Word.Application wordApplication = null;
 	Word.Document newDocument = null;
 
+	#endregion
+
+	#region Main
 	public MainWindow (): base (Gtk.WindowType.Toplevel){
 		Build ();
 		onStartActions ();
 		label2.Text = currentPath;
 		entry4.Text = DateTime.Now.ToString(@"dd/MM/yyyy");
 	}
-	#region stuff
+
 	/*General start up parameters*/
 	protected void onStartActions(){
 		runDocMode = true;  //<----- word doc mode
@@ -104,7 +109,7 @@ public partial class MainWindow: Gtk.Window{
 
 	protected void OnDeleteEvent (object sender, DeleteEventArgs a){
 		Application.Quit ();
-		a.RetVal = true;
+		//a.RetVal = true;
 	}
 
 	protected void OnButtonQuitClicked (object sender, EventArgs e){
@@ -132,6 +137,7 @@ public partial class MainWindow: Gtk.Window{
 		}
 	}
 
+	//<Param>  Continue --------  </param>
 	protected void OnButtonContinueClicked (object sender, EventArgs e){
 		if(!Directory.Exists(currentPath)){
 			DirectoryInfo di = Directory.CreateDirectory(currentPath);
@@ -199,8 +205,10 @@ public partial class MainWindow: Gtk.Window{
 		
 		if(bcontinue == true){		
 			if(runDocMode == true){
-				runWordApplication();
-				runRepeatDoc();
+				if(dailyCheck.Active)
+					runWordApplication();
+				if(repeatCheck.Active)
+					runRepeatDoc();
 			}
 
 			string tempchar4 = pathClient1;
@@ -217,7 +225,7 @@ public partial class MainWindow: Gtk.Window{
 		DirectoryInfo ss = Directory.CreateDirectory(dirPath);
 		//sub folders
 		DirectoryInfo An = Directory.CreateDirectory((dirPath + @"Android\"));
-		DirectoryInfo Bb = Directory.CreateDirectory((dirPath + @"BlackBerry\"));
+		DirectoryInfo Bb = Directory.CreateDirectory((dirPath + @"Devices\"));
 		DirectoryInfo Dt = Directory.CreateDirectory((dirPath + @"Desktop\"));
 		DirectoryInfo iO = Directory.CreateDirectory((dirPath + @"iOS\"));
 		DirectoryInfo iOb1 = Directory.CreateDirectory((dirPath + @"iOS\Batch1\"));
@@ -257,7 +265,7 @@ public partial class MainWindow: Gtk.Window{
 	}
 
 	#endregion
-	#region region1
+	#region tableformat
 
 	protected void runWordApplication(){
 		wordApplication = new Word.Application();
@@ -302,8 +310,6 @@ public partial class MainWindow: Gtk.Window{
 		wordApplication.Dispose();
 
 	}
-
-	#region tableformat
 
 	public void moveDownpar(){
 		wordApplication.Selection.MoveDown();
@@ -621,7 +627,7 @@ DO NOT:
 		return;
 	}
 
-	#endregion
+
 
 	protected void runRepeatDoc(){
 		wordApplication = new Word.Application();
@@ -720,8 +726,8 @@ Version: " + txtURL);
 		wordApplication.Dispose();
 	}
 
-	public void getData(){
+	#endregion
 
-		#endregion
+	public void getData(){
 	}
 }

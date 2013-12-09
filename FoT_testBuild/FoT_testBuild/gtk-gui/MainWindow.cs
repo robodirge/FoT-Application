@@ -4,9 +4,6 @@
 public partial class MainWindow
 {
 	private global::Gtk.UIManager UIManager;
-	private global::Gtk.Action newAction;
-	private global::Gtk.Action clearAction;
-	private global::Gtk.Action DevEnviromentAction;
 	private global::Gtk.VBox vbox1;
 	private global::Gtk.VBox vbox2;
 	private global::Gtk.HBox hbox3;
@@ -38,6 +35,10 @@ public partial class MainWindow
 	private global::Gtk.Button buttonContinue;
 	private global::Gtk.HSeparator hseparator5;
 	private global::Gtk.Label label3;
+	private global::Gtk.HBox EnableFiles;
+	private global::Gtk.CheckButton checkbutton4;
+	private global::Gtk.CheckButton dailyCheck;
+	private global::Gtk.CheckButton repeatCheck;
 
 	protected virtual void Build ()
 	{
@@ -45,16 +46,6 @@ public partial class MainWindow
 		// Widget MainWindow
 		this.UIManager = new global::Gtk.UIManager ();
 		global::Gtk.ActionGroup w1 = new global::Gtk.ActionGroup ("Default");
-		this.newAction = new global::Gtk.Action ("newAction", global::Mono.Unix.Catalog.GetString ("File"), null, "gtk-new");
-		this.newAction.ShortLabel = global::Mono.Unix.Catalog.GetString ("File");
-		w1.Add (this.newAction, null);
-		this.clearAction = new global::Gtk.Action ("clearAction", global::Mono.Unix.Catalog.GetString ("Reset"), null, "gtk-clear");
-		this.clearAction.HideIfEmpty = false;
-		this.clearAction.ShortLabel = global::Mono.Unix.Catalog.GetString ("Reset");
-		w1.Add (this.clearAction, null);
-		this.DevEnviromentAction = new global::Gtk.Action ("DevEnviromentAction", global::Mono.Unix.Catalog.GetString ("Dev Enviroment"), null, null);
-		this.DevEnviromentAction.ShortLabel = global::Mono.Unix.Catalog.GetString ("Dev Enviroment");
-		w1.Add (this.DevEnviromentAction, null);
 		this.UIManager.InsertActionGroup (w1, 0);
 		this.AddAccelGroup (this.UIManager.AccelGroup);
 		this.WidthRequest = 500;
@@ -62,8 +53,7 @@ public partial class MainWindow
 		this.Name = "MainWindow";
 		this.Title = global::Mono.Unix.Catalog.GetString ("FoT Application");
 		this.Icon = global::Stetic.IconLoader.LoadIcon (this, "gtk-apply", global::Gtk.IconSize.Menu);
-		this.TypeHint = ((global::Gdk.WindowTypeHint)(1));
-		this.BorderWidth = ((uint)(9));
+		this.BorderWidth = ((uint)(6));
 		this.Resizable = false;
 		this.AllowShrink = true;
 		// Container child MainWindow.Gtk.Container+ContainerChild
@@ -87,7 +77,7 @@ public partial class MainWindow
 		// Container child hbox3.Gtk.Box+BoxChild
 		this.label1 = new global::Gtk.Label ();
 		this.label1.Name = "label1";
-		this.label1.LabelProp = global::Mono.Unix.Catalog.GetString ("Either select a file path or leave to default");
+		this.label1.LabelProp = global::Mono.Unix.Catalog.GetString ("Either select a file path or leave it to default");
 		this.hbox3.Add (this.label1);
 		global::Gtk.Box.BoxChild w3 = ((global::Gtk.Box.BoxChild)(this.hbox3 [this.label1]));
 		w3.Position = 1;
@@ -361,19 +351,62 @@ public partial class MainWindow
 		this.label3 = new global::Gtk.Label ();
 		this.label3.Name = "label3";
 		this.label3.LabelProp = global::Mono.Unix.Catalog.GetString ("Notes:\nDo not add / , . \\ into Client or Project name fields \nAll fields can be l" +
-		"eft blank if needed");
+		"eft blank if needed\nInclude:");
 		this.label3.Wrap = true;
 		this.vbox1.Add (this.label3);
 		global::Gtk.Box.BoxChild w31 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.label3]));
 		w31.Position = 16;
 		w31.Expand = false;
 		w31.Fill = false;
+		// Container child vbox1.Gtk.Box+BoxChild
+		this.EnableFiles = new global::Gtk.HBox ();
+		this.EnableFiles.Name = "EnableFiles";
+		this.EnableFiles.Spacing = 6;
+		// Container child EnableFiles.Gtk.Box+BoxChild
+		this.checkbutton4 = new global::Gtk.CheckButton ();
+		this.checkbutton4.Sensitive = false;
+		this.checkbutton4.CanFocus = true;
+		this.checkbutton4.Name = "checkbutton4";
+		this.checkbutton4.Label = global::Mono.Unix.Catalog.GetString ("Create Folders");
+		this.checkbutton4.Active = true;
+		this.checkbutton4.DrawIndicator = true;
+		this.checkbutton4.UseUnderline = true;
+		this.EnableFiles.Add (this.checkbutton4);
+		global::Gtk.Box.BoxChild w32 = ((global::Gtk.Box.BoxChild)(this.EnableFiles [this.checkbutton4]));
+		w32.Position = 0;
+		// Container child EnableFiles.Gtk.Box+BoxChild
+		this.dailyCheck = new global::Gtk.CheckButton ();
+		this.dailyCheck.CanFocus = true;
+		this.dailyCheck.Name = "dailyCheck";
+		this.dailyCheck.Label = global::Mono.Unix.Catalog.GetString ("Daily Report");
+		this.dailyCheck.Active = true;
+		this.dailyCheck.DrawIndicator = true;
+		this.dailyCheck.UseUnderline = true;
+		this.EnableFiles.Add (this.dailyCheck);
+		global::Gtk.Box.BoxChild w33 = ((global::Gtk.Box.BoxChild)(this.EnableFiles [this.dailyCheck]));
+		w33.Position = 1;
+		// Container child EnableFiles.Gtk.Box+BoxChild
+		this.repeatCheck = new global::Gtk.CheckButton ();
+		this.repeatCheck.CanFocus = true;
+		this.repeatCheck.Name = "repeatCheck";
+		this.repeatCheck.Label = global::Mono.Unix.Catalog.GetString ("Unrepeatable Doc");
+		this.repeatCheck.Active = true;
+		this.repeatCheck.DrawIndicator = true;
+		this.repeatCheck.UseUnderline = true;
+		this.EnableFiles.Add (this.repeatCheck);
+		global::Gtk.Box.BoxChild w34 = ((global::Gtk.Box.BoxChild)(this.EnableFiles [this.repeatCheck]));
+		w34.Position = 2;
+		this.vbox1.Add (this.EnableFiles);
+		global::Gtk.Box.BoxChild w35 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.EnableFiles]));
+		w35.Position = 17;
+		w35.Expand = false;
+		w35.Fill = false;
 		this.Add (this.vbox1);
 		if ((this.Child != null)) {
 			this.Child.ShowAll ();
 		}
 		this.DefaultWidth = 500;
-		this.DefaultHeight = 600;
+		this.DefaultHeight = 630;
 		this.Show ();
 		this.DeleteEvent += new global::Gtk.DeleteEventHandler (this.OnDeleteEvent);
 		this.button2.Clicked += new global::System.EventHandler (this.OnButton2Clicked);
