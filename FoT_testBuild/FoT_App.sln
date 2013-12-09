@@ -20,5 +20,6 @@ Global
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = FoT_testBuild\FoT.csproj
+		version = 1.1.1
 	EndGlobalSection
 EndGlobal

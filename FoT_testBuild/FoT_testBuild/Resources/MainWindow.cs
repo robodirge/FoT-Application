@@ -256,10 +256,6 @@ public partial class MainWindow: Gtk.Window{
 		new FoT.EnvironmentChooser();
 	}
 
-	protected void OnButton4Clicked (object sender, EventArgs e){
-		new FoT.EnviroChooser2();
-	}
-
 	#endregion
 	#region region1
 
@@ -663,11 +659,7 @@ Date:
 " + DateTime.Now.ToString(@"dd/MM/yyyy") + @"
 
 Severity:
-1. Application Crash - Complete failure of the application/crash
-2. Major Impact on Functionality - failure of entire or parts of system but work arounds exist
-3. Minor Impact on Functionality - does not result in failure but causes incorrect, incomplete, or inconsistent results, or the defect impairs the system usability.
-4. Cosmetic Issue - Issue does not impact functionality at all - Colours/Spelling Errors
-5. Feature Enhancement/Suggestion
+
 ");
 
 		wordApplication.Selection.TypeText(mylongtextstring);
@@ -676,16 +668,23 @@ Severity:
 		wordApplication.Selection.MoveDown();
 		wordApplication.Selection.TypeParagraph();
 
-		Word.Table table2 = newDocument.Tables.Add(wordApplication.Selection.Range, 3, 1);
+		Word.Table table2 = newDocument.Tables.Add(wordApplication.Selection.Range, 4, 1);
 		table2.Cell(1,1).Select();
-		string temp4s = (@"Issue verified as fixed - " + DateTime.Now.ToString(@"dd/MM/yyyy") + @"
-Version: " + txtURL);
+		string temp4s = (@"1. Application Crash - Complete failure of the application/crash
+2. Major Impact on Functionality - failure of entire or parts of system but work arounds exist
+3. Minor Impact on Functionality - does not result in failure but causes incorrect, incomplete, or inconsistent results, or the defect impairs the system usability.
+4. Cosmetic Issue - Issue does not impact functionality at all - Colours/Spelling Errors
+5. Feature Enhancement/Suggestion");
 		wordApplication.Selection.TypeText(temp4s);
 		table2.Cell(2,1).Select();
-		temp4s = (@"Issue verified as not fixed - " + DateTime.Now.ToString(@"dd/MM/yyyy") + @"
+		temp4s = (@"Issue verified as fixed - " + DateTime.Now.ToString(@"dd/MM/yyyy") + @"
 Version: " + txtURL);
 		wordApplication.Selection.TypeText(temp4s);
 		table2.Cell(3,1).Select();
+		temp4s = (@"Issue verified as not fixed - " + DateTime.Now.ToString(@"dd/MM/yyyy") + @"
+Version: " + txtURL);
+		wordApplication.Selection.TypeText(temp4s);
+		table2.Cell(4,1).Select();
 		temp4s = (@"Closing issue based on above Comments - " + DateTime.Now.ToString(@"dd/MM/yyyy") + @"
 Version: " + txtURL);
 		wordApplication.Selection.TypeText(temp4s);

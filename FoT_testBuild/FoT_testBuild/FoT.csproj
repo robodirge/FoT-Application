@@ -13,6 +13,7 @@
     <ApplicationIcon>Resources\Deleket-Sleek-Xp-Basic-Files.ico</ApplicationIcon>
     <Description>Application to create a folder structure and copy work docs</Description>
     <newfilesearch>OnLoad</newfilesearch>
+    <ReleaseVersion>1.1.1</ReleaseVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <DebugSymbols>true</DebugSymbols>
@@ -83,12 +84,9 @@
       <DeployService-UseProjectRelativePath>True</DeployService-UseProjectRelativePath>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="Resources\ActionGroup.cs" />
     <Compile Include="gtk-gui\FoT.ActionGroup.cs" />
     <Compile Include="Resources\EnvironmentChooser.cs" />
     <Compile Include="gtk-gui\FoT.EnvironmentChooser.cs" />
-    <Compile Include="Resources\EnviroChooser2.cs" />
-    <Compile Include="gtk-gui\FoT.EnviroChooser2.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -110,7 +108,6 @@
     <None Include="Resources\log.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Content.xml" />
     <None Include="Resources\Layer6.xlsx">
       <Visible>False</Visible>
     </None>
@@ -120,7 +117,6 @@
     <None Include="Resources\DesktopEnviro.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\~%24repeatable.docx" />
   </ItemGroup>
   <ProjectExtensions>
     <MonoDevelop>

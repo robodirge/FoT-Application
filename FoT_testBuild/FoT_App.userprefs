@@ -1,11 +1,6 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="FoT_testBuild\Resources\MainWindow.cs">
-    <Files>
-      <File FileName="FoT_testBuild\Resources\MainWindow.cs" Line="228" Column="12" />
-      <File FileName="FoT_testBuild\Resources\log.txt" Line="5" Column="1" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="C:\Users\Ben\Desktop\Develop_WIP\GitRepo\Test\FoT_testBuild\FoT_testBuild\Resources\EnvironmentChooser.cs" line="2584" column="1" />
