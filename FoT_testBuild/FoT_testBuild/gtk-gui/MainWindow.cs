@@ -131,7 +131,7 @@ public partial class MainWindow
 		// Container child vbox1.Gtk.Box+BoxChild
 		this.labelClient1 = new global::Gtk.Label ();
 		this.labelClient1.Name = "labelClient1";
-		this.labelClient1.LabelProp = global::Mono.Unix.Catalog.GetString ("Client name");
+		this.labelClient1.LabelProp = global::Mono.Unix.Catalog.GetString ("Client Name");
 		this.labelClient1.Wrap = true;
 		this.labelClient1.Justify = ((global::Gtk.Justification)(3));
 		this.vbox1.Add (this.labelClient1);
@@ -153,7 +153,7 @@ public partial class MainWindow
 		// Container child vbox1.Gtk.Box+BoxChild
 		this.labelProject1 = new global::Gtk.Label ();
 		this.labelProject1.Name = "labelProject1";
-		this.labelProject1.LabelProp = global::Mono.Unix.Catalog.GetString ("Project name");
+		this.labelProject1.LabelProp = global::Mono.Unix.Catalog.GetString ("Project Name");
 		this.labelProject1.Wrap = true;
 		this.vbox1.Add (this.labelProject1);
 		global::Gtk.Box.BoxChild w12 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.labelProject1]));
@@ -216,7 +216,7 @@ public partial class MainWindow
 		// Container child vbox1.Gtk.Box+BoxChild
 		this.label4 = new global::Gtk.Label ();
 		this.label4.Name = "label4";
-		this.label4.LabelProp = global::Mono.Unix.Catalog.GetString ("Tester Name/s");
+		this.label4.LabelProp = global::Mono.Unix.Catalog.GetString ("Tester Name(s)");
 		this.vbox1.Add (this.label4);
 		global::Gtk.Box.BoxChild w18 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.label4]));
 		w18.Position = 9;

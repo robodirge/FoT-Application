@@ -124,7 +124,7 @@
         <child>
           <widget class="Gtk.Label" id="labelClient1">
             <property name="MemberName" />
-            <property name="LabelProp" translatable="yes">Client name</property>
+            <property name="LabelProp" translatable="yes">Client Name</property>
             <property name="Wrap">True</property>
             <property name="Justify">Fill</property>
           </widget>
@@ -152,7 +152,7 @@
         <child>
           <widget class="Gtk.Label" id="labelProject1">
             <property name="MemberName" />
-            <property name="LabelProp" translatable="yes">Project name</property>
+            <property name="LabelProp" translatable="yes">Project Name</property>
             <property name="Wrap">True</property>
           </widget>
           <packing>
@@ -233,7 +233,7 @@
         <child>
           <widget class="Gtk.Label" id="label4">
             <property name="MemberName" />
-            <property name="LabelProp" translatable="yes">Tester Name/s</property>
+            <property name="LabelProp" translatable="yes">Tester Name(s)</property>
           </widget>
           <packing>
             <property name="Position">9</property>
