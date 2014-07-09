@@ -224,14 +224,14 @@ public partial class MainWindow: Gtk.Window{
 	protected void massCreateFiles(ref string dirPath){
 		DirectoryInfo ss = Directory.CreateDirectory(dirPath);
 		//sub folders
-		DirectoryInfo An = Directory.CreateDirectory((dirPath + @"Android\"));
-		DirectoryInfo Bb = Directory.CreateDirectory((dirPath + @"Devices\"));
-		DirectoryInfo Dt = Directory.CreateDirectory((dirPath + @"Desktop\"));
-		DirectoryInfo iO = Directory.CreateDirectory((dirPath + @"iOS\"));
-		DirectoryInfo iOb1 = Directory.CreateDirectory((dirPath + @"iOS\Batch1\"));
-		DirectoryInfo iOb2 = Directory.CreateDirectory((dirPath + @"iOS\Batch2\"));
-		DirectoryInfo iOb3 = Directory.CreateDirectory((dirPath + @"iOS\Batch3\"));
-		DirectoryInfo Wp = Directory.CreateDirectory((dirPath + @"WindowsPhone\"));
+		DirectoryInfo An = Directory.CreateDirectory((dirPath + @"Batch1\"));
+		DirectoryInfo Bb = Directory.CreateDirectory((dirPath + @"Batch2\"));
+		DirectoryInfo Dt = Directory.CreateDirectory((dirPath + @"Batch3\"));
+		//DirectoryInfo iO = Directory.CreateDirectory((dirPath + @"iOS\"));
+		//DirectoryInfo iOb1 = Directory.CreateDirectory((dirPath + @"iOS\Batch1\"));
+		//DirectoryInfo iOb2 = Directory.CreateDirectory((dirPath + @"iOS\Batch2\"));
+		//DirectoryInfo iOb3 = Directory.CreateDirectory((dirPath + @"iOS\Batch3\"));
+		//DirectoryInfo Wp = Directory.CreateDirectory((dirPath + @"WindowsPhone\"));
 	}
 	#endregion
 	#region Buttons
@@ -658,7 +658,7 @@ Login Details for Account used - Add login details if applicable
 Supporting material:
 Add where appropriate screenshots, log files etc to aid detection of the issue and its correction.
 
-Version
+Version:
 " + txtURL + @"
 
 Date:
@@ -676,10 +676,10 @@ Severity:
 
 		Word.Table table2 = newDocument.Tables.Add(wordApplication.Selection.Range, 4, 1);
 		table2.Cell(1,1).Select();
-		string temp4s = (@"1. Application Crash - Complete failure of the application/crash
-2. Major Impact on Functionality - failure of entire or parts of system but work arounds exist
-3. Minor Impact on Functionality - does not result in failure but causes incorrect, incomplete, or inconsistent results, or the defect impairs the system usability.
-4. Cosmetic Issue - Issue does not impact functionality at all - Colours/Spelling Errors
+		string temp4s = (@"1. Blocking Issue/Crash 
+2. Major Impact on Functionality
+3. Minor Impact on Functionality
+4. Cosmetic Issue/Typo
 5. Feature Enhancement/Suggestion");
 		wordApplication.Selection.TypeText(temp4s);
 		table2.Cell(2,1).Select();

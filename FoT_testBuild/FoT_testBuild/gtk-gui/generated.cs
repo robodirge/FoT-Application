@@ -55,7 +55,9 @@ namespace Stetic
 	internal class ActionGroups
 	{
 		private static global::Gtk.ActionGroup group1;
+		
 		private static global::Gtk.ActionGroup group2;
+		
 		private static global::Gtk.ActionGroup group3;
 
 		public static Gtk.ActionGroup GetActionGroup (System.Type type)

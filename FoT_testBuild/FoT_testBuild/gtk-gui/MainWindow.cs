@@ -4,40 +4,75 @@
 public partial class MainWindow
 {
 	private global::Gtk.UIManager UIManager;
+	
 	private global::Gtk.VBox vbox1;
+	
 	private global::Gtk.VBox vbox2;
+	
 	private global::Gtk.HBox hbox3;
+	
 	private global::Gtk.HSeparator hseparator7;
+	
 	private global::Gtk.Label label1;
+	
 	private global::Gtk.HSeparator hseparator6;
+	
 	private global::Gtk.Button button2;
+	
 	private global::Gtk.Label label2;
+	
 	private global::Gtk.HSeparator hseparator3;
+	
 	private global::Gtk.Label labelClient1;
+	
 	private global::Gtk.Entry entry1;
+	
 	private global::Gtk.Label labelProject1;
+	
 	private global::Gtk.Entry entry2;
+	
 	private global::Gtk.Label labelClient2;
+	
 	private global::Gtk.Entry entry3;
+	
 	private global::Gtk.Label labelProject2;
+	
 	private global::Gtk.Entry entry4;
+	
 	private global::Gtk.Label label4;
+	
 	private global::Gtk.Entry testerNameTB1;
+	
 	private global::Gtk.Button button3;
+	
 	private global::Gtk.HBox hbox1;
+	
 	private global::Gtk.CheckButton checkbutton1;
+	
 	private global::Gtk.CheckButton checkbutton2;
+	
 	private global::Gtk.CheckButton checkbutton3;
+	
 	private global::Gtk.HSeparator hseparator4;
+	
 	private global::Gtk.HBox hbox2;
+	
 	private global::Gtk.Button buttonQuit;
+	
 	private global::Gtk.Button button1;
+	
 	private global::Gtk.Button buttonContinue;
+	
 	private global::Gtk.HSeparator hseparator5;
+	
 	private global::Gtk.Label label3;
+	
 	private global::Gtk.HBox EnableFiles;
+	
 	private global::Gtk.CheckButton checkbutton4;
+	
 	private global::Gtk.CheckButton dailyCheck;
+	
 	private global::Gtk.CheckButton repeatCheck;
 
 	protected virtual void Build ()
@@ -204,6 +239,7 @@ public partial class MainWindow
 		w16.Fill = false;
 		// Container child vbox1.Gtk.Box+BoxChild
 		this.entry4 = new global::Gtk.Entry ();
+		this.entry4.Sensitive = false;
 		this.entry4.CanFocus = true;
 		this.entry4.Name = "entry4";
 		this.entry4.IsEditable = true;
@@ -224,6 +260,7 @@ public partial class MainWindow
 		w18.Fill = false;
 		// Container child vbox1.Gtk.Box+BoxChild
 		this.testerNameTB1 = new global::Gtk.Entry ();
+		this.testerNameTB1.Sensitive = false;
 		this.testerNameTB1.CanFocus = true;
 		this.testerNameTB1.Name = "testerNameTB1";
 		this.testerNameTB1.IsEditable = true;
@@ -250,6 +287,7 @@ public partial class MainWindow
 		this.hbox1.Spacing = 6;
 		// Container child hbox1.Gtk.Box+BoxChild
 		this.checkbutton1 = new global::Gtk.CheckButton ();
+		this.checkbutton1.Sensitive = false;
 		this.checkbutton1.CanFocus = true;
 		this.checkbutton1.Name = "checkbutton1";
 		this.checkbutton1.Label = global::Mono.Unix.Catalog.GetString ("Scripting & Planning");
@@ -260,6 +298,7 @@ public partial class MainWindow
 		w21.Position = 0;
 		// Container child hbox1.Gtk.Box+BoxChild
 		this.checkbutton2 = new global::Gtk.CheckButton ();
+		this.checkbutton2.Sensitive = false;
 		this.checkbutton2.CanFocus = true;
 		this.checkbutton2.Name = "checkbutton2";
 		this.checkbutton2.Label = global::Mono.Unix.Catalog.GetString ("Test Execution");
@@ -271,6 +310,7 @@ public partial class MainWindow
 		w22.Position = 1;
 		// Container child hbox1.Gtk.Box+BoxChild
 		this.checkbutton3 = new global::Gtk.CheckButton ();
+		this.checkbutton3.Sensitive = false;
 		this.checkbutton3.CanFocus = true;
 		this.checkbutton3.Name = "checkbutton3";
 		this.checkbutton3.Label = global::Mono.Unix.Catalog.GetString ("IVs & Retest");
@@ -376,10 +416,10 @@ public partial class MainWindow
 		w32.Position = 0;
 		// Container child EnableFiles.Gtk.Box+BoxChild
 		this.dailyCheck = new global::Gtk.CheckButton ();
+		this.dailyCheck.Sensitive = false;
 		this.dailyCheck.CanFocus = true;
 		this.dailyCheck.Name = "dailyCheck";
 		this.dailyCheck.Label = global::Mono.Unix.Catalog.GetString ("Daily Report");
-		this.dailyCheck.Active = true;
 		this.dailyCheck.DrawIndicator = true;
 		this.dailyCheck.UseUnderline = true;
 		this.EnableFiles.Add (this.dailyCheck);
